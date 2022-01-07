@@ -1,22 +1,19 @@
 import styled from "styled-components"
 import GlobalStyle from "./globalStyles"
+import ExerciseList from "./components/ExerciseList"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import MainRender from "./components/MainRender"
 import { Routes, Route } from "react-router-dom"
 
 function App() {
-    function Test() {
-        return <div>Hello World!</div>
-    }
-
     return (
         <Main>
             <GlobalStyle />
             <Header />
             <Routes>
                 <Route path="/" element={<MainRender />} />
-                <Route path="/" element={<Test />} />
+                <Route path="/ExerciseList" element={<ExerciseList />} />
             </Routes>
             <Footer />
         </Main>

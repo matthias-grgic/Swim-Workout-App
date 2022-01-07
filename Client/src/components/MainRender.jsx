@@ -23,11 +23,13 @@ const RenderButton = styled.button`
     font-size: 1em;
     font-family: "Righteous", Arial;
     background: white;
-    margin: 1em;
     padding: 0.25em 1em;
-    border-radius: 3px;
-    &:hover {
-        background: #ffd5d5;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+
+    &:active {
+        background: #c1d7ff;
     }
 `
 
@@ -36,13 +38,12 @@ const MainDiv = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
 `
 
 const MiniLogo = styled.img``
 
-const Slider = styled.input`
-    width: 100%;
-`
+const Slider = styled.input``
 
 const ToggleDiv = styled.div`
     display: flex;

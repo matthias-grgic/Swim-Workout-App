@@ -12,7 +12,7 @@ function Footer() {
                 <ImgLink src="src/images/create.svg" alt="create" />
             </Link>
 
-            <Link to="/">
+            <Link to="/ExerciseList">
                 <ImgLink src="src/images/favourites.svg" alt="favourites" />
             </Link>
 
