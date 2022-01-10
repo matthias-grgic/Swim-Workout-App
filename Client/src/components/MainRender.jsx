@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import ExerciseList from "./ExerciseList"
+import { Link } from "react-router-dom"
 
 function MainRender({ transferedList }) {
     function newWOD(originArray, start, end, factor) {
@@ -9,7 +9,9 @@ function MainRender({ transferedList }) {
 
     return (
         <MainDiv>
-            <RenderButton onClick={() => console.log(newWOD(transferedList))}>GO</RenderButton>
+            <Link to="/CurrentWorkout">
+                <RenderButton onClick={() => console.log(newWOD(transferedList))}>GO</RenderButton>{" "}
+            </Link>
             <Slider type="range"></Slider>
             <MiniLogo src="src/images/minilogo.svg" alt="swimmer-logo" />
             <ToggleDiv>
