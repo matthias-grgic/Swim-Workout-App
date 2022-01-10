@@ -7,9 +7,9 @@ function Header() {
 export default Header
 
 const Title = styled.div`
-    display: flex;
     position: fixed;
     top: 0;
     font-family: "Righteous", Arial;
     font-size: 3rem;
+    padding-top: 8px;
 `

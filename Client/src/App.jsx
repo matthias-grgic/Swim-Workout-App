@@ -1,9 +1,12 @@
 import styled from "styled-components"
+import Create from "./components/Create"
+import CurrentWorkout from "./components/CurrentWorkout"
 import GlobalStyle from "./globalStyles"
 import ExerciseList from "./components/ExerciseList"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import MainRender from "./components/MainRender"
+import Settings from "./components/Settings"
 import { Routes, Route } from "react-router-dom"
 
 function App() {
@@ -13,7 +16,10 @@ function App() {
             <Header />
             <Routes>
                 <Route path="/" element={<MainRender />} />
+                <Route path="/CurrentWorkout" element={<CurrentWorkout />} />
                 <Route path="/ExerciseList" element={<ExerciseList />} />
+                <Route path="/Create" element={<Create />} />
+                <Route path="/Settings" element={<Settings />} />
             </Routes>
             <Footer />
         </Main>
@@ -28,5 +34,5 @@ const Main = styled.div`
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-size: 1.5rem;
+    font-size: 1rem;
 `

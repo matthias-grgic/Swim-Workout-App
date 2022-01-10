@@ -19,26 +19,28 @@ function MainRender() {
 
 export default MainRender
 
-const RenderButton = styled.button`
-    font-size: 1em;
-    font-family: "Righteous", Arial;
-    background: white;
-    padding: 0.25em 1em;
-    border-radius: 50%;
-    width: 250px;
-    height: 250px;
-
-    &:active {
-        background: #c1d7ff;
-    }
-`
-
 const MainDiv = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
+`
+
+const RenderButton = styled.button`
+    font-size: 2.5rem;
+    font-family: "Righteous", Arial;
+    background: white;
+    padding: 0.25em 1em;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    transition: all 0.1s ease-in-out;
+    margin-top: 15px;
+    &:active {
+        background: rgb(235, 235, 235, 0.5);
+        color: #acd6fc;
+    }
 `
 
 const MiniLogo = styled.img``
