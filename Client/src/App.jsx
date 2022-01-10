@@ -39,7 +39,7 @@ function App() {
             <GlobalStyle />
             <Header />
             <Routes>
-                <Route path="/" element={<MainRender />} />
+                <Route path="/" element={<MainRender transferedList={list} />} />
                 <Route path="/CurrentWorkout" element={<CurrentWorkout />} />
                 <Route path="/ExerciseList" element={<ExerciseList transferedList={list} />} />
                 <Route path="/Create" element={<Create />} />
