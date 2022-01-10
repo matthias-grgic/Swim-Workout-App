@@ -20,6 +20,7 @@ server.get("/", (req, res) => {
     res.json({ status: "Running" })
 })
 
+//Routes
 server.use("/test", TestListRoutes)
 
 //RUN SERVER
