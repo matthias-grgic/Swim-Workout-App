@@ -1,31 +1,7 @@
 import styled from "styled-components"
-import { useState, useEffect } from "react"
 
-function ExerciseList() {
-    const [list, setList] = useState([])
-    useEffect(() => {
-        async function fetchMyAPI() {
-            try {
-                const response = await fetch("http://localhost:4000/test/get")
-                const api = await response.json()
-                const testlist = api.map((item) => {
-                    return {
-                        id: item._id,
-                        name: item.name,
-                        type: item.type,
-                        video: item.video,
-                        definition: item.definition,
-                    }
-                })
-                setList(testlist)
-            } catch (e) {
-                console.error(e)
-            }
-        }
-        return fetchMyAPI()
-    }, [])
-
-    const mappedList = list.map((item, index) => (
+function ExerciseList({ transferedList }) {
+    const mappedList = transferedList.map((item, index) => (
         <ExerciseCards key={index}>
             {/* <div>Id: {item.id}</div> */}
             <div>
@@ -36,7 +12,6 @@ function ExerciseList() {
             <div>Beschreibung{item.definition}</div>
         </ExerciseCards>
     ))
-
     return <Cards>{mappedList}</Cards>
 }
 

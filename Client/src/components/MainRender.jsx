@@ -1,13 +1,28 @@
 import styled from "styled-components"
+import ExerciseList from "./ExerciseList"
 
 function MainRender() {
+    function newWOD(originArray, start, end, factor) {
+        const result = originArray.slice(start, end)
+        return result
+    }
+
+    const testArray = [
+        { Exercise: "Normal", Length: "25m", Type: "Type", Variant: "normal" },
+        { Exercise: "Freestyle", Length: "25m", Type: "Type", Variant: "normal" },
+        { Exercise: "Freestyle2", Length: "25m", Type: "Type", Variant: "normal" },
+        { Exercise: "Freestyle3", Length: "25m", Type: "Type", Variant: "normal" },
+    ]
+
+    console.log({ ExerciseList })
+
     return (
         <MainDiv>
-            <RenderButton>GO</RenderButton>
+            <RenderButton onClick={() => console.log(newWOD(testArray, 0, 4))}>GO</RenderButton>
             <Slider type="range"></Slider>
             <MiniLogo src="src/images/minilogo.svg" alt="swimmer-logo" />
             <ToggleDiv>
-                <ToggleSwitch type="checkbox" defaultValue="@probablyup"></ToggleSwitch>
+                <ToggleSwitch type="checkbox"></ToggleSwitch>
                 <ToggleSwitch type="checkbox"></ToggleSwitch>
                 <ToggleSwitch type="checkbox"></ToggleSwitch>
                 <ToggleSwitch type="checkbox"></ToggleSwitch>
