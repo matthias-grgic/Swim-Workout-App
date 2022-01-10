@@ -11,6 +11,7 @@ import { Routes, Route } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 function App() {
+    //FETCH FROM API
     const [list, setList] = useState([])
     useEffect(() => {
         async function fetchMyAPI() {

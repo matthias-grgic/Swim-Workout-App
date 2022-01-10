@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
+import { useEffect } from "react"
 
 function MainRender({ transferedList }) {
     function newWOD(originArray, start, end, factor) {
@@ -7,10 +8,31 @@ function MainRender({ transferedList }) {
         return result
     }
 
+    useEffect(() => {
+        //POST TO API
+        async function postToAPI() {
+            try {
+                const response = await fetch("http://localhost:4000/test/postworkoutlist", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(),
+                })
+                const data = await response.json()
+                // enter you logic when the fetch is successful
+                console.log(data)
+            } catch (e) {
+                console.error(e)
+            }
+        }
+        return postToAPI()
+    }, [])
+
     return (
         <MainDiv>
             <Link to="/CurrentWorkout">
-                <RenderButton onClick={() => console.log(newWOD(transferedList))}>GO</RenderButton>{" "}
+                <RenderButton onClick={() => postToAPI(newWOD(transferedList, 1, 4))}>GO</RenderButton>{" "}
             </Link>
             <Slider type="range"></Slider>
             <MiniLogo src="src/images/minilogo.svg" alt="swimmer-logo" />
