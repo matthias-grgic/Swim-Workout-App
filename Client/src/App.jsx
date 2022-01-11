@@ -1,7 +1,6 @@
 import styled from "styled-components"
 import Create from "./components/Create"
 import CurrentWorkout from "./components/CurrentWorkout"
-import GlobalStyle from "./globalStyles"
 import ExerciseList from "./components/ExerciseList"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
@@ -9,6 +8,7 @@ import MainRender from "./components/MainRender"
 import Settings from "./components/Settings"
 import { Routes, Route } from "react-router-dom"
 import { useState, useEffect } from "react"
+import { createGlobalStyle } from "styled-components"
 
 function App() {
     //EXERCISELIST - FETCH FROM API
@@ -79,6 +79,16 @@ function App() {
 }
 
 export default App
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+`
 
 const Main = styled.div`
     display: flex;
