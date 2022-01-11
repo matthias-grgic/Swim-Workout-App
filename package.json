@@ -16,7 +16,6 @@
         "type": "git",
         "url": "git+https://github.com/matthias-grgic/capstone-project.git"
     },
-    "keywords": [],
     "author": "MG",
     "license": "ISC",
     "devDependencies": {
