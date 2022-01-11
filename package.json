@@ -7,10 +7,10 @@
         "node": "16.x"
     },
     "scripts": {
-        "build": "cd ./client && npm run build",
+        "build": "cd ./Client && npm run build",
         "dev": "concurrently \"npm run server\" \"npm run client\"",
         "server": "nodemon server/server.js",
-        "client": "cd ./client && npm run dev",
+        "client": "cd ./Client && npm run dev",
         "start": "node server/server.js",
         "postinstall": "cd ./Client && npm install && cd ../Server && npm install",
         "test": "echo \"Error: no test specified\" && exit 1"
