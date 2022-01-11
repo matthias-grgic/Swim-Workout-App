@@ -20,8 +20,6 @@ function MainRender({ transferedList }) {
         }))
     )
 
-    console.log(newObj)
-
     //POST TO API
     async function postToAPI() {
         try {
