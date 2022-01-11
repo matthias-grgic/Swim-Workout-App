@@ -50,6 +50,7 @@ function App() {
                         type: item.type,
                         video: item.video,
                         definition: item.definition,
+                        equipment: item.equipment,
                         length: item.length,
                     }
                 })

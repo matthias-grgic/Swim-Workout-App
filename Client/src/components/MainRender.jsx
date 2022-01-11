@@ -12,6 +12,8 @@ function MainRender({ transferedList }) {
             type: item.type,
             video: item.video,
             definition: item.definition,
+            equipment: item.equipment,
+            length: item.length,
         }))
     )
 
@@ -39,7 +41,7 @@ function MainRender({ transferedList }) {
                 <ButtonForRender onClick={() => postToAPI()}>GO</ButtonForRender>{" "}
             </Link>
             <Slider type="range"></Slider>
-            <MiniLogo src="src/images/minilogo.svg" alt="swimmer-logo" />
+            {/* <MiniLogo src="src/images/minilogo.svg" alt="swimmer-logo" /> */}
             <ToggleDiv>
                 <ToggleSwitch type="checkbox"></ToggleSwitch>
                 <ToggleSwitch type="checkbox"></ToggleSwitch>
@@ -61,8 +63,8 @@ const ButtonForRender = styled.button`
     padding: 0.25em 1em;
     border-radius: 50%;
     border: none;
-    width: 250px;
-    height: 250px;
+    width: 225px;
+    height: 225px;
     transition: all 0.1s ease-in-out;
     margin-top: 15px;
     background-image: linear-gradient(-225deg, #7de2fc 0%, #b9b6e5 100%);
