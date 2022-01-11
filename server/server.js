@@ -24,7 +24,7 @@ const connectionString = `mongodb+srv://${DB_USER}:${DB_PASSWORD}${DB_HOST}/${DB
 mongoose.connect(connectionString)
 
 //Routes
-server.use(express.static(path.join(__dirname, "../client/dist")))
+server.use(express.static(path.join(__dirname, "../cli")))
 server.use("/", ServerRoutes)
 
 //RUN SERVER
