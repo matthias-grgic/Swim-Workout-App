@@ -3,8 +3,7 @@ import { Link } from "react-router-dom"
 
 function MainRender({ transferedList }) {
     const newWOD = (originArray, start, end) => originArray.slice(start, end)
-
-    //SLICE and Convert ARRAY froM API to Object
+    //SLICE and Convert ARRAY froM API to Object (hier später alle Filter setzen oder?)
     const testListArray = newWOD(transferedList, -1)
     const newObj = Object.assign(
         {},
@@ -28,7 +27,6 @@ function MainRender({ transferedList }) {
             }
             const fetchResponse = await fetch("http://localhost:4000/postworkoutlist", settings)
             const data = await fetchResponse.json()
-            // console.log(data)
             return data
         } catch (e) {
             console.error(e)
