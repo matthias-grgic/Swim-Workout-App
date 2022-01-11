@@ -11,14 +11,14 @@ import { Routes, Route } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 function App() {
-    //FETCH FROM API
+    //EXERCISELIST - FETCH FROM API
     const [list, setList] = useState([])
     useEffect(() => {
         async function fetchMyAPI() {
             try {
                 const response = await fetch("http://localhost:4000/getexerciselist")
                 const api = await response.json()
-                const testlist = api.map((item) => {
+                const exerciseList = api.map((item) => {
                     return {
                         id: item._id,
                         name: item.name,
@@ -28,7 +28,32 @@ function App() {
                         length: item.length,
                     }
                 })
-                setList(testlist)
+                setList(exerciseList)
+            } catch (e) {
+                console.error(e)
+            }
+        }
+        return fetchMyAPI()
+    }, [])
+
+    //GENERATED WORKOUT LIST - FETCH FROM API
+    const [wodList, setWodList] = useState([])
+    useEffect(() => {
+        async function fetchMyAPI() {
+            try {
+                const response = await fetch("http://localhost:4000/getworkoutlist")
+                const api = await response.json()
+                const mappedWodList = api.map((item) => {
+                    return {
+                        id: item._id,
+                        name: item.name,
+                        type: item.type,
+                        video: item.video,
+                        definition: item.definition,
+                        length: item.length,
+                    }
+                })
+                setWodList(mappedWodList)
             } catch (e) {
                 console.error(e)
             }
@@ -42,8 +67,8 @@ function App() {
             <Header />
             <Routes>
                 <Route path="/" element={<MainRender transferedList={list} />} />
-                <Route path="/CurrentWorkout" element={<CurrentWorkout />} />
-                <Route path="/ExerciseList" element={<ExerciseList transferedList={list} />} />
+                <Route path="/CurrentWorkout" element={<CurrentWorkout transferedList={list} />} />
+                <Route path="/ExerciseList" element={<ExerciseList transferedWodList={wodList} />} />
                 <Route path="/Create" element={<Create />} />
                 <Route path="/Settings" element={<Settings />} />
             </Routes>
