@@ -1,38 +1,50 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
-import { useEffect } from "react"
 
 function MainRender({ transferedList }) {
-    function newWOD(originArray, start, end, factor) {
-        const result = originArray.slice(start, end)
-        return result
+    //SLICE Array and TRANSFORM to Object
+    function newWOD(originArray, start, end) {
+        const slicedArray = originArray.slice(start, end)
+        return slicedArray
     }
+    //Convert ARRAY to Object (map)
+    const testListArray = newWOD(transferedList, -1)
+    const newObj = Object.assign(
+        {},
+        ...testListArray.map((item) => ({
+            id: item.id,
+            name: item.name,
+            type: item.type,
+            video: item.video,
+            definition: item.definition,
+        }))
+    )
 
-    useEffect(() => {
-        //POST TO API
-        async function postToAPI() {
-            try {
-                const response = await fetch("http://localhost:4000/test/postworkoutlist", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(),
-                })
-                const data = await response.json()
-                // enter you logic when the fetch is successful
-                console.log(data)
-            } catch (e) {
-                console.error(e)
+    console.log(newObj)
+
+    //POST TO API
+    async function postToAPI() {
+        try {
+            const settings = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(newObj),
             }
+            const fetchResponse = await fetch("http://localhost:4000/test/postworkoutlist", settings)
+            const data = await fetchResponse.json()
+            console.log(data)
+            return data
+        } catch (e) {
+            console.error(e)
         }
-        return postToAPI()
-    }, [])
+    }
 
     return (
         <MainDiv>
             <Link to="/CurrentWorkout">
-                <RenderButton onClick={() => postToAPI(newWOD(transferedList, 1, 4))}>GO</RenderButton>{" "}
+                <RenderButton onClick={() => postToAPI()}>GO</RenderButton>{" "}
             </Link>
             <Slider type="range"></Slider>
             <MiniLogo src="src/images/minilogo.svg" alt="swimmer-logo" />
