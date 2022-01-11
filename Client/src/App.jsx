@@ -68,8 +68,8 @@ function App() {
             <Header />
             <Routes>
                 <Route path="/" element={<MainRender transferedList={list} />} />
-                <Route path="/CurrentWorkout" element={<CurrentWorkout transferedList={list} />} />
-                <Route path="/ExerciseList" element={<ExerciseList transferedWodList={wodList} />} />
+                <Route path="/CurrentWorkout" element={<CurrentWorkout transferedWodList={wodList} />} />
+                <Route path="/ExerciseList" element={<ExerciseList transferedList={list} />} />
                 <Route path="/Create" element={<Create />} />
                 <Route path="/Settings" element={<Settings />} />
             </Routes>

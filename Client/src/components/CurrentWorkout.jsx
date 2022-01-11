@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
-function CurrentWorkout({ transferedList }) {
-    const mappedWODList = transferedList.map((item, index) => (
+function CurrentWorkout({ transferedWodList }) {
+    const mappedWODList = transferedWodList.map((item, index) => (
         <ExerciseCards key={index}>
             <div>
                 <h4>{item.name}</h4>
