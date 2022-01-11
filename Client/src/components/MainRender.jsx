@@ -2,12 +2,12 @@ import styled from "styled-components"
 import { Link } from "react-router-dom"
 
 function MainRender({ transferedList }) {
-    //SLICE Array and TRANSFORM to Object
+    //FUNCTION - SLICE an Array
     function newWOD(originArray, start, end) {
         const slicedArray = originArray.slice(start, end)
         return slicedArray
     }
-    //Convert ARRAY to Object (map)
+    //SLICE and Convert ARRAY froM API to Object
     const testListArray = newWOD(transferedList, -1)
     const newObj = Object.assign(
         {},
@@ -20,7 +20,7 @@ function MainRender({ transferedList }) {
         }))
     )
 
-    //POST TO API
+    //POST CHANGED DATA TO API
     async function postToAPI() {
         try {
             const settings = {
