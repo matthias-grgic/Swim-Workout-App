@@ -2,17 +2,13 @@ import styled from "styled-components"
 import { Link } from "react-router-dom"
 
 function MainRender({ transferedList }) {
-    //FUNCTION - SLICE an Array
-    function newWOD(originArray, start, end) {
-        const slicedArray = originArray.slice(start, end)
-        return slicedArray
-    }
+    const newWOD = (originArray, start, end) => originArray.slice(start, end)
+
     //SLICE and Convert ARRAY froM API to Object
     const testListArray = newWOD(transferedList, -1)
     const newObj = Object.assign(
         {},
         ...testListArray.map((item) => ({
-            id: item.id,
             name: item.name,
             type: item.type,
             video: item.video,
@@ -20,8 +16,8 @@ function MainRender({ transferedList }) {
         }))
     )
 
-    //POST CHANGED DATA TO API
-    async function postToAPI() {
+    //POST DATA TO API
+    const postToAPI = async () => {
         try {
             const settings = {
                 method: "POST",
@@ -30,9 +26,9 @@ function MainRender({ transferedList }) {
                 },
                 body: JSON.stringify(newObj),
             }
-            const fetchResponse = await fetch("http://localhost:4000/test/postworkoutlist", settings)
+            const fetchResponse = await fetch("http://localhost:4000/postworkoutlist", settings)
             const data = await fetchResponse.json()
-            console.log(data)
+            // console.log(data)
             return data
         } catch (e) {
             console.error(e)

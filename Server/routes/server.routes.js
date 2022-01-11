@@ -1,15 +1,19 @@
 import express from "express"
-//import der angelegten variablen (get, post, etc. ...) für testList
-import { getTestList, postTestList } from "../controller/testList.controller.js"
+import { getExerciseList, postExerciseList } from "../controller/ExerciseList.controller.js"
 import { getWorkoutList, postWorkoutList, deleteItems } from "../controller/generatedWorkouts.controller.js"
 
 const router = express.Router()
 
-//TestList
-router.get("/get", getTestList)
-router.post("/post", postTestList)
+//Test
+router.get("/test", (req, res) => {
+    res.json({ status: "Running" })
+})
 
-//WorkoutList
+//ExerciseList
+router.get("/getexerciselist", getExerciseList)
+router.post("/postexerciselist", postExerciseList)
+
+//GeneratedWorkoutList
 router.get("/getworkoutlist", getWorkoutList)
 router.post("/postworkoutlist", postWorkoutList)
 router.delete("/deleteworkoutlist", deleteItems)

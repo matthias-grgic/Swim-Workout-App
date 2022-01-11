@@ -16,7 +16,7 @@ function App() {
     useEffect(() => {
         async function fetchMyAPI() {
             try {
-                const response = await fetch("http://localhost:4000/test/get")
+                const response = await fetch("http://localhost:4000/getexerciselist")
                 const api = await response.json()
                 const testlist = api.map((item) => {
                     return {
@@ -25,6 +25,7 @@ function App() {
                         type: item.type,
                         video: item.video,
                         definition: item.definition,
+                        length: item.length,
                     }
                 })
                 setList(testlist)

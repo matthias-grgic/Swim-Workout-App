@@ -14,6 +14,7 @@ const postWorkoutList = async (req, res) => {
         euipment: req.body.euipment,
         video: req.body.video,
         definition: req.body.definition,
+        length: req.body.length,
     })
     try {
         const result = await workoutListAdd.save()

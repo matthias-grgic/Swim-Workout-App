@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 
-const workoutSchema = new mongoose.Schema({
+const ExerciseListSchema = new mongoose.Schema({
     name: String,
     type: String,
     equipment: String,
@@ -8,7 +8,6 @@ const workoutSchema = new mongoose.Schema({
     definition: String,
     length: Number,
 })
+const ExerciseList = mongoose.model("ExerciseList", ExerciseListSchema)
 
-const WorkoutList = mongoose.model("GeneratedWorkoutList", workoutSchema)
-
-export default WorkoutList
+export default ExerciseList
