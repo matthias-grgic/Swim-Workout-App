@@ -3,6 +3,9 @@
     "version": "1.0.0",
     "description": "Hello, welcome to my capstone project for Neue Fische (muc-web-21-3)",
     "main": "index.js",
+    "engines": {
+        "node": "16.x"
+    },
     "scripts": {
         "build": "cd ./client && npm run build",
         "dev": "concurrently \"npm run server\" \"npm run client\"",
