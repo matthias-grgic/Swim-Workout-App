@@ -36,7 +36,7 @@ function MainRender({ transferedList }) {
     return (
         <MainDiv>
             <Link to="/CurrentWorkout">
-                <RenderButton onClick={() => postToAPI()}>GO</RenderButton>{" "}
+                <ButtonForRender onClick={() => postToAPI()}>GO</ButtonForRender>{" "}
             </Link>
             <Slider type="range"></Slider>
             <MiniLogo src="src/images/minilogo.svg" alt="swimmer-logo" />
@@ -53,6 +53,30 @@ function MainRender({ transferedList }) {
 
 export default MainRender
 
+const ButtonForRender = styled.button`
+    color: white;
+    font-size: 2.5rem;
+    font-family: "Righteous", Arial;
+    cursor: pointer;
+    padding: 0.25em 1em;
+    border-radius: 50%;
+    border: none;
+    width: 250px;
+    height: 250px;
+    transition: all 0.1s ease-in-out;
+    margin-top: 15px;
+    background-image: linear-gradient(-225deg, #7de2fc 0%, #b9b6e5 100%);
+    &:active {
+        background-image: linear-gradient(-225deg, #c6eef8 0%, #b9b6e5 100%);
+        color: white;
+    }
+    &:hover {
+        background-image: linear-gradient(-225deg, #c6eef8 0%, #b9b6e5 100%);
+        transition: all 1s ease;
+        color: white;
+    }
+`
+
 const MainDiv = styled.div`
     display: flex;
     flex-direction: column;
@@ -60,23 +84,6 @@ const MainDiv = styled.div`
     align-items: center;
     gap: 2rem;
 `
-
-const RenderButton = styled.button`
-    font-size: 2.5rem;
-    font-family: "Righteous", Arial;
-    background: white;
-    padding: 0.25em 1em;
-    border-radius: 50%;
-    width: 250px;
-    height: 250px;
-    transition: all 0.1s ease-in-out;
-    margin-top: 15px;
-    &:active {
-        background: rgb(235, 235, 235, 0.5);
-        color: #acd6fc;
-    }
-`
-
 const MiniLogo = styled.img``
 
 const Slider = styled.input``
