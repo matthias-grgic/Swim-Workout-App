@@ -13,5 +13,6 @@
         "styled-components": "^5.3.3",
         "@vitejs/plugin-react": "^1.0.7",
         "vite": "^2.7.10"
-    }
+    },
+    "proxy": "http://localhost:4000"
 }
