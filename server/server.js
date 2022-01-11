@@ -3,7 +3,9 @@ import cors from "cors"
 import mongoose from "mongoose"
 import ServerRoutes from "./routes/server.routes.js"
 import dotenv from "dotenv"
+import { dirname } from "./lib/pathHelpers.js"
 
+const __dirname = dirname(import.meta.url)
 const server = express()
 dotenv.config()
 const Port = process.env.SERVER_PORT || 4000
@@ -22,6 +24,7 @@ const connectionString = `mongodb+srv://${DB_USER}:${DB_PASSWORD}${DB_HOST}/${DB
 mongoose.connect(connectionString)
 
 //Routes
+server.use(express.static(path.join(__dirname, "../client/dist")))
 server.use("/", ServerRoutes)
 
 //RUN SERVER
