@@ -17,12 +17,12 @@ const __dirname = dirname(import.meta.url)
 const PORT = process.env.PORT || 4000
 
 // DATABASE
-const DB_USER = process.env.DB_USER
-const DB_PASSWORD = process.env.DB_PASSWORD
-const DB_HOST = process.env.DB_HOST
-const DB_NAME = process.env.DB_NAME
+const dbUser = process.env.dbUser
+const dbPassword = process.env.dbPassword
+const dbHost = process.env.dbHost
+const dbName = process.env.dbName
 
-const connectionString = `mongodb+srv://${DB_USER}:${DB_PASSWORD}${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`
+const connectionString = `mongodb+srv://${dbUser}:${dbPassword}${dbHost}/${dbName}?retryWrites=true&w=majority`
 mongoose.connect(connectionString)
 
 const server = express()
