@@ -4,13 +4,12 @@ function ExerciseList({ transferedList }) {
     const mappedList = transferedList.map((item, index) => (
         <ExerciseCards key={index}>
             <div>
-                <h4>{item.name}</h4>
+                <h3>{item.name}</h3>
             </div>
-            <div>Type:{item.type}</div>
-            <div>Video:{item.video}</div>
-            <div>Definition: {item.definition}</div>
+            <div>Type - {item.type}</div>
             <div>Equipment: {item.equipment}</div>
-            <div>Length: {item.length}</div>
+            <iframe width="100%" height="100%" src={`${item.video}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div>Definition: {item.definition}</div>
         </ExerciseCards>
     ))
     return <Cards>{mappedList}</Cards>

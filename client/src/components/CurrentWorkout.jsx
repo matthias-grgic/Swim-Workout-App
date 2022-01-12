@@ -7,7 +7,7 @@ function CurrentWorkout({ transferedWodList }) {
                 <h4>{item.name}</h4>
             </div>
             <div>Type:{item.type}</div>
-            <div>Video:{item.video}</div>
+            {/* <div>Video:{item.video}</div> */}
             <div>Definition: {item.definition}</div>
             <div>Equipment: {item.equipment}</div>
             <div>Length: {item.length}</div>
