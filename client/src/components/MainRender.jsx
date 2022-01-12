@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
-import Button from "@mui/material/Button"
+import SwitchLabels from "../lib/switch"
 
 function MainRender({ transferedList }) {
     const newWOD = (originArray, start, end) => originArray.slice(start, end)
@@ -42,15 +42,10 @@ function MainRender({ transferedList }) {
                 <ButtonForRender onClick={() => postToAPI()}>GO</ButtonForRender>{" "}
             </Link>
             <Slider type="range"></Slider>
-            {/* <MiniLogo src="src/images/minilogo.svg" alt="swimmer-logo" /> */}
             <ToggleDiv>
-                <ToggleSwitch type="checkbox"></ToggleSwitch>
-                <ToggleSwitch type="checkbox"></ToggleSwitch>
-                <ToggleSwitch type="checkbox"></ToggleSwitch>
-                <ToggleSwitch type="checkbox"></ToggleSwitch>
-                <ToggleSwitch type="checkbox"></ToggleSwitch>
+                <SwitchLabels></SwitchLabels>
+                <ToggleSwitch type="checkbox" label="hi"></ToggleSwitch>
             </ToggleDiv>
-            <Button variant="contained">Hello World</Button>
         </MainDiv>
     )
 }
@@ -88,7 +83,6 @@ const MainDiv = styled.div`
     align-items: center;
     gap: 2rem;
 `
-const MiniLogo = styled.img``
 
 const Slider = styled.input``
 
@@ -96,7 +90,8 @@ const ToggleDiv = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    padding: 1rem;
+    align-items: center;
+    padding: 0px;
 `
 
 const ToggleSwitch = styled.input``

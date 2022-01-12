@@ -40,7 +40,7 @@ const NavBar = styled.div`
     bottom: 0;
     z-index: 1;
     justify-content: space-around;
-    padding: 0.5rem;
+    padding: 8px;
     gap: 1rem;
     width: 100%;
     background: rgba(240, 240, 240, 0);

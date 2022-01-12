@@ -96,5 +96,4 @@ const Main = styled.div`
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-size: 1rem;
 `
