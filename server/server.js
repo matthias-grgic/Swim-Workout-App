@@ -9,12 +9,12 @@ dotenv.config()
 
 const PORT = process.env.PORT || 4000
 
-const dbUser = process.env.dbUser
-const dbPassword = process.env.dbPassword
-const dbHost = process.env.dbHost
-const dbName = process.env.dbName
+const dbUser = process.env.DB_USER
+const dbPassword = process.env.DB_PASSWORD
+const dbHost = process.env.DB_HOST
+const dbName = process.env.DB_NAME
 
-const connectionString = `mongodb+srv://workoutadmin2000:BBpksjDuGqUS4f5@cluster0.4vd0c.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+const connectionString = `mongodb+srv://${dbUser}:${dbPassword}@${dbHost}/${dbName}?retryWrites=true&w=majority`
 mongoose.connect(connectionString)
 
 const __dirname = process.cwd()
