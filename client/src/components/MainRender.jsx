@@ -27,7 +27,7 @@ function MainRender({ transferedList }) {
                 },
                 body: JSON.stringify(newObj),
             }
-            const fetchResponse = await fetch("http://localhost:4000/postworkoutlist", settings)
+            const fetchResponse = await fetch("/api/postworkoutlist", settings)
             const data = await fetchResponse.json()
             return data
         } catch (e) {

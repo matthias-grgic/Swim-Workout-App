@@ -1,6 +1,6 @@
 import express from "express"
-import { getExerciseList, postExerciseList } from "../controller/ExerciseList.controller.js"
-import { getWorkoutList, postWorkoutList, deleteItems } from "../controller/generatedWorkouts.controller.js"
+import { getExerciseList, postExerciseList } from "../controller/exerciselist.controller.js"
+import { getWorkoutList, postWorkoutList, deleteItems } from "../controller/generatedworkouts.controller.js"
 
 const router = express.Router()
 

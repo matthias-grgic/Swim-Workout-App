@@ -1,4 +1,4 @@
-import ExerciseList from "../models/ExerciseList.model.js"
+import ExerciseList from "../models/exerciselist.model.js"
 
 //GET
 const getExerciseList = async (req, res) => {

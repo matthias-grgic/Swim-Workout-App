@@ -1,7 +1,7 @@
 {
     "name": "capstone-project",
     "version": "1.0.0",
-    "description": "Hello, welcome to my capstone project for Neue Fische (muc-web-21-3)",
+    "description": "",
     "main": "index.js",
     "scripts": {
         "build": "cd ./client && npm run build",
@@ -16,15 +16,14 @@
         "type": "git",
         "url": "git+https://github.com/matthias-grgic/capstone-project.git"
     },
-    "keywords": [],
-    "author": "",
+    "author": "MG",
     "license": "ISC",
     "devDependencies": {
         "concurrently": "^7.0.0",
         "nodemon": "^2.0.15"
     },
-    "bugs": {
-        "url": "https://github.com/matthias-grgic/capstone-project/issues"
-    },
-    "homepage": "https://github.com/matthias-grgic/capstone-project#readme"
+    "engines": {
+        "npm": "8.1.2",
+        "node": "16.13.1"
+    }
 }
