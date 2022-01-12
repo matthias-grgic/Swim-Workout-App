@@ -23,7 +23,7 @@ function valuetext(value) {
 export default function DiscreteSliderMarks() {
     return (
         <Box sx={{ width: 200 }}>
-            <Slider aria-label="Custom marks" defaultValue={0} getAriaValueText={valuetext} step={50} valueLabelDisplay="auto" marks={marks} />
+            <Slider aria-label="swimming-length" defaultValue={0} getAriaValueText={valuetext} step={50} valueLabelDisplay="none" marks={marks} />
         </Box>
     )
 }
