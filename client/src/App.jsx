@@ -26,6 +26,7 @@ function App() {
                         video: item.video,
                         definition: item.definition,
                         length: item.length,
+                        equipment: item.equipment,
                     }
                 })
                 setList(exerciseList)

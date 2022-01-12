@@ -55,17 +55,18 @@ function MainRender({ transferedList }) {
 export default MainRender
 
 const ButtonForRender = styled.button`
+    border: none;
+    border-radius: 45%;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     color: white;
+    cursor: pointer;
     font-size: 2.5rem;
     font-family: "Righteous", Arial;
-    cursor: pointer;
-    padding: 0.25em 1em;
-    border-radius: 50%;
-    border: none;
-    width: 225px;
-    height: 225px;
-    transition: all 0.1s ease-in-out;
+    height: 200px;
     margin-top: 15px;
+    padding: 0.25em 1em;
+    width: 200px;
+    transition: all 0.1s ease-in-out;
     background-image: linear-gradient(-225deg, #7de2fc 0%, #b9b6e5 100%);
     &:active {
         background-image: linear-gradient(-225deg, #c6eef8 0%, #b9b6e5 100%);
