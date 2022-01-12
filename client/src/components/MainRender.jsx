@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
-import SwitchLabels from "../lib/switch"
+import SwitchLabels from "../lib/Switch"
+import DiscreteSliderMarks from "../lib/RangeSlider"
 
 function MainRender({ transferedList }) {
     const newWOD = (originArray, start, end) => originArray.slice(start, end)
@@ -41,7 +42,8 @@ function MainRender({ transferedList }) {
             <Link to="/CurrentWorkout">
                 <ButtonForRender onClick={() => postToAPI()}>GO</ButtonForRender>{" "}
             </Link>
-            <Slider type="range"></Slider>
+            {/* <Slider type="range"></Slider> */}
+            <DiscreteSliderMarks />
             <ToggleDiv>
                 <SwitchLabels></SwitchLabels>
                 <ToggleSwitch type="checkbox" label="hi"></ToggleSwitch>
@@ -84,7 +86,11 @@ const MainDiv = styled.div`
     gap: 2rem;
 `
 
-const Slider = styled.input``
+const Slider = styled.input`
+    cursor: pointer;
+    width: 90%;
+    padding: 5px;
+`
 
 const ToggleDiv = styled.div`
     display: flex;
