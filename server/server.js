@@ -25,7 +25,7 @@ server.use(cors())
 server.use(express.json())
 
 //Routes
-server.use("/", ServerRoutes)
+server.use("/api", ServerRoutes)
 
 server.use(express.static(path.join(__dirname, "./client/dist")))
 

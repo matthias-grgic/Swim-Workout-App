@@ -16,7 +16,7 @@ function App() {
     useEffect(() => {
         async function fetchMyAPI() {
             try {
-                const response = await fetch("/getexerciselist")
+                const response = await fetch("/api/getexerciselist")
                 const api = await response.json()
                 const exerciseList = api.map((item) => {
                     return {
@@ -41,7 +41,7 @@ function App() {
     useEffect(() => {
         async function fetchMyAPI() {
             try {
-                const response = await fetch("/getworkoutlist")
+                const response = await fetch("/api/getworkoutlist")
                 const api = await response.json()
                 const mappedWodList = api.map((item) => {
                     return {
