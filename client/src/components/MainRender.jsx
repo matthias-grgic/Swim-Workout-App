@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
+import Button from "@mui/material/Button"
 
 function MainRender({ transferedList }) {
     const newWOD = (originArray, start, end) => originArray.slice(start, end)
@@ -49,6 +50,7 @@ function MainRender({ transferedList }) {
                 <ToggleSwitch type="checkbox"></ToggleSwitch>
                 <ToggleSwitch type="checkbox"></ToggleSwitch>
             </ToggleDiv>
+            <Button variant="contained">Hello World</Button>
         </MainDiv>
     )
 }
