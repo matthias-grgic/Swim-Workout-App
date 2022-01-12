@@ -15,7 +15,6 @@ const dbHost = process.env.DB_HOST
 const dbName = process.env.DB_NAME
 
 const connectionString = `mongodb+srv://${dbUser}:${dbPassword}@${dbHost}/${dbName}?retryWrites=true&w=majority`
-// const connectionString = `mongodb+srv://workoutadmin2000:BBpksjDuGqUS4f5@cluster0.4vd0c.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
 mongoose.connect(connectionString)
 
 const __dirname = process.cwd()
