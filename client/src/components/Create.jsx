@@ -4,17 +4,22 @@ import { useState } from "react"
 function Create() {
     const [status, setStatus] = useState()
 
-    const handleSubmit = () => {
-        e.preventDefault()
+    const handleChange = (event) => {
+        setStatus(event.target.value)
+    }
+
+    const handleSubmit = (event) => {
+        alert(`New Exercise "${status}" added`)
+        event.preventDefault()
     }
 
     return (
         <MainDiv>
             <Title>ADD EXERCISE</Title>
-            <Form method="Post">
+            <Form onSubmit={handleSubmit}>
                 <FormField>
                     <label for="name">Name</label>
-                    <input id="name" type="text" name="name" placeholder="Exercise" />
+                    <input id="name" value={status} onChange={handleChange} type="text" name="name" placeholder="Exercise" />
                 </FormField>
                 <FormField>
                     <label for="type">Type</label>
