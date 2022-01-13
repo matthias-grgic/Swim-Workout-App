@@ -18,11 +18,11 @@ function Create() {
             <Title>ADD EXERCISE</Title>
             <Form onSubmit={handleSubmit}>
                 <FormField>
-                    <label for="name">Name</label>
+                    <label htmlFor="name">Name</label>
                     <input id="name" value={status} onChange={handleChange} type="text" name="name" placeholder="Exercise" />
                 </FormField>
                 <FormField>
-                    <label for="type">Type</label>
+                    <label htmlFor="type">Type</label>
                     <select name="type">
                         <option value="normal">normal</option>
                         <option value="drill">drill</option>
@@ -30,11 +30,11 @@ function Create() {
                     </select>
                 </FormField>
                 <FormField>
-                    <label for="name">Video</label>
+                    <label htmlFor="name">Video</label>
                     <input type="text" name="color" placeholder="Link" />
                 </FormField>
                 <FormField>
-                    <label for="subject">Definition</label>
+                    <label htmlFor="subject">Definition</label>
                     <textarea id="subject" name="subject" placeholder="..."></textarea>
                 </FormField>
                 <input type="submit" value="SUBMIT" />
@@ -96,7 +96,7 @@ const Form = styled.form`
         width: 100px;
     }
 `
-const FormField = styled.form`
+const FormField = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
