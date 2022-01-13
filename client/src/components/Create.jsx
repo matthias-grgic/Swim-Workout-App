@@ -3,7 +3,7 @@ import styled from "styled-components"
 function Create() {
     return (
         <MainDiv>
-            <h1>ADD EXERCISE</h1>
+            <Title>ADD EXERCISE</Title>
             <Form>
                 <FormField>
                     <label for="name">Name</label>
@@ -23,7 +23,7 @@ function Create() {
                 </FormField>
                 <FormField>
                     <label for="subject">Definition</label>
-                    <textarea id="subject" name="subject" placeholder="Write something.."></textarea>
+                    <textarea id="subject" name="subject" placeholder="..."></textarea>
                 </FormField>
                 <input type="submit" value="SUBMIT" />
             </Form>
@@ -44,7 +44,7 @@ const MainDiv = styled.div`
 const Form = styled.form`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: stretch;
     input[type="text"],
     select,
     textarea {
@@ -78,17 +78,22 @@ const Form = styled.form`
     }
     textarea {
         height: 100px;
+        resize: none;
     }
     label {
-        align-self: flex-start;
+        width: 100px;
     }
 `
 const FormField = styled.form`
     display: flex;
-    flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 20px;
     &button {
         background-color: white;
     }
+`
+
+const Title = styled.div`
+    font-size: 1.5rem;
 `
