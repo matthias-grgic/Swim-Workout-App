@@ -1,25 +1,32 @@
 import styled from "styled-components"
+import { useState } from "react"
 
 function Create() {
+    const [status, setStatus] = useState()
+
+    const handleSubmit = () => {
+        e.preventDefault()
+    }
+
     return (
         <MainDiv>
             <Title>ADD EXERCISE</Title>
-            <Form>
+            <Form method="Post">
                 <FormField>
                     <label for="name">Name</label>
-                    <input id="name" type="text" name="name" placeholder="Exercise name.." />
+                    <input id="name" type="text" name="name" placeholder="Exercise" />
                 </FormField>
                 <FormField>
-                    <label for="type">Name</label>
+                    <label for="type">Type</label>
                     <select name="type">
-                        <option value="australia">Normal</option>
-                        <option value="canada">Drill</option>
-                        <option value="usa">Mixed</option>
+                        <option value="normal">normal</option>
+                        <option value="drill">drill</option>
+                        <option value="other">other</option>
                     </select>
                 </FormField>
                 <FormField>
-                    <label for="name">Name</label>
-                    <input type="text" name="color" placeholder="Exercise name.." />
+                    <label for="name">Video</label>
+                    <input type="text" name="color" placeholder="Link" />
                 </FormField>
                 <FormField>
                     <label for="subject">Definition</label>
