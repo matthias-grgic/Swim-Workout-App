@@ -79,7 +79,7 @@ const Form = styled.form`
             transition: all 1s ease;
             color: white;
         }
-        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        box-shadow: var(--main-box-shadow);
         border: none;
         border-radius: 4px;
         color: white;

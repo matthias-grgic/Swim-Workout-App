@@ -3,11 +3,16 @@ import styled from "styled-components"
 function Settings() {
     return (
         <MainDiv>
-            <div>Settings</div>
             <Infos>
-                <p>Sources</p>
-                <p>SpeedoInternational @Youtube</p>
-                <p>...</p>
+                <TitleSmall>Sources</TitleSmall>
+                <Sources>
+                    <p>
+                        <a href="https://www.youtube.com/Speedo/">SpeedoInternational</a>
+                    </p>
+                    <p>
+                        <a href="https://www.trainingmitsystem.de/">Trainingmitsystem</a>
+                    </p>
+                </Sources>
             </Infos>
         </MainDiv>
     )
@@ -26,5 +31,16 @@ const MainDiv = styled.div`
 const Infos = styled.div`
     display: flex;
     flex-direction: column;
+`
+
+const TitleSmall = styled.div`
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #5a5a5a;
+`
+
+const Sources = styled.div`
+    font-size: 1rem;
+    margin-bottom: 10px;
     color: #a3a3a3;
 `

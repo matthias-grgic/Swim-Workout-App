@@ -3,14 +3,14 @@ import styled from "styled-components"
 function CurrentWorkout({ transferedWodList }) {
     const mappedWODList = transferedWodList.map((item, index) => (
         <ExerciseCards key={index}>
-            <div>
+            <p>
                 <h4>{item.name}</h4>
-            </div>
-            <div>Type:{item.type}</div>
+            </p>
+            {/* <p>Type:{item.type}</p> */}
             {/* <div>Video:{item.video}</div> */}
-            <div>Definition: {item.definition}</div>
-            <div>Equipment: {item.equipment}</div>
-            <div>Length: {item.length}</div>
+            <p>Definition: {item.definition}</p>
+            <IMGDiv value={item.equipment} />
+            {/* <p>Length: {item.length}</p> */}
         </ExerciseCards>
     ))
     return <Cards>{mappedWODList}</Cards>
@@ -19,16 +19,26 @@ function CurrentWorkout({ transferedWodList }) {
 export default CurrentWorkout
 
 const Cards = styled.div`
+    color: var(--main-txt-color);
     display: flex;
     flex-direction: column;
     gap: 5px;
     padding: 10px;
+    overflow: auto;
+    width: 100%;
 `
 
 const ExerciseCards = styled.div`
     display: flex;
     flex-direction: column;
-    font-size: 1rem;
-    border-bottom: 1px solid #d1d1d1;
+    border-bottom: 1px solid var(--border-seperator);
     padding: 15px;
+`
+
+const Equipment = styled.div``
+
+const IMGDiv = styled.div`
+    height: 40px;
+    background-repeat: no-repeat;
+    background-image: ${(props) => (props.value === "pullbuoy" ? `url(${PullbuoyImg})` : null)};
 `

@@ -6,9 +6,9 @@ import Footer from "./components/Footer"
 import Header from "./components/Header"
 import MainRender from "./components/MainRender"
 import Settings from "./components/Settings"
+import GlobalStyle from "./globalstyles"
 import { Routes, Route } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { createGlobalStyle } from "styled-components"
 
 function App() {
     //EXERCISELIST - FETCH FROM API
@@ -66,9 +66,17 @@ function App() {
     return (
         <Main>
             <GlobalStyle />
-            <Header />
+
             <Routes>
-                <Route path="/" element={<MainRender transferedList={list} />} />
+                <Route
+                    path="/"
+                    element={
+                        <>
+                            <MainRender transferedList={list} />
+                            <Header />
+                        </>
+                    }
+                />
                 <Route path="/CurrentWorkout" element={<CurrentWorkout transferedWodList={wodList} />} />
                 <Route path="/ExerciseList" element={<ExerciseList transferedList={list} />} />
                 <Route path="/Create" element={<Create />} />
@@ -80,16 +88,6 @@ function App() {
 }
 
 export default App
-
-const GlobalStyle = createGlobalStyle`
-  * {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-`
 
 const Main = styled.div`
     display: flex;

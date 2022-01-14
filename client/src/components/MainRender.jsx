@@ -46,7 +46,7 @@ function MainRender({ transferedList }) {
             <DiscreteSliderMarks />
             <ToggleDiv>
                 <SwitchLabels></SwitchLabels>
-                <ToggleSwitch type="checkbox" label="hi"></ToggleSwitch>
+                {/* <ToggleSwitch type="checkbox" label="hi"></ToggleSwitch> */}
             </ToggleDiv>
         </MainDiv>
     )
@@ -57,7 +57,7 @@ export default MainRender
 const ButtonForRender = styled.button`
     border: none;
     border-radius: 50%;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: var(--main-box-shadow);
     color: white;
     cursor: pointer;
     font-size: 2.5rem;
@@ -84,7 +84,7 @@ const MainDiv = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
 `
 
 const Slider = styled.input`
