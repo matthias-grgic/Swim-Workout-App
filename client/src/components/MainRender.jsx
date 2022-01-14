@@ -56,7 +56,7 @@ export default MainRender
 
 const ButtonForRender = styled.button`
     border: none;
-    border-radius: 45%;
+    border-radius: 50%;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     color: white;
     cursor: pointer;
