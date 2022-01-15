@@ -66,7 +66,6 @@ function App() {
     return (
         <Main>
             <GlobalStyle />
-
             <Routes>
                 <Route
                     path="/"

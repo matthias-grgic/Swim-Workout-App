@@ -42,11 +42,9 @@ function MainRender({ transferedList }) {
             <Link to="/CurrentWorkout">
                 <ButtonForRender onClick={() => postToAPI()}>GO</ButtonForRender>{" "}
             </Link>
-            {/* <Slider type="range"></Slider> */}
             <DiscreteSliderMarks />
             <ToggleDiv>
                 <SwitchLabels></SwitchLabels>
-                {/* <ToggleSwitch type="checkbox" label="hi"></ToggleSwitch> */}
             </ToggleDiv>
         </MainDiv>
     )

@@ -6,11 +6,9 @@ function CurrentWorkout({ transferedWodList }) {
             <p>
                 <h4>{item.name}</h4>
             </p>
-            {/* <p>Type:{item.type}</p> */}
-            {/* <div>Video:{item.video}</div> */}
             <p>Definition: {item.definition}</p>
             <IMGDiv value={item.equipment} />
-            {/* <p>Length: {item.length}</p> */}
+            <p>Length: {item.length}m</p>
         </ExerciseCards>
     ))
     return <Cards>{mappedWODList}</Cards>

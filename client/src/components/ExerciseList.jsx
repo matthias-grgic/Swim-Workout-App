@@ -1,10 +1,11 @@
 import styled from "styled-components"
 import PullbuoyImg from "../images/equipment/pullbuoy.svg"
+import HandPaddleImg from "../images/equipment/handpaddles.svg"
+import FinsImg from "../images/equipment/fins.svg"
+import SnorkelImg from "../images/equipment/snorkel.svg"
 
 function ExerciseList({ transferedList }) {
-    function createYouTubeEmbedLink(link) {
-        return link.replace("https://www.youtube.com/watch?v=", "https://www.youtube.com/embed/")
-    }
+    const createYouTubeEmbedLink = (link) => link.replace("https://www.youtube.com/watch?v=", "https://www.youtube-nocookie.com/embed/")
 
     const mappedList = transferedList.map((item, index) => (
         <ExerciseCards key={index}>
@@ -41,9 +42,9 @@ const Cards = styled.div`
 `
 
 const IMGDiv = styled.div`
-    height: 40px;
+    height: 45px;
     background-repeat: no-repeat;
-    background-image: ${(props) => (props.value === "pullbuoy" ? `url(${PullbuoyImg})` : null)};
+    background-image: ${(props) => (props.value === "pullbuoy" ? `url(${PullbuoyImg})` : props.value === "paddles" ? `url(${HandPaddleImg})` : props.value === "fins" ? `url(${FinsImg})` : props.value === "snorkel" ? `url(${SnorkelImg})` : null)};
 `
 
 const ExerciseCards = styled.div`

@@ -4,10 +4,7 @@ import { useState } from "react"
 function Create() {
     const [status, setStatus] = useState()
 
-    const handleChange = (event) => {
-        setStatus(event.target.value)
-    }
-
+    const handleChange = (event) => setStatus(event.target.value)
     const handleSubmit = (event) => {
         alert(`New Exercise "${status}" added`)
         event.preventDefault()
