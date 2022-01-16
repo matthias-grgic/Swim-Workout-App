@@ -12,4 +12,5 @@ const Title = styled.div`
     font-family: "Righteous", Arial;
     font-size: 3rem;
     padding-top: 8px;
+    color: var(--main-txt-color);
 `

@@ -9,21 +9,24 @@ function ExerciseList({ transferedList }) {
 
     const mappedList = transferedList.map((item, index) => (
         <ExerciseCards key={index}>
-            <TitleAndEquipment>
-                <h2>{item.name}</h2>
-                <IMGDiv value={item.equipment} />
-                <p>{item.type}</p>
-            </TitleAndEquipment>
-
-            <iframe
-                width="100%"
-                height="100%"
-                src={`${createYouTubeEmbedLink(item.video)}?showinfo=0?modestbranding=1&iv_load_policy=3&controls=2`}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-            ></iframe>
+            <HeadInfo>
+                <Name>
+                    <h3>{item.name}</h3>
+                </Name>
+                <Type>{item.type}</Type>
+                <IMGDiv value={item.equipment}></IMGDiv>
+            </HeadInfo>
+            <Video>
+                <iframe
+                    width="100%"
+                    height="100%"
+                    src={`${createYouTubeEmbedLink(item.video)}?showinfo=0?modestbranding=1&iv_load_policy=3&controls=2`}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                ></iframe>
+            </Video>
             <Text>{item.definition}</Text>
         </ExerciseCards>
     ))
@@ -36,28 +39,33 @@ const Cards = styled.div`
     color: var(--main-txt-color);
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
     padding: 10px;
     overflow: auto;
 `
-
-const IMGDiv = styled.div`
-    height: 45px;
-    background-repeat: no-repeat;
-    background-image: ${(props) => (props.value === "pullbuoy" ? `url(${PullbuoyImg})` : props.value === "paddles" ? `url(${HandPaddleImg})` : props.value === "fins" ? `url(${FinsImg})` : props.value === "snorkel" ? `url(${SnorkelImg})` : null)};
-`
-
 const ExerciseCards = styled.div`
+    border-bottom: 1px solid var(--border-seperator);
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid var(--border-seperator);
-    padding: 15px;
+    gap: 5px;
+    padding: 10px;
+`
+const HeadInfo = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
+const IMGDiv = styled.div`
+    background-position: right;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-image: ${(props) => (props.value === "pullbuoy" ? `url(${PullbuoyImg})` : props.value === "paddles" ? `url(${HandPaddleImg})` : props.value === "fins" ? `url(${FinsImg})` : props.value === "snorkel" ? `url(${SnorkelImg})` : null)};
+    flex: 0 0 60px;
 `
 
-const Text = styled.div`
-    margin-top: 15px;
-`
+const Name = styled.div``
 
-const TitleAndEquipment = styled.div`
-    margin-bottom: 15px;
-`
+const Type = styled.div``
+
+const Video = styled.div``
+
+const Text = styled.div``

@@ -11,8 +11,8 @@ const postWorkoutList = async (req, res) => {
     const workoutListAdd = new WorkoutList({
         name: req.body.name,
         type: req.body.type,
-        euipment: req.body.euipment,
         video: req.body.video,
+        equipment: req.body.equipment,
         definition: req.body.definition,
         length: req.body.length,
     })
