@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
-function Header() {
-    return <Title>SWIM</Title>
+function Header({ title }) {
+    return <Title>{title}</Title>
 }
 
 export default Header

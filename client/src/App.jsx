@@ -72,7 +72,7 @@ function App() {
                     element={
                         <>
                             <MainRender transferedList={list} />
-                            <Header />
+                            <Header title={"SWIM"} />
                         </>
                     }
                 />
