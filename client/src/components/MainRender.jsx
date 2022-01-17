@@ -85,12 +85,6 @@ const MainDiv = styled.div`
     gap: 1rem;
 `
 
-const Slider = styled.input`
-    cursor: pointer;
-    width: 90%;
-    padding: 5px;
-`
-
 const ToggleDiv = styled.div`
     display: flex;
     flex-direction: column;
@@ -98,5 +92,3 @@ const ToggleDiv = styled.div`
     align-items: center;
     padding: 0px;
 `
-
-const ToggleSwitch = styled.input``

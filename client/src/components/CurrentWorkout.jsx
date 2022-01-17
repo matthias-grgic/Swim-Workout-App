@@ -7,7 +7,7 @@ import SnorkelImg from "../images/equipment/snorkel.svg"
 function CurrentWorkout({ transferedWodList }) {
     const drills = transferedWodList.map((item, index) => (
         <ExerciseCards key={index}>
-            <h4>{item.name}</h4>
+            <ExerciseCardsTitle>{item.name}</ExerciseCardsTitle>
             <p>{item.length}m</p>
             <IMGDiv value={item.equipment} />
         </ExerciseCards>
@@ -15,7 +15,7 @@ function CurrentWorkout({ transferedWodList }) {
 
     const main = transferedWodList.map((item, index) => (
         <ExerciseCards key={index}>
-            <h3>{item.name}</h3>
+            <ExerciseCardsTitle>{item.name}</ExerciseCardsTitle>
             <p>{item.length}m</p>
             <IMGDiv value={item.equipment} />
         </ExerciseCards>
@@ -24,19 +24,19 @@ function CurrentWorkout({ transferedWodList }) {
     return (
         <Cards>
             <WarmUp>
-                <h2>WARM UP</h2>
+                <h3>WARM UP</h3>
                 <ExerciseCards noBorder>Freestyle</ExerciseCards>
             </WarmUp>
             <Drills>
-                <h2>DRILLS</h2>
+                <h3>DRILLS</h3>
                 {drills}
             </Drills>
             <Main>
-                <h2>MAIN</h2>
+                <h3>MAIN</h3>
                 {main}
             </Main>
             <CoolDown>
-                <h2>COOL DOWN</h2>
+                <h3>COOL DOWN</h3>
                 <ExerciseCards noBorder>Freestyle</ExerciseCards>
             </CoolDown>
         </Cards>
@@ -61,6 +61,10 @@ const ExerciseCards = styled.div`
     justify-content: space-between;
     gap: 5px;
     padding: 10px;
+`
+
+const ExerciseCardsTitle = styled.div`
+    flex: 1;
 `
 
 const IMGDiv = styled.div`

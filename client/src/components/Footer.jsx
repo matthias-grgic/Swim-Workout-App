@@ -9,25 +9,25 @@ import IMG_CurrentWorkout from "../images/currentworkout.svg"
 function Footer() {
     return (
         <NavBar>
-            <NavLink to="/">
-                <ImgLink src={IMG_Home} alt="home" />
-            </NavLink>
+            <StyledNavLink to="/">
+                <ImgLink src={IMG_Home} alt="home" stroke="current" />
+            </StyledNavLink>
 
-            <NavLink to="/CurrentWorkout">
+            <StyledNavLink to="/CurrentWorkout">
                 <ImgLink src={IMG_CurrentWorkout} alt="currentworkout" />
-            </NavLink>
+            </StyledNavLink>
 
-            <NavLink to="/ExerciseList">
+            <StyledNavLink to="/ExerciseList">
                 <ImgLink src={IMG_Favourites} alt="favourites" />
-            </NavLink>
+            </StyledNavLink>
 
-            <NavLink to="/Create">
+            <StyledNavLink to="/Create">
                 <ImgLink src={IMG_Create} alt="create" />
-            </NavLink>
+            </StyledNavLink>
 
-            <NavLink to="/Settings">
+            <StyledNavLink to="/Settings">
                 <ImgLink src={IMG_Settings} alt="settings" />
-            </NavLink>
+            </StyledNavLink>
         </NavBar>
     )
 }
@@ -47,4 +47,10 @@ const NavBar = styled.div`
 `
 const ImgLink = styled.img`
     width: 38px;
+`
+
+const StyledNavLink = styled(NavLink)`
+    &.active {
+        filter: brightness(0.5) sepia(1) hue-rotate(140deg) saturate(6);
+    }
 `
