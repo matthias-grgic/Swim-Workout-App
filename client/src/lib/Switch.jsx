@@ -9,8 +9,8 @@ function SwitchLabels() {
             <FormControlLabel control={<Switch defaultChecked />} label="25m" />
             <FormControlLabel control={<Switch defaultChecked />} label="Equipment" />
             <FormControlLabel control={<Switch defaultChecked />} label="Drills" />
-            <FormControlLabel control={<Switch defaultChecked />} label="Endurance" />
-            <FormControlLabel disabled control={<Switch />} label="50m" />
+            <FormControlLabel control={<Switch defaultChecked />} label="Long" />
+            <FormControlLabel disabled control={<Switch />} label="etc." />
         </FormGroupTwo>
     )
 }

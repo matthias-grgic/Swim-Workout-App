@@ -13,11 +13,11 @@ function ExerciseList({ transferedList }) {
                 <Name>
                     <h3>{item.name}</h3>
                 </Name>
-                <Type>{item.type}</Type>
+                <Type>{item.type.toUpperCase()}</Type>
                 <IMGDiv value={item.equipment}></IMGDiv>
             </HeadInfo>
             <Video>
-                <iframe
+                {/* <iframe
                     width="100%"
                     height="100%"
                     src={`${createYouTubeEmbedLink(item.video)}?showinfo=0?modestbranding=1&iv_load_policy=3&controls=2`}
@@ -25,7 +25,7 @@ function ExerciseList({ transferedList }) {
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                ></iframe>
+                ></iframe> */}
             </Video>
             <Text>{item.definition}</Text>
         </ExerciseCards>
@@ -48,7 +48,7 @@ const ExerciseCards = styled.div`
     display: flex;
     flex-direction: column;
     gap: 5px;
-    padding: 10px;
+    padding: 15px;
 `
 const HeadInfo = styled.div`
     display: flex;
@@ -62,9 +62,14 @@ const IMGDiv = styled.div`
     flex: 0 0 60px;
 `
 
-const Name = styled.div``
+const Name = styled.div`
+    flex: 1;
+`
 
-const Type = styled.div``
+const Type = styled.div`
+    color: var(--secondary-txt-color);
+    text-align: left;
+`
 
 const Video = styled.div``
 
