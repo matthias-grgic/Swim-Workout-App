@@ -35,7 +35,7 @@ function ExerciseList({ transferedList }) {
             </Form>
 
             {data.map((item, index) => (
-                <SimpleAccordion TransitionProps={{ unmountOnExit: true }} key={index} name={item.name} type={item.type} equipment={item.equipment} video={item.video} text={item.definition} />
+                <SimpleAccordion key={index} name={item.name} type={item.type} equipment={item.equipment} video={item.video} text={item.definition} />
             ))}
         </Cards>
     )

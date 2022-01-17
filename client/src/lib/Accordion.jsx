@@ -7,41 +7,34 @@ import HandPaddleImg from "../images/equipment/handpaddles.svg"
 import FinsImg from "../images/equipment/fins.svg"
 import SnorkelImg from "../images/equipment/snorkel.svg"
 import Arrow from "../images/arrowup.svg"
-import { flexbox } from "@mui/system"
+import Typography from "@mui/material/Typography"
 
 export default function SimpleAccordion({ name, type, equipment, video, text }) {
     const createYouTubeEmbedLink = (link) => link.replace("https://www.youtube.com/watch?v=", "https://www.youtube-nocookie.com/embed/")
 
-    const svgIcon = (
-        <ExpandMoreIcon>
-            <img alt="edit" src={Arrow} />
-        </ExpandMoreIcon>
-    )
-
     return (
         <div>
-            <Accordion>
-                <AccordionSummaryStyled sx={{}} expandIcon={svgIcon} aria-controls="panel1a-content" id="panel1a-header">
-                    <HeadInfo>
-                        <Name>
-                            <h4>{name}</h4>
-                        </Name>
-                        <Type>{type}</Type>
+            <Accordion TransitionProps={{ unmountOnExit: true }}>
+                <AccordionSummary srx={{ pdding: "10px" }} aria-controls="panel1a-content" id="panel1a-header">
+                    <Typography sx={{ width: "60%", flexShrink: 0 }}>
+                        <h4>{name}</h4>
+                    </Typography>
+                    <Typography sx={{ width: "20%", flexShrink: 0, color: "text.secondary" }}>{type}</Typography>
+                    <Typography sx={{ width: "20%", flexShrink: 0 }}>
+                        Bild
                         <IMGDiv value={equipment} />
-                    </HeadInfo>
-                </AccordionSummaryStyled>
+                    </Typography>
+                </AccordionSummary>
                 <AccordionDetails>
-                    <Video>
-                        <iframe
-                            width="100%"
-                            height="100%"
-                            src={`${createYouTubeEmbedLink(video)}?showinfo=0?modestbranding=1&iv_load_policy=3&controls=2`}
-                            title="YouTube video player"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        ></iframe>
-                    </Video>
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        src={`${createYouTubeEmbedLink(video)}?showinfo=0?modestbranding=1&iv_load_policy=3&controls=2`}
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                    ></iframe>
                     <Text>{text}</Text>
                 </AccordionDetails>
             </Accordion>
@@ -49,26 +42,11 @@ export default function SimpleAccordion({ name, type, equipment, video, text }) 
     )
 }
 
-const AccordionSummaryStyled = styled(AccordionSummary)``
-
-const HeadInfo = styled.div`
-    display: flex;
-`
 const IMGDiv = styled.div`
-    background-position: right;
-    background-size: auto;
+    background-size: 24px;
     background-repeat: no-repeat;
     background-image: ${(props) => (props.value === "pullbuoy" ? `url(${PullbuoyImg})` : props.value === "paddles" ? `url(${HandPaddleImg})` : props.value === "fins" ? `url(${FinsImg})` : props.value === "snorkel" ? `url(${SnorkelImg})` : null)};
-    /* flex: 0 0 60px; */
+    flex: 0 0 20px;
 `
-const Name = styled.div`
-    /* flex: 1; */
-`
-const Type = styled.div`
-    color: var(--secondary-txt-color);
-    /* text-align: left; */
-`
-const Video = styled.div``
-const Text = styled.div``
 
-const ExpandMoreIcon = styled.div``
+const Text = styled.div``
