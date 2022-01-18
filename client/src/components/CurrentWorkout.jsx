@@ -50,6 +50,7 @@ const Cards = styled.div`
     display: flex;
     flex-direction: column;
     gap: 5px;
+    margin-bottom: 50px;
     padding: 10px;
     overflow: auto;
     width: 100%;

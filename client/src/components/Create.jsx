@@ -43,11 +43,11 @@ function Create() {
 export default Create
 
 const MainDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
+    display: flex;
     gap: 2rem;
+    justify-content: center;
 `
 
 const Form = styled.form`
