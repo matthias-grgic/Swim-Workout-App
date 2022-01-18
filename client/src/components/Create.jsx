@@ -82,11 +82,11 @@ const MainDiv = styled.div`
 const Form = styled.form`
     display: flex;
     flex-direction: column;
-    font-size: 1rem;
     gap: 10px;
     input[type="text"],
     select,
     textarea {
+        font-size: 1.2rem;
         box-shadow: 0;
         border: 1px solid #ccc;
         border-radius: 4px;
