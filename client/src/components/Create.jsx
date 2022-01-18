@@ -12,7 +12,7 @@ function Create() {
 
     return (
         <MainDiv>
-            <Title>ADD EXERCISE</Title>
+            <h2>ADD EXERCISE</h2>
             <Form onSubmit={handleSubmit}>
                 <FormField>
                     <label htmlFor="name">Name</label>
@@ -23,7 +23,6 @@ function Create() {
                     <select name="type">
                         <option value="normal">normal</option>
                         <option value="drill">drill</option>
-                        <option value="other">other</option>
                     </select>
                 </FormField>
                 <FormField>
@@ -43,27 +42,29 @@ function Create() {
 export default Create
 
 const MainDiv = styled.div`
-    align-items: center;
-    flex-direction: column;
     display: flex;
-    gap: 2rem;
-    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 40px;
+    width: 70%;
 `
 
 const Form = styled.form`
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    font-size: 1rem;
+
     input[type="text"],
     select,
     textarea {
         border: 1px solid #ccc;
         border-radius: 4px;
         display: inline-block;
-        margin: 8px 0;
+        margin: 0px 0;
         padding: 12px 20px;
         width: 100%;
     }
+
     input[type="submit"] {
         transition: all 0.1s ease-in-out;
         background-image: linear-gradient(-225deg, #7de2fc 0%, #b9b6e5 100%);
@@ -81,29 +82,27 @@ const Form = styled.form`
         border-radius: 4px;
         color: white;
         cursor: pointer;
-        margin: 8px 0;
+        margin: 15px 0;
         padding: 14px 20px;
         width: 100%;
     }
+
     textarea {
         height: 100px;
         resize: none;
     }
+
     label {
+        margin-bottom: 2px;
+        margin-top: 15px;
         width: 100px;
     }
 `
 
 const FormField = styled.div`
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+    flex-direction: column;
     &button {
         background-color: white;
     }
-`
-
-const Title = styled.div`
-    font-size: 1.5rem;
 `
