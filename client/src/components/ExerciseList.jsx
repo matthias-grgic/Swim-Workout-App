@@ -74,18 +74,3 @@ const Cards = styled.div`
     width: 100%;
     height: 100%;
 `
-// const ExerciseCards = styled.div`
-//     border-bottom: 1px solid var(--border-seperator);
-//     display: flex;
-//     flex-direction: column;
-//     gap: 5px;
-//     padding: 15px;
-// `
-
-// const IMGDiv = styled.div`
-//     background-position: right;
-//     background-size: auto;
-//     background-repeat: no-repeat;
-//     background-image: ${(props) => (props.value === "pullbuoy" ? `url(${PullbuoyImg})` : props.value === "paddles" ? `url(${HandPaddleImg})` : props.value === "fins" ? `url(${FinsImg})` : props.value === "snorkel" ? `url(${SnorkelImg})` : null)};
-//     flex: 0 0 60px;
-// `
