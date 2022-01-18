@@ -35,7 +35,7 @@ function Create() {
 
     return (
         <MainDiv>
-            <h1>ADD EXERCISE</h1>
+            <h2>ADD EXERCISE</h2>
             <Form onSubmit={handleSubmit}>
                 <FormField>
                     <input id="name" value={name} onChange={(e) => setName(e.target.value)} type="text" name="name" placeholder="Exercise" />
@@ -88,7 +88,7 @@ const Form = styled.form`
     input[type="text"],
     select,
     textarea {
-        font-size: 1.2rem;
+        font-size: 1rem;
         box-shadow: 0;
         border: 1px solid #ccc;
         border-radius: 4px;
