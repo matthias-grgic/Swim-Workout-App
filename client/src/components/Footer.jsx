@@ -40,15 +40,15 @@ function Footer() {
 export default Footer
 
 const NavBar = styled.div`
-    display: flex;
-    position: fixed;
+    background: white;
     bottom: 0;
-    z-index: 1;
+    display: flex;
+    gap: 1rem;
     justify-content: space-around;
     padding: 8px;
-    gap: 1rem;
+    position: fixed;
     width: 100%;
-    background: rgba(240, 240, 240, 0);
+    z-index: 1;
 `
 
 const StyledNavLink = styled(NavLink)`
