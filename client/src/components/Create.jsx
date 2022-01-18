@@ -69,11 +69,13 @@ function Create() {
 export default Create
 
 const MainDiv = styled.div`
+    color: var(--main-txt-color);
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 40px;
-    width: 70%;
+    gap: 5px;
+    margin-bottom: 50px;
+    padding: 26px;
+    width: 100%;
     h2 {
         margin-bottom: 10px;
     }

@@ -47,24 +47,6 @@ const AccessibilityLabel = styled.label`
     width: 1px;
 `
 
-const Form = styled.div`
-    input[type="text"] {
-        font-size: 1rem;
-        border: none;
-        border-bottom: 1px solid var(--border-seperator);
-        /* border-radius: 4px; */
-        display: inline-block;
-        margin: 8px 0;
-        outline: none;
-        width: 100%;
-        background-image: url(${search});
-        background-size: 20px;
-        background-repeat: no-repeat;
-        background-position: right center;
-        padding: 10px 40px 10px 15px;
-    }
-`
-
 const Cards = styled.div`
     color: var(--main-txt-color);
     display: flex;
@@ -74,4 +56,21 @@ const Cards = styled.div`
     width: 100%;
     height: 100%;
     margin-bottom: 50px;
+`
+
+const Form = styled.div`
+    input[type="text"] {
+        background-image: url(${search});
+        background-size: 20px;
+        background-repeat: no-repeat;
+        background-position: right center;
+        border: none;
+        border-bottom: 1px solid var(--border-seperator);
+        font-size: 1rem;
+        display: inline-block;
+        margin: 8px 0;
+        outline: none;
+        padding: 10px 40px 10px 15px;
+        width: 100%;
+    }
 `

@@ -55,6 +55,14 @@ const Cards = styled.div`
     overflow: auto;
     width: 100%;
 `
+const CoolDown = styled.div`
+    border-bottom: ${(props) => (props.primary ? "1px solid var(--border-seperator" : null)};
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+`
+
+const Drills = styled(CoolDown)``
 
 const ExerciseCards = styled.div`
     border-bottom: ${(props) => (props.noBorder ? "0px solid var(--border-seperator)" : "1px solid var(--border-seperator);")};
@@ -75,13 +83,6 @@ const IMGDiv = styled.div`
     background-image: ${(props) => (props.value === "pullbuoy" ? `url(${PullbuoyImg})` : props.value === "paddles" ? `url(${HandPaddleImg})` : props.value === "fins" ? `url(${FinsImg})` : props.value === "snorkel" ? `url(${SnorkelImg})` : null)};
     flex: 0 0 60px;
 `
-
-const CoolDown = styled.div`
-    border-bottom: ${(props) => (props.primary ? "1px solid var(--border-seperator" : null)};
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-`
-const Drills = styled(CoolDown)``
 const Main = styled(CoolDown)``
+
 const WarmUp = styled(CoolDown)``
