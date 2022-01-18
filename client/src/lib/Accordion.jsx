@@ -5,20 +5,20 @@ import PullbuoyImg from "../images/equipment/pullbuoy.svg"
 import HandPaddleImg from "../images/equipment/handpaddles.svg"
 import FinsImg from "../images/equipment/fins.svg"
 import SnorkelImg from "../images/equipment/snorkel.svg"
+import styled from "styled-components"
 import Typography from "@mui/material/Typography"
 
 export default function SimpleAccordion({ name, type, equipment, video, text }) {
     const createYouTubeEmbedLink = (link) => link.replace("https://www.youtube.com/watch?v=", "https://www.youtube-nocookie.com/embed/")
-    const equipmentLogo = ({ equipment }) =>
-        equipment === "pullbuoy" ? `url(${PullbuoyImg})` : props.value === "paddles" ? `url(${HandPaddleImg})` : props.value === "fins" ? `url(${FinsImg})` : props.value === "snorkel" ? `url(${SnorkelImg})` : null
-    //hier noch kleiner fehler
+    const equipmentLogo = (item) => (item === "pullbuoy" ? `url(${PullbuoyImg})` : item === "paddles" ? `url(${HandPaddleImg})` : item === "fins" ? `url(${FinsImg})` : item === "snorkel" ? `url(${SnorkelImg})` : null)
+
     return (
         <div>
             <Accordion TransitionProps={{ unmountOnExit: true }}>
                 <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
-                    <Typography sx={{ width: "60%", flexShrink: 0 }}>{name}</Typography>
+                    <Typography sx={{ width: "60%", flexShrink: 0, color: "var(--main-txt-color)" }}>{name}</Typography>
                     <Typography sx={{ width: "20%", flexShrink: 0, color: "text.secondary" }}>{type}</Typography>
-                    <Typography sx={{ width: "20%", flexShrink: 0, backgroundImage: `${equipmentLogo}`, backgroundSize: "auto", backgroundRepeat: "no-repeat" }}></Typography>
+                    <Typography sx={{ width: "20%", flexShrink: 0, backgroundImage: `${equipmentLogo(equipment)}`, backgroundSize: "auto", backgroundRepeat: "no-repeat" }}></Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <iframe
@@ -30,9 +30,13 @@ export default function SimpleAccordion({ name, type, equipment, video, text }) 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                     ></iframe>
-                    {text}
+                    <TextStyled> {text} </TextStyled>
                 </AccordionDetails>
             </Accordion>
         </div>
     )
 }
+
+const TextStyled = styled.div`
+    margin-top: 10px;
+`
