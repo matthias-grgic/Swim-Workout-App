@@ -1,10 +1,12 @@
 import styled from "styled-components"
+import LottieLogo from "../lib/lottieanimation"
 
 function Settings() {
     return (
         <MainDiv>
+            <LottieLogo />
             <Infos>
-                <TitleSmall>Sources</TitleSmall>
+                <h3>Sources</h3>
                 <Sources>
                     <p>
                         <a href="https://www.youtube.com/Speedo/">SpeedoInternational</a>
@@ -29,18 +31,13 @@ const MainDiv = styled.div`
 `
 
 const Infos = styled.div`
+    border-top: 1px solid var(--border-seperator);
     display: flex;
     flex-direction: column;
-`
-
-const TitleSmall = styled.div`
-    font-size: 1rem;
-    margin-bottom: 10px;
-    color: #5a5a5a;
 `
 
 const Sources = styled.div`
     font-size: 1rem;
     margin-bottom: 10px;
-    color: #a3a3a3;
+    color: var(--secondary-txt-color);
 `
