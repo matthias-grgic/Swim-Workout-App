@@ -2,8 +2,12 @@ import styled from "styled-components"
 import { Link } from "react-router-dom"
 import SwitchLabels from "../lib/Switch"
 import DiscreteSliderMarks from "../lib/RangeSlider"
+import LottieLogoTwo from "../lib/lottieanimation"
+import { useState } from "react"
 
 function MainRender({ transferedList }) {
+    const [isLoading, setLoading] = useState(false)
+
     const newWOD = (originArray, start, end) => originArray.slice(start, end)
     //SLICE and Convert ARRAY froM API to Object (hier später alle Filter setzen oder?)
     const testListArray = newWOD(transferedList, -1)
@@ -40,7 +44,8 @@ function MainRender({ transferedList }) {
     return (
         <MainDiv>
             <Link to="/CurrentWorkout">
-                <ButtonForRender onClick={() => postToAPI()}>GO</ButtonForRender>{" "}
+                {/* {isLoading ? <LottieLogoTwo /> : null}  setLoading(true) */}
+                <ButtonForRender onClick={() => postToAPI()}>GO</ButtonForRender>
             </Link>
             <DiscreteSliderMarks />
             <ToggleDiv>
@@ -63,6 +68,7 @@ const ButtonForRender = styled.button`
     height: 200px;
     margin-top: 15px;
     padding: 0.25em 1em;
+    position: relative;
     width: 200px;
     transition: all 0.1s ease-in-out;
     background-image: linear-gradient(-225deg, #7de2fc 0%, #b9b6e5 100%);
