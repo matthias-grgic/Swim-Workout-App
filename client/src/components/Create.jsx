@@ -36,7 +36,9 @@ function Create() {
 
     return (
         <MainDiv>
-            <h2>ADD EXERCISE</h2>
+            <Title>
+                <h2>ADD EXERCISE</h2>
+            </Title>
             <Form onSubmit={handleSubmit}>
                 <FormField>
                     <input type="text" name="name" id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Exercise" />
@@ -59,7 +61,7 @@ function Create() {
                     <input type="text" name="video" value={video} onChange={(e) => setVideo(e.target.value)} placeholder="Youtube Link" pattern="https://.*" />
                 </FormField>
                 <FormField>
-                    <textarea id="subject" name="definition" value={definition} onChange={(e) => setDefinition(e.target.value)} placeholder="Definition" />
+                    <textarea id="subject" name="definition" value={definition} onChange={(e) => setDefinition(e.target.value)} placeholder="Short description of the exercise" />
                 </FormField>
                 <SimpleSnackbarTwo />
             </Form>
@@ -133,4 +135,11 @@ const FormField = styled.div`
     &button {
         background-color: white;
     }
+`
+
+const Title = styled.div`
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 16px 16px 16px;
 `

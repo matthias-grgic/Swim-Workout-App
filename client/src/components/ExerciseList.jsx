@@ -22,9 +22,12 @@ function ExerciseList({ transferedList }) {
 
     return (
         <Cards>
+            <Title>
+                <h2>Exercise List</h2>
+            </Title>
             <Form>
                 <label htmlFor="header-search">
-                    <AccessibilityLabel>Search blog posts</AccessibilityLabel>
+                    <AccessibilityLabel>Search for exercises</AccessibilityLabel>
                 </label>
                 <input type="text" id="header-search" placeholder="Search.." value={result} onChange={onChange} />
             </Form>
@@ -73,4 +76,10 @@ const Form = styled.div`
         padding: 10px 40px 10px 15px;
         width: 100%;
     }
+`
+const Title = styled.div`
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 16px 16px 16px;
 `
