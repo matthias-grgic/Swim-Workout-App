@@ -4,8 +4,8 @@ import AddButton from "../images/addbutton.svg"
 
 function Create() {
     const [name, setName] = useState("")
-    const [type, setType] = useState("")
-    const [equipment, setEquipment] = useState("")
+    const [type, setType] = useState("normal")
+    const [equipment, setEquipment] = useState("pullbuoy")
     const [video, setVideo] = useState("")
     const [definition, setDefinition] = useState("")
 
@@ -41,17 +41,29 @@ function Create() {
                     <input id="name" value={name} onChange={(e) => setName(e.target.value)} type="text" name="name" placeholder="Exercise" />
                 </FormField>
                 <FormField>
-                    <select name="type" value={type} onChange={(e) => setType(e.target.value)}>
-                        <option value="normal">Normal</option>
-                        <option value="drill">Drill</option>
+                    <select name="type" value={type} onChange={(e) => setType(e.target[e.target.selectedIndex].id)}>
+                        <option id="normal" value="normal">
+                            Normal
+                        </option>
+                        <option id="drill" value="drill">
+                            Drill
+                        </option>
                     </select>
                 </FormField>
                 <FormField>
-                    <select name="equipment" value={equipment} onChange={(e) => setEquipment(e.target.value)}>
-                        <option value="pullbuoy">Pullbuoy</option>
-                        <option value="paddles">Paddles</option>
-                        <option value="snorkel">Snorkel</option>
-                        <option value="fins">Fins</option>
+                    <select name="equipment" value={equipment} onChange={(e) => setEquipment(e.target[e.target.selectedIndex].id)}>
+                        <option id="pullbuoy" value="pullbuoy">
+                            Pullbuoy
+                        </option>
+                        <option id="paddles" value="paddles">
+                            Paddles
+                        </option>
+                        <option id="snorkel" value="snorkel">
+                            Snorkel
+                        </option>
+                        <option id="fins" value="fins">
+                            Fins
+                        </option>
                     </select>
                 </FormField>
                 <FormField>
