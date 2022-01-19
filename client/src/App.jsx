@@ -6,7 +6,6 @@ import Footer from "./components/Footer"
 import Header from "./components/Header"
 import MainRender from "./components/MainRender"
 import Settings from "./components/Settings"
-import GlobalStyle from "./globalstyles"
 import { Routes, Route } from "react-router-dom"
 import { useState, useEffect } from "react"
 
@@ -65,7 +64,6 @@ function App() {
 
     return (
         <Main>
-            <GlobalStyle />
             <Routes>
                 <Route
                     path="/"
