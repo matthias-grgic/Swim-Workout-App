@@ -58,7 +58,7 @@ const ButtonForRender = styled.button`
     box-shadow: var(--main-box-shadow);
     color: white;
     cursor: pointer;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-family: "Righteous", Arial;
     height: 200px;
     margin-top: 15px;
@@ -92,3 +92,5 @@ const ToggleDiv = styled.div`
     align-items: center;
     padding: 0px;
 `
+
+const LottieFile = styled.div``

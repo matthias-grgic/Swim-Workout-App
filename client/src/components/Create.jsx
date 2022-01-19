@@ -1,11 +1,12 @@
 import styled from "styled-components"
 import { useState } from "react"
 import AddButton from "../images/addbutton.svg"
+import SimpleSnackbarTwo from "../lib/Snackbar"
 
 function Create() {
     const [name, setName] = useState("")
-    const [type, setType] = useState("")
-    const [equipment, setEquipment] = useState("")
+    const [type, setType] = useState("normal")
+    const [equipment, setEquipment] = useState("pullbuoy")
     const [video, setVideo] = useState("")
     const [definition, setDefinition] = useState("")
 
@@ -35,10 +36,10 @@ function Create() {
 
     return (
         <MainDiv>
-            <h1>ADD EXERCISE</h1>
+            <h2>ADD EXERCISE</h2>
             <Form onSubmit={handleSubmit}>
                 <FormField>
-                    <input id="name" value={name} onChange={(e) => setName(e.target.value)} type="text" name="name" placeholder="Exercise" />
+                    <input type="text" name="name" id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Exercise" />
                 </FormField>
                 <FormField>
                     <select name="type" value={type} onChange={(e) => setType(e.target.value)}>
@@ -48,19 +49,19 @@ function Create() {
                 </FormField>
                 <FormField>
                     <select name="equipment" value={equipment} onChange={(e) => setEquipment(e.target.value)}>
-                        <option value="pullbuoy">Pullbuoy</option>
-                        <option value="paddles">Paddles</option>
-                        <option value="snorkel">Snorkel</option>
-                        <option value="fins">Fins</option>
+                        <option value="pullbuoy">pullbuoy</option>
+                        <option value="paddles">paddles</option>
+                        <option value="snorkel">snorkel</option>
+                        <option value="fins">fins</option>
                     </select>
                 </FormField>
                 <FormField>
-                    <input type="text" name="video" value={video} onChange={(e) => setVideo(e.target.value)} placeholder="Youtube Link" />
+                    <input type="text" name="video" value={video} onChange={(e) => setVideo(e.target.value)} placeholder="Youtube Link" pattern="https://.*" />
                 </FormField>
                 <FormField>
-                    <textarea id="subject" name="definition" value={definition} onChange={(e) => setDefinition(e.target.value)} placeholder="Definition"></textarea>
+                    <textarea id="subject" name="definition" value={definition} onChange={(e) => setDefinition(e.target.value)} placeholder="Definition" />
                 </FormField>
-                <input type="submit" value="" />
+                <SimpleSnackbarTwo />
             </Form>
         </MainDiv>
     )
@@ -88,7 +89,7 @@ const Form = styled.form`
     input[type="text"],
     select,
     textarea {
-        font-size: 1.2rem;
+        font-size: 1rem;
         box-shadow: 0;
         border: 1px solid #ccc;
         border-radius: 4px;
