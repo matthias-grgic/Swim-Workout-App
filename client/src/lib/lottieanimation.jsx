@@ -17,13 +17,10 @@ import { useLottie } from "lottie-react"
 
 function LottieLogo() {
     const style = {
-        width: 200,
-        position: "absolute",
-        left: 100,
-        right: 400,
+        height: 300,
     }
     const options = {
-        path: "https://assets9.lottiefiles.com/packages/lf20_w6xlywkv.json",
+        path: "https://assets10.lottiefiles.com/packages/lf20_zg93gQ.json",
         loop: true,
         autoplay: true,
     }
