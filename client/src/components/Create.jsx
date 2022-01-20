@@ -91,6 +91,7 @@ const Form = styled.form`
     input[type="text"],
     select,
     textarea {
+        background-color: rgba(255, 255, 255, 0.4);
         font-size: 1rem;
         box-shadow: 0;
         border: 1px solid #ccc;
