@@ -1,56 +1,32 @@
 import styled from "styled-components"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import search from "../images/search.svg"
 import SimpleAccordion from "../components/Accordion"
+import FilterButtons from "../components/FilterButtons"
+import SearchBar from "../components/SearchBar"
 
 function ExerciseList({ transferedList }) {
     const [data, setData] = useState([])
-    const [filtered, setFilterd] = useState(transferedList) //damit die Liste auch anfangs dargestellt wird
-    const [result, setResult] = useState("")
-
-    useEffect(() => {
-        setData(transferedList)
-        setFilterd(transferedList)
-
-        const results = filtered.filter((res) => res.name.toLowerCase().includes(result))
-        setData(results)
-    }, [result])
-
-    const onChange = (e) => {
-        setResult(e.target.value)
-    }
 
     return (
-        <Cards>
+        <ExerciseListMain>
             <Title>
                 <h2>LIBRARY</h2>
             </Title>
-            <Form>
-                <label htmlFor="header-search">
-                    <AccessibilityLabel>Search for exercises</AccessibilityLabel>
-                </label>
-                <input type="text" id="header-search" placeholder="Search.." value={result} onChange={onChange} />
-            </Form>
+            <SearchAndFilter>
+                <SearchBar transferedListForBar={transferedList} transferedSetDataBar={setData} />
+                <FilterButtons transferedListForSearch={transferedList} transferedData={data} transferedSetData={setData} />
+            </SearchAndFilter>
             {data.map((item, index) => (
                 <SimpleAccordion key={index} name={item.name} type={item.type} equipment={item.equipment} video={item.video} text={item.definition} />
             ))}
-        </Cards>
+        </ExerciseListMain>
     )
 }
 
 export default ExerciseList
 
-const AccessibilityLabel = styled.label`
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-`
-
-const Cards = styled.div`
+const ExerciseListMain = styled.div`
     color: var(--main-txt-color);
     display: flex;
     flex-direction: column;
@@ -62,7 +38,7 @@ const Cards = styled.div`
     margin-bottom: 50px;
 `
 
-const Form = styled.div`
+const SearchAndFilter = styled.div`
     input[type="text"] {
         background-color: transparent;
         background-image: url(${search});
@@ -73,7 +49,7 @@ const Form = styled.div`
         border-bottom: 1px solid var(--secondary-txt-color);
         font-size: 1rem;
         display: inline-block;
-        margin: 8px 0;
+        margin: 0px 0;
         outline: none;
         padding: 10px 40px 10px 15px;
         width: 100%;

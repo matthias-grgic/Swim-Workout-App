@@ -25,8 +25,6 @@ function FormAdd() {
         }
     }
 
-    console.log(all)
-
     const handleChange = (e) => {
         let inputValue = e.target.value
         return setAll({ ...all, [e.target.name]: inputValue })

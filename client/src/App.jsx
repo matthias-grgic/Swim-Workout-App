@@ -10,7 +10,6 @@ import { Routes, Route } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 function App() {
-    //EXERCISELIST - FETCH FROM API
     const [list, setList] = useState([])
     useEffect(() => {
         async function fetchMyAPI() {
@@ -36,7 +35,6 @@ function App() {
         return fetchMyAPI()
     }, [])
 
-    //GENERATED WORKOUT LIST - FETCH FROM API
     const [wodList, setWodList] = useState([])
     useEffect(() => {
         async function fetchMyAPI() {
