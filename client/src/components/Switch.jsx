@@ -55,9 +55,9 @@ export default function CustomizedSwitches() {
     return (
         <FormGroup>
             <Stack direction="row" spacing={1} alignItems="center">
-                <Typography></Typography>
+                <Typography>Off</Typography>
                 <FormControlLabel control={<IOSSwitch sx={{ m: 1 }} defaultChecked />} label="" />
-                <Typography>25m</Typography>
+                <Typography>On</Typography>
             </Stack>
             <Stack direction="row" spacing={1} alignItems="center">
                 <Typography>Off</Typography>
