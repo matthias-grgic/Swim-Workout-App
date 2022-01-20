@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { useState, useEffect } from "react"
 import search from "../images/search.svg"
-import SimpleAccordion from "../lib/Accordion"
+import SimpleAccordion from "../components/Accordion"
 
 function ExerciseList({ transferedList }) {
     const [data, setData] = useState([])

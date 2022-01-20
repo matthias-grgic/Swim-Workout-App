@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { useState } from "react"
 import AddButton from "../images/addbutton.svg"
-import SimpleSnackbarTwo from "../lib/Snackbar"
+import SimpleSnackbarTwo from "../components/Snackbar"
 
 function Create() {
     const [name, setName] = useState("")

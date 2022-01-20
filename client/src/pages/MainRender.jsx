@@ -1,8 +1,8 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
-import SwitchLabels from "../lib/Switch"
-import DiscreteSliderMarks from "../lib/RangeSlider"
-import LottieLogoTwo from "../lib/lottieanimation"
+import SwitchLabels from "../components/Switch"
+import DiscreteSliderMarks from "../components/RangeSlider"
+import LottieLogoTwo from "../components/lottieanimation"
 import { useState } from "react"
 
 function MainRender({ transferedList }) {
