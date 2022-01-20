@@ -1,23 +1,98 @@
-import styled from "styled-components"
+// function SwitchLabels() {
+//     return (
+//         <FormGroupTwo>
+//             <FormControlLabel control={<Switch defaultChecked />} label="25m" />
+//             <FormControlLabel control={<Switch defaultChecked />} label="Equipment" />
+//             <FormControlLabel control={<Switch defaultChecked />} label="Drills" />
+//             <FormControlLabel control={<Switch defaultChecked />} label="Long" />
+//             <FormControlLabel disabled control={<Switch />} label="etc." />
+//         </FormGroupTwo>
+//     )
+// }
+
+// export default SwitchLabels
+
+// const FormGroupTwo = styled(FormGroup)`
+//     display: block;
+//     margin-left: 30px;
+// `
+
+import { styled } from "@mui/material/styles"
 import FormGroup from "@mui/material/FormGroup"
 import FormControlLabel from "@mui/material/FormControlLabel"
 import Switch from "@mui/material/Switch"
+import Stack from "@mui/material/Stack"
+import Typography from "@mui/material/Typography"
 
-function SwitchLabels() {
+const IOSSwitch = styled((props) => <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />)(({ theme }) => ({
+    width: 42,
+    height: 26,
+    padding: 0,
+    "& .MuiSwitch-switchBase": {
+        padding: 0,
+        margin: 2,
+        transitionDuration: "300ms",
+        "&.Mui-checked": {
+            transform: "translateX(16px)",
+            color: "#fff",
+            "& + .MuiSwitch-track": {
+                backgroundColor: theme.palette.mode === "dark" ? "#86b9ec" : "#a3c8ee",
+                opacity: 1,
+                border: 0,
+            },
+            "&.Mui-disabled + .MuiSwitch-track": {
+                opacity: 0.5,
+            },
+        },
+        "&.Mui-focusVisible .MuiSwitch-thumb": {
+            color: "#4a63ec",
+            border: "6px solid #fff",
+        },
+        "&.Mui-disabled .MuiSwitch-thumb": {
+            color: theme.palette.mode === "light" ? theme.palette.grey[100] : theme.palette.grey[600],
+        },
+        "&.Mui-disabled + .MuiSwitch-track": {
+            opacity: theme.palette.mode === "light" ? 0.7 : 0.3,
+        },
+    },
+    "& .MuiSwitch-thumb": {
+        boxSizing: "border-box",
+        width: 22,
+        height: 22,
+    },
+    "& .MuiSwitch-track": {
+        borderRadius: 26 / 2,
+        backgroundColor: theme.palette.mode === "light" ? "#E9E9EA" : "#39393D",
+        opacity: 1,
+        transition: theme.transitions.create(["background-color"], {
+            duration: 500,
+        }),
+    },
+}))
+
+export default function CustomizedSwitches() {
     return (
-        <FormGroupTwo>
-            <FormControlLabel control={<Switch defaultChecked />} label="25m" />
-            <FormControlLabel control={<Switch defaultChecked />} label="Equipment" />
-            <FormControlLabel control={<Switch defaultChecked />} label="Drills" />
-            <FormControlLabel control={<Switch defaultChecked />} label="Long" />
-            <FormControlLabel disabled control={<Switch />} label="etc." />
-        </FormGroupTwo>
+        <FormGroup>
+            <Stack direction="row" spacing={1} alignItems="center">
+                <Typography></Typography>
+                <FormControlLabel control={<IOSSwitch sx={{ m: 1 }} defaultChecked />} label="" />
+                <Typography>25m</Typography>
+            </Stack>
+            <Stack direction="row" spacing={1} alignItems="center">
+                <Typography>Off</Typography>
+                <FormControlLabel control={<IOSSwitch sx={{ m: 1 }} defaultChecked />} label="" />
+                <Typography>On</Typography>
+            </Stack>
+            <Stack direction="row" spacing={1} alignItems="center">
+                <Typography>Off</Typography>
+                <FormControlLabel control={<IOSSwitch sx={{ m: 1 }} defaultChecked />} label="" />
+                <Typography>On</Typography>
+            </Stack>
+            <Stack direction="row" spacing={1} alignItems="center">
+                <Typography>Off</Typography>
+                <FormControlLabel control={<IOSSwitch sx={{ m: 1 }} defaultChecked />} label="" />
+                <Typography>On</Typography>
+            </Stack>
+        </FormGroup>
     )
 }
-
-export default SwitchLabels
-
-const FormGroupTwo = styled(FormGroup)`
-    display: block;
-    margin-left: 30px;
-`

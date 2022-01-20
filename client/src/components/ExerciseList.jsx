@@ -23,7 +23,7 @@ function ExerciseList({ transferedList }) {
     return (
         <Cards>
             <Title>
-                <h2>Exercise List</h2>
+                <h2>EXERCISE ARCHIVE</h2>
             </Title>
             <Form>
                 <label htmlFor="header-search">

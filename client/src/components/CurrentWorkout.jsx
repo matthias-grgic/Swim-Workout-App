@@ -26,12 +26,12 @@ function CurrentWorkout({ transferedWodList }) {
     return (
         <Cards>
             <Title>
-                <h2>Current Workout</h2>
+                <h2>WORKOUT</h2>
             </Title>
             <InfoBar>
                 <Infos>
                     <img src={PoolDistance} width="45px" />
-                    <p>2000m</p>
+                    <>2000m</>
                 </Infos>
                 <Infos>
                     <img src={Clock} width="45px" />
