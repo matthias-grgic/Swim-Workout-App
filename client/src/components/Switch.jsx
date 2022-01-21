@@ -1,22 +1,3 @@
-// function SwitchLabels() {
-//     return (
-//         <FormGroupTwo>
-//             <FormControlLabel control={<Switch defaultChecked />} label="25m" />
-//             <FormControlLabel control={<Switch defaultChecked />} label="Equipment" />
-//             <FormControlLabel control={<Switch defaultChecked />} label="Drills" />
-//             <FormControlLabel control={<Switch defaultChecked />} label="Long" />
-//             <FormControlLabel disabled control={<Switch />} label="etc." />
-//         </FormGroupTwo>
-//     )
-// }
-
-// export default SwitchLabels
-
-// const FormGroupTwo = styled(FormGroup)`
-//     display: block;
-//     margin-left: 30px;
-// `
-
 import { styled } from "@mui/material/styles"
 import FormGroup from "@mui/material/FormGroup"
 import FormControlLabel from "@mui/material/FormControlLabel"
@@ -74,9 +55,9 @@ export default function CustomizedSwitches() {
     return (
         <FormGroup>
             <Stack direction="row" spacing={1} alignItems="center">
-                <Typography></Typography>
+                <Typography>Off</Typography>
                 <FormControlLabel control={<IOSSwitch sx={{ m: 1 }} defaultChecked />} label="" />
-                <Typography>25m</Typography>
+                <Typography>On</Typography>
             </Stack>
             <Stack direction="row" spacing={1} alignItems="center">
                 <Typography>Off</Typography>

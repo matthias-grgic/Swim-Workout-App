@@ -7,6 +7,7 @@ import FinsImg from "../images/equipment/fins.svg"
 import SnorkelImg from "../images/equipment/snorkel.svg"
 import styled from "styled-components"
 import Typography from "@mui/material/Typography"
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
 
 export default function SimpleAccordion({ name, type, equipment, video, text }) {
     const createYouTubeEmbedLink = (link) => link.replace("https://www.youtube.com/watch?v=", "https://www.youtube-nocookie.com/embed/")
@@ -14,8 +15,8 @@ export default function SimpleAccordion({ name, type, equipment, video, text }) 
 
     return (
         <div>
-            <Accordion TransitionProps={{ unmountOnExit: true }}>
-                <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
+            <Accordion TransitionProps={{ unmountOnExit: true }} sx={{ backgroundColor: "rgba(255,255,255, 0.4)", boxShadow: "none" }}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
                     <Typography sx={{ width: "60%", flexShrink: 0, color: "var(--main-txt-color)" }}>{name}</Typography>
                     <Typography sx={{ width: "20%", flexShrink: 0, color: "text.secondary" }}>{type}</Typography>
                     <Typography sx={{ width: "20%", flexShrink: 0, backgroundImage: `${equipmentLogo(equipment)}`, backgroundSize: "auto", backgroundRepeat: "no-repeat" }}></Typography>

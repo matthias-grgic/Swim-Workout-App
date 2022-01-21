@@ -1,14 +1,15 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
-import SwitchLabels from "../lib/Switch"
-import DiscreteSliderMarks from "../lib/RangeSlider"
-import LottieLogoTwo from "../lib/lottieanimation"
+import SwitchLabels from "../components/Switch"
+import DiscreteSliderMarks from "../components/RangeSlider"
+import LottieLogoTwo from "../components/lottieanimation"
 import { useState } from "react"
+import postToAPI from "../lib/postToApi"
 
 function MainRender({ transferedList }) {
     const [isLoading, setLoading] = useState(false)
-
     const newWOD = (originArray, start, end) => originArray.slice(start, end)
+
     //SLICE and Convert ARRAY froM API to Object (hier später alle Filter setzen oder?)
     const testListArray = newWOD(transferedList, -1)
     const newObj = Object.assign(
@@ -23,34 +24,16 @@ function MainRender({ transferedList }) {
         }))
     )
 
-    //POST DATA TO API
-    const postToAPI = async () => {
-        try {
-            const settings = {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(newObj),
-            }
-            const fetchResponse = await fetch("/api/postworkoutlist", settings)
-            const data = await fetchResponse.json()
-            return data
-        } catch (e) {
-            console.error(e)
-        }
-    }
-
     return (
         <MainDiv>
             <Link to="/CurrentWorkout">
-                {/* {isLoading ? <LottieLogoTwo /> : null}  setLoading(true) */}
-                <ButtonForRender onClick={() => postToAPI()}>GO</ButtonForRender>
+                {/* {isLoading ? <LottieLogoTwo /> : null}  && setLoading(true) */}
+                <ButtonForRender onClick={() => postToAPI("/api/postworkoutlist", newObj)}>GO</ButtonForRender>
             </Link>
             <DiscreteSliderMarks />
-            <ToggleDiv>
+            <SwitchSection>
                 <SwitchLabels></SwitchLabels>
-            </ToggleDiv>
+            </SwitchSection>
         </MainDiv>
     )
 }
@@ -91,7 +74,7 @@ const MainDiv = styled.div`
     gap: 1rem;
 `
 
-const ToggleDiv = styled.div`
+const SwitchSection = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.5rem;

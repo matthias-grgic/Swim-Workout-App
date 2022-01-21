@@ -1,16 +1,15 @@
 import styled from "styled-components"
-import Create from "./components/Create"
-import CurrentWorkout from "./components/CurrentWorkout"
-import ExerciseList from "./components/ExerciseList"
-import Footer from "./components/Footer"
-import Header from "./components/Header"
-import MainRender from "./components/MainRender"
-import Settings from "./components/Settings"
+import Create from "./pages/Create"
+import CurrentWorkout from "./pages/CurrentWorkout"
+import ExerciseList from "./pages/ExerciseList"
+import Footer from "./pages/Footer"
+import Header from "./pages/Header"
+import MainRender from "./pages/MainRender"
+import Settings from "./pages/Settings"
 import { Routes, Route } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 function App() {
-    //EXERCISELIST - FETCH FROM API
     const [list, setList] = useState([])
     useEffect(() => {
         async function fetchMyAPI() {
@@ -36,7 +35,6 @@ function App() {
         return fetchMyAPI()
     }, [])
 
-    //GENERATED WORKOUT LIST - FETCH FROM API
     const [wodList, setWodList] = useState([])
     useEffect(() => {
         async function fetchMyAPI() {
@@ -87,6 +85,8 @@ function App() {
 export default App
 
 const Main = styled.div`
+    background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+    /* background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%); */
     display: flex;
     flex-direction: column;
     justify-content: center;

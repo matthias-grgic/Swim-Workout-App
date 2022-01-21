@@ -40,7 +40,7 @@ function Footer() {
 export default Footer
 
 const NavBar = styled.div`
-    background: white;
+    background: transparent;
     bottom: 0;
     display: flex;
     gap: 1rem;
