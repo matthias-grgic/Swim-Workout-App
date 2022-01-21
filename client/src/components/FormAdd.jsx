@@ -5,15 +5,17 @@ import SimpleSnackbarTwo from "../components/Snackbar"
 import postToApi from "../lib/postToApi"
 
 function FormAdd() {
-    const initalForm = { name: "", type: "", video: "", definition: "", equipment: "" }
+    const initalForm = { name: "", type: "normal", video: "", definition: "", equipment: "pullbuoy" }
     const [all, setAll] = useState(initalForm)
 
     const handleChange = (e) => {
         const inputValue = e.target.value
-        return setAll({ ...all, [e.target.name]: inputValue })
+        const newData = { ...all, [e.target.name]: inputValue }
+        console.log(newData)
+        return setAll(newData)
     }
 
-    const handleSubmit = (e) => postToApi("/api/postexerciselist", all)
+    const handleSubmit = () => postToApi("/api/postexerciselist", all)
 
     return (
         <Form onSubmit={handleSubmit}>

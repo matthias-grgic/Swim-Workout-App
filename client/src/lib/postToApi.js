@@ -1,4 +1,4 @@
-const postToAPI = async (url = "", data = {}, e) => {
+const postToAPI = async (url = "", data = {}) => {
     try {
         const settings = {
             method: "POST",
