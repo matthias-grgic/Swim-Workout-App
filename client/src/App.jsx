@@ -8,56 +8,20 @@ import MainRender from "./pages/MainRender"
 import Settings from "./pages/Settings"
 import { Routes, Route } from "react-router-dom"
 import { useState, useEffect } from "react"
+import FetchFromApi from "./lib/fetchFromApi"
 
 function App() {
     const [list, setList] = useState([])
+    const [wodList, setWodList] = useState([])
+
+    //Fetch Exercise List
     useEffect(() => {
-        async function fetchMyAPI() {
-            try {
-                const response = await fetch("/api/getexerciselist")
-                const api = await response.json()
-                const exerciseList = api.map((item) => {
-                    return {
-                        id: item._id,
-                        name: item.name,
-                        type: item.type,
-                        video: item.video,
-                        definition: item.definition,
-                        length: item.length,
-                        equipment: item.equipment,
-                    }
-                })
-                setList(exerciseList)
-            } catch (e) {
-                console.error(e)
-            }
-        }
-        return fetchMyAPI()
+        const fetch = FetchFromApi("/api/getexerciselist", setList)
     }, [])
 
-    const [wodList, setWodList] = useState([])
+    //Fetch CurrentWorkout List
     useEffect(() => {
-        async function fetchMyAPI() {
-            try {
-                const response = await fetch("/api/getworkoutlist")
-                const api = await response.json()
-                const mappedWodList = api.map((item) => {
-                    return {
-                        id: item._id,
-                        name: item.name,
-                        type: item.type,
-                        video: item.video,
-                        definition: item.definition,
-                        equipment: item.equipment,
-                        length: item.length,
-                    }
-                })
-                setWodList(mappedWodList)
-            } catch (e) {
-                console.error(e)
-            }
-        }
-        return fetchMyAPI()
+        const fetch = FetchFromApi("/api/getexerciselist", setWodList)
     }, [])
 
     return (
