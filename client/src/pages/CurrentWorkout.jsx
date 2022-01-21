@@ -5,6 +5,7 @@ import FinsImg from "../images/equipment/fins.svg"
 import SnorkelImg from "../images/equipment/snorkel.svg"
 import PoolDistance from "../images/pooldistance.svg"
 import Clock from "../images/clock.svg"
+import minilogo from "../images/minilogo.svg"
 
 function CurrentWorkout({ transferedWodList }) {
     const drills = transferedWodList.map((item, index) => (
@@ -31,11 +32,15 @@ function CurrentWorkout({ transferedWodList }) {
             <InfoBar>
                 <Infos>
                     <img src={PoolDistance} width="45px" />
-                    <>2000m</>
+                    <InfoText>25m</InfoText>
                 </Infos>
                 <Infos>
                     <img src={Clock} width="45px" />
-                    <p>1:00h</p>
+                    <InfoText>1:00h</InfoText>
+                </Infos>
+                <Infos>
+                    <img src={minilogo} width="45px" />
+                    <InfoText>2000m</InfoText>
                 </Infos>
             </InfoBar>
             <WarmUp>
@@ -64,7 +69,7 @@ const Cards = styled.div`
     color: var(--main-txt-color);
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 1px;
     margin-bottom: 50px;
     padding: 10px;
     overflow: auto;
@@ -109,10 +114,15 @@ const Title = styled(CoolDown)`
 
 const Infos = styled(CoolDown)`
     align-items: center;
+    justify-content: center;
+`
+
+const InfoText = styled.div`
+    margin-top: 5px;
 `
 
 const InfoBar = styled.div`
-    align-items: center;
+    justify-content: space-around;
     display: flex;
-    padding: 0px 16px 16px 16px;
+    padding: 0px 16px 0px 16px;
 `
