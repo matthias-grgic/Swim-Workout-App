@@ -21,7 +21,7 @@ function App() {
 
     //Fetch CurrentWorkout List
     useEffect(() => {
-        const fetch = FetchFromApi("/api/getexerciselist", setWodList)
+        const fetch = FetchFromApi("/api/getworkoutlist", setWodList)
     }, [])
 
     return (
