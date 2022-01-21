@@ -5,7 +5,7 @@ import SimpleSnackbarTwo from "../components/Snackbar"
 import postToApi from "../lib/postToApi"
 
 function FormAdd() {
-    const initalForm = { name: "", type: "normal", video: "", definition: "", equipment: "pullbuoy" }
+    const initalForm = { name: "", type: "main", video: "", definition: "", equipment: "pullbuoy" }
     const [all, setAll] = useState(initalForm)
 
     const handleChange = (e) => {
@@ -24,7 +24,7 @@ function FormAdd() {
             </FormField>
             <FormField>
                 <select name="type" value={all.type} onChange={handleChange}>
-                    <option value="normal">Normal</option>
+                    <option value="main">Main</option>
                     <option value="drill">Drill</option>
                 </select>
             </FormField>
