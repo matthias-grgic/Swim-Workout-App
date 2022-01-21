@@ -3,7 +3,6 @@ import AddButton from "../images/addbutton.svg"
 import { useState } from "react"
 import SimpleSnackbarTwo from "../components/Snackbar"
 import postToApi from "../lib/postToApi"
-import isFormValid from "../lib/formValidation"
 
 function FormAdd() {
     const initalForm = { name: "", type: "main", video: "", definition: "", equipment: "pullbuoy" }

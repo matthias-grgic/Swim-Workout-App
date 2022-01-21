@@ -16,12 +16,12 @@ function App() {
 
     //Fetch Exercise List
     useEffect(() => {
-        const fetch = FetchFromApi("/api/getexerciselist", setList)
+        FetchFromApi("/api/getexerciselist", setList)
     }, [])
 
     //Fetch CurrentWorkout List
     useEffect(() => {
-        const fetch = FetchFromApi("/api/getworkoutlist", setWodList)
+        FetchFromApi("/api/getworkoutlist", setWodList)
     }, [])
 
     return (
@@ -56,5 +56,5 @@ const Main = styled.div`
     justify-content: center;
     align-items: center;
     height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
+    /* height: calc(var(--vh, 1vh) * 100); */
 `
