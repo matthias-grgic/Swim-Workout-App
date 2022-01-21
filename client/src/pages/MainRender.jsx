@@ -7,7 +7,7 @@ import { useState } from "react"
 import postToAPI from "../lib/postToApi"
 
 function MainRender({ transferedList }) {
-    const [isLoading, setLoading] = useState(false)
+    // const [isLoading, setLoading] = useState(false)
     const newWOD = (originArray, start, end) => originArray.slice(start, end)
 
     //SLICE and Convert ARRAY froM API to Object (hier später alle Filter setzen oder?)

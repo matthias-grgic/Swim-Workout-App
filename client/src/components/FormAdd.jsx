@@ -3,6 +3,7 @@ import AddButton from "../images/addbutton.svg"
 import { useState } from "react"
 import SimpleSnackbarTwo from "../components/Snackbar"
 import postToApi from "../lib/postToApi"
+import isFormValid from "../lib/formValidation"
 
 function FormAdd() {
     const initalForm = { name: "", type: "main", video: "", definition: "", equipment: "pullbuoy" }
@@ -14,10 +15,8 @@ function FormAdd() {
         return setAll(newData)
     }
 
-    const handleSubmit = () => postToApi("/api/postexerciselist", all)
-
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={() => postToApi("/api/postexerciselist", all)}>
             <FormField>
                 <input type="text" name="name" id="name" value={all.name} onChange={handleChange} placeholder="Exercise" />
             </FormField>
