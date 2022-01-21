@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 function SearchBar({ transferedListForBar, transferedSetDataBar }) {
     const [filtered, setFilterd] = useState(transferedListForBar)
     const [result, setResult] = useState("")
-
     useEffect(() => {
         transferedSetDataBar(transferedListForBar)
         setFilterd(transferedListForBar)

@@ -2,33 +2,18 @@ import styled from "styled-components"
 import AddButton from "../images/addbutton.svg"
 import { useState } from "react"
 import SimpleSnackbarTwo from "../components/Snackbar"
+import postToApi from "../lib/postToApi"
 
 function FormAdd() {
     const initalForm = { name: "", type: "", video: "", definition: "", equipment: "" }
     const [all, setAll] = useState(initalForm)
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        try {
-            const settings = {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(all),
-            }
-            const fetchResponse = await fetch("/api/postexerciselist", settings)
-            const data = await fetchResponse.json()
-            return data
-        } catch (e) {
-            console.error(e)
-        }
-    }
-
     const handleChange = (e) => {
-        let inputValue = e.target.value
+        const inputValue = e.target.value
         return setAll({ ...all, [e.target.name]: inputValue })
     }
+
+    const handleSubmit = (e) => postToApi("/api/postexerciselist", all)
 
     return (
         <Form onSubmit={handleSubmit}>
@@ -43,10 +28,10 @@ function FormAdd() {
             </FormField>
             <FormField>
                 <select name="equipment" value={all.equipment} onChange={handleChange}>
-                    <option value="pullbuoy">pullbuoy</option>
-                    <option value="paddles">paddles</option>
-                    <option value="snorkel">snorkel</option>
-                    <option value="fins">fins</option>
+                    <option value="pullbuoy">Pullbuoy</option>
+                    <option value="paddles">Paddles</option>
+                    <option value="snorkel">Snorkel</option>
+                    <option value="fins">Fins</option>
                 </select>
             </FormField>
             <FormField>

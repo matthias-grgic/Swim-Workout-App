@@ -37,9 +37,7 @@ function FilterButtons({ transferedData, transferedSetData, transferedListForSea
                     const filteredType = transferedData.filter((item) => item.equipment === "snorkel")
                     return transferedSetData(filteredType)
                 }}
-            >
-                4
-            </ButtonSN>
+            ></ButtonSN>
         </FilterButtonsStyled>
     )
 }
