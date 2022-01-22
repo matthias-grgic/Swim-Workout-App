@@ -18,7 +18,7 @@ function Create() {
             </Title>
             <FormAdd />
             <TitleTwo>
-                <h2>USER LIBRARY</h2>
+                <h3>EDIT USER LIBRARY</h3>
             </TitleTwo>
             {userList.map((item, index) => (
                 <SimpleAccordion key={index} name={item.name} type={item.type} equipment={item.equipment} video={item.video} text={item.definition} />
