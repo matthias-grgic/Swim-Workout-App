@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import SwitchLabels from "../components/Switch"
 import DiscreteSliderMarks from "../components/RangeSlider"
 import LottieLogoTwo from "../components/lottieanimation"
-import { useState } from "react"
 import postToAPI from "../lib/postToApi"
 
 function MainRender({ transferedList }) {
@@ -41,6 +40,7 @@ function MainRender({ transferedList }) {
 export default MainRender
 
 const ButtonForRender = styled.button`
+    background-image: linear-gradient(-225deg, #7de2fc 0%, #b9b6e5 100%);
     border: none;
     border-radius: 50%;
     box-shadow: var(--main-box-shadow);
@@ -54,7 +54,7 @@ const ButtonForRender = styled.button`
     position: relative;
     width: 200px;
     transition: all 0.1s ease-in-out;
-    background-image: linear-gradient(-225deg, #7de2fc 0%, #b9b6e5 100%);
+
     &:active {
         background-image: linear-gradient(-225deg, #c6eef8 0%, #b9b6e5 100%);
         color: white;

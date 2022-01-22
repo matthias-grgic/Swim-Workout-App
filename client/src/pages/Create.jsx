@@ -1,8 +1,6 @@
 import styled from "styled-components"
 import FormAdd from "../components/FormAdd"
 import SimpleAccordion from "../components/Accordion"
-import { useState, useEffect } from "react"
-import FetchFromApi from "../lib/fetchFromApi"
 
 function Create({ transferedUserList }) {
     return (
