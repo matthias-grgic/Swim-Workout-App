@@ -108,6 +108,8 @@ const Main = styled(CoolDown)``
 const WarmUp = styled(CoolDown)``
 
 const Title = styled(CoolDown)`
+    display: flex;
+    flex-direction: column;
     align-items: center;
     padding: 10px 16px 16px 16px;
 `

@@ -15,7 +15,7 @@ function FormAdd() {
     }
 
     return (
-        <Form onSubmit={() => postToApi("/api/postexerciselist", all)}>
+        <Form onSubmit={() => postToApi("/api/postUserExercises", all)}>
             <FormField>
                 <input type="text" name="name" id="name" value={all.name} onChange={handleChange} placeholder="Exercise" />
             </FormField>
@@ -74,8 +74,8 @@ const Form = styled.form`
         border-radius: 4px;
         color: white;
         cursor: pointer;
-        margin: 15px 0;
-        padding: 30px;
+        margin: 5px 0 10px 0;
+        padding: 20px;
         width: 100%;
         &:active {
             color: white;
@@ -87,7 +87,7 @@ const Form = styled.form`
     }
 
     textarea {
-        height: 100px;
+        height: 80px;
         resize: none;
     }
 `

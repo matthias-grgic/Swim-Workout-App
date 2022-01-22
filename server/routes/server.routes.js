@@ -1,6 +1,7 @@
 import express from "express"
 import { getExerciseList, postExerciseList } from "../controller/exerciselist.controller.js"
 import { getWorkoutList, postWorkoutList, deleteItems } from "../controller/generatedworkouts.controller.js"
+import { getUserExercises, postUserExercises, deleteUserItems } from "../controller/userexercises.controller.js"
 
 const router = express.Router()
 
@@ -17,5 +18,10 @@ router.post("/postexerciselist", postExerciseList)
 router.get("/getworkoutlist", getWorkoutList)
 router.post("/postworkoutlist", postWorkoutList)
 router.delete("/deleteworkoutlist", deleteItems)
+
+///UserExercises
+router.get("/getUserExercises", getUserExercises)
+router.post("/postUserExercises", postUserExercises)
+router.delete("/deleteUserExercises", deleteUserItems)
 
 export default router

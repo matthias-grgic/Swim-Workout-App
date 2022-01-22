@@ -7,7 +7,6 @@ import SearchBar from "../components/SearchBar"
 
 function ExerciseList({ transferedList }) {
     const [data, setData] = useState([])
-
     return (
         <ExerciseListMain>
             <Title>
