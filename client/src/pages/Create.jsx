@@ -4,13 +4,7 @@ import SimpleAccordion from "../components/Accordion"
 import { useState, useEffect } from "react"
 import FetchFromApi from "../lib/fetchFromApi"
 
-function Create() {
-    //Fetch UserExercises List
-    const [userList, setUserList] = useState([])
-    useEffect(() => {
-        FetchFromApi("/api/getUserExercises", setUserList)
-    }, [])
-
+function Create({ transferedUserList }) {
     return (
         <MainDiv>
             <Title>
@@ -20,7 +14,7 @@ function Create() {
             <TitleTwo>
                 <h3>EDIT USER LIBRARY</h3>
             </TitleTwo>
-            {userList.map((item, index) => (
+            {transferedUserList.map((item, index) => (
                 <SimpleAccordion key={index} name={item.name} type={item.type} equipment={item.equipment} video={item.video} text={item.definition} />
             ))}
         </MainDiv>

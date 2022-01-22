@@ -4,17 +4,21 @@ import SimpleAccordion from "../components/Accordion"
 import FilterButtons from "../components/FilterButtons"
 import SearchBar from "../components/SearchBar"
 
-function ExerciseList({ transferedList }) {
-    const [data, setData] = useState([])
+function ExerciseList({ transferedList, transferedUserList }) {
+    const [dataExercise, setDataExercise] = useState([])
+
+    //Merge Exercise List & User List
+    const MergedLists = transferedList.concat(transferedUserList)
+
     return (
         <ExerciseListMain>
             <Title>
                 <h2>LIBRARY</h2>
             </Title>
-            <SearchBar transferedListForBar={transferedList} transferedSetDataBar={setData} />
-            <FilterButtons transferedListForSearch={transferedList} transferedSetData={setData} />
+            <SearchBar transferedListForBar={MergedLists} transferedSetDataExercise={setDataExercise} />
+            <FilterButtons transferedListForSearch={MergedLists} transferedSetData={setDataExercise} />
             <AccordionSection>
-                {data.map((item, index) => (
+                {dataExercise.map((item, index) => (
                     <SimpleAccordion key={index} name={item.name} type={item.type} equipment={item.equipment} video={item.video} text={item.definition} />
                 ))}
             </AccordionSection>

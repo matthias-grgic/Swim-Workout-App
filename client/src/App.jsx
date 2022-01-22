@@ -13,6 +13,7 @@ import FetchFromApi from "./lib/fetchFromApi"
 function App() {
     const [list, setList] = useState([])
     const [wodList, setWodList] = useState([])
+    const [userList, setUserList] = useState([])
 
     //Fetch Exercise List
     useEffect(() => {
@@ -22,6 +23,11 @@ function App() {
     //Fetch CurrentWorkout List
     useEffect(() => {
         FetchFromApi("/api/getworkoutlist", setWodList)
+    }, [])
+
+    //Fetch UserExercises List
+    useEffect(() => {
+        FetchFromApi("/api/getUserExercises", setUserList)
     }, [])
 
     return (
@@ -37,8 +43,8 @@ function App() {
                     }
                 />
                 <Route path="/CurrentWorkout" element={<CurrentWorkout transferedWodList={wodList} />} />
-                <Route path="/ExerciseList" element={<ExerciseList transferedList={list} />} />
-                <Route path="/Create" element={<Create />} />
+                <Route path="/ExerciseList" element={<ExerciseList transferedList={list} transferedUserList={userList} />} />
+                <Route path="/Create" element={<Create transferedUserList={userList} />} />
                 <Route path="/Settings" element={<Settings />} />
             </Routes>
             <Footer />

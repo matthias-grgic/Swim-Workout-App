@@ -2,15 +2,16 @@ import styled from "styled-components"
 import { useState, useEffect } from "react"
 import search from "../images/search.svg"
 
-function SearchBar({ transferedListForBar, transferedSetDataBar }) {
+function SearchBar({ transferedListForBar, transferedSetDataExercise }) {
     const [filtered, setFilterd] = useState(transferedListForBar)
     const [result, setResult] = useState("")
+
     useEffect(() => {
-        transferedSetDataBar(transferedListForBar)
+        transferedSetDataExercise(transferedListForBar)
         setFilterd(transferedListForBar)
 
         const results = filtered.filter((res) => res.name.toLowerCase().includes(result))
-        transferedSetDataBar(results)
+        transferedSetDataExercise(results)
     }, [result])
 
     const onChange = (e) => {
