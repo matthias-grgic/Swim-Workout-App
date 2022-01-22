@@ -3,6 +3,8 @@ import FormAdd from "../components/FormAdd"
 import SimpleAccordion from "../components/Accordion"
 
 function Create({ transferedUserList }) {
+    const showDeleteButton = "block"
+
     return (
         <MainDiv>
             <Title>
@@ -13,7 +15,7 @@ function Create({ transferedUserList }) {
                 <h3>EDIT USER LIBRARY</h3>
             </TitleTwo>
             {transferedUserList.map((item, index) => (
-                <SimpleAccordion key={index} name={item.name} type={item.type} equipment={item.equipment} video={item.video} text={item.definition} />
+                <SimpleAccordion key={index} id={item.id} name={item.name} type={item.type} equipment={item.equipment} video={item.video} DeleteButtonCSS={showDeleteButton} />
             ))}
         </MainDiv>
     )

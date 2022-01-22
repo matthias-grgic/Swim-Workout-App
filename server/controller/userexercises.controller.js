@@ -26,7 +26,7 @@ const postUserExercises = async (req, res) => {
 
 //DELETE//
 const deleteUserItems = async (req, res) => {
-    const itemId = req.params._itemId
+    const itemId = req.params.itemId
     try {
         const result = await UserExercises.findByIdAndDelete(itemId)
         if (result) {

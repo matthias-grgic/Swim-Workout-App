@@ -8,11 +8,11 @@ import SnorkelImg from "../images/equipment/snorkel.svg"
 import styled from "styled-components"
 import Typography from "@mui/material/Typography"
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
+import deleteFromApi from "../lib/deleteFromApi"
 
-export default function SimpleAccordion({ name, type, equipment, video, text }) {
+export default function SimpleAccordion({ name, type, equipment, video, text, id, DeleteButtonCSS }) {
     const createYouTubeEmbedLink = (link) => link.replace("https://www.youtube.com/watch?v=", "https://www.youtube-nocookie.com/embed/")
     const equipmentLogo = (item) => (item === "pullbuoy" ? `url(${PullbuoyImg})` : item === "paddles" ? `url(${HandPaddleImg})` : item === "fins" ? `url(${FinsImg})` : item === "snorkel" ? `url(${SnorkelImg})` : null)
-
     return (
         <div>
             <Accordion TransitionProps={{ unmountOnExit: true }} sx={{ backgroundColor: "rgba(255,255,255, 0.4)", boxShadow: "none" }}>
@@ -31,7 +31,18 @@ export default function SimpleAccordion({ name, type, equipment, video, text }) 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                     ></iframe>
-                    <TextStyled> {text} </TextStyled>
+                    <TextStyled>
+                        {text}
+                        <ButtonDelete
+                            displayInfo={DeleteButtonCSS}
+                            onClick={() => {
+                                deleteFromApi(`/api/deleteUserExercises/${id}`)
+                                window.location.reload(false)
+                            }}
+                        >
+                            <h3>DELETE</h3>
+                        </ButtonDelete>
+                    </TextStyled>
                 </AccordionDetails>
             </Accordion>
         </div>
@@ -40,4 +51,13 @@ export default function SimpleAccordion({ name, type, equipment, video, text }) 
 
 const TextStyled = styled.div`
     margin-top: 10px;
+`
+
+const ButtonDelete = styled.button`
+    background: transparent;
+    border: 1px solid red;
+    color: black;
+    display: ${(props) => (props.displayInfo === "block" ? "block" : "none")};
+    padding: 5px;
+    width: 100px;
 `

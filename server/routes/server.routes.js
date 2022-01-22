@@ -22,6 +22,6 @@ router.delete("/deleteworkoutlist", deleteItems)
 ///UserExercises
 router.get("/getUserExercises", getUserExercises)
 router.post("/postUserExercises", postUserExercises)
-router.delete("/deleteUserExercises", deleteUserItems)
+router.delete("/deleteUserExercises/:itemId", deleteUserItems)
 
 export default router
