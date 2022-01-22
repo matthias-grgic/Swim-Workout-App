@@ -4,7 +4,7 @@ import HandPaddleImg from "../images/equipment/handpaddles.svg"
 import FinsImg from "../images/equipment/fins.svg"
 import SnorkelImg from "../images/equipment/snorkel.svg"
 
-function FilterButtons({ transferedData, transferedSetData, transferedListForSearch }) {
+function FilterButtons({ transferedSetData, transferedListForSearch }) {
     return (
         <FilterButtonsStyled>
             <Button
@@ -16,25 +16,25 @@ function FilterButtons({ transferedData, transferedSetData, transferedListForSea
             </Button>
             <ButtonPB
                 onClick={() => {
-                    const filteredType = transferedData.filter((item) => item.equipment === "pullbuoy")
+                    const filteredType = transferedListForSearch.filter((item) => item.equipment === "pullbuoy")
                     return transferedSetData(filteredType)
                 }}
             ></ButtonPB>
             <ButtonHP
                 onClick={() => {
-                    const filteredType = transferedData.filter((item) => item.equipment === "paddles")
+                    const filteredType = transferedListForSearch.filter((item) => item.equipment === "paddles")
                     return transferedSetData(filteredType)
                 }}
             ></ButtonHP>
             <ButtonFN
                 onClick={() => {
-                    const filteredType = transferedData.filter((item) => item.equipment === "fins")
+                    const filteredType = transferedListForSearch.filter((item) => item.equipment === "fins")
                     return transferedSetData(filteredType)
                 }}
             ></ButtonFN>
             <ButtonSN
                 onClick={() => {
-                    const filteredType = transferedData.filter((item) => item.equipment === "snorkel")
+                    const filteredType = transferedListForSearch.filter((item) => item.equipment === "snorkel")
                     return transferedSetData(filteredType)
                 }}
             ></ButtonSN>

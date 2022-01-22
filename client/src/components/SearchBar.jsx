@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { useState, useEffect } from "react"
+import search from "../images/search.svg"
 
 function SearchBar({ transferedListForBar, transferedSetDataBar }) {
     const [filtered, setFilterd] = useState(transferedListForBar)
@@ -38,4 +39,20 @@ const AccessibilityLabel = styled.label`
     width: 1px;
 `
 
-const SearchBarStyled = styled.div``
+const SearchBarStyled = styled.div`
+    input[type="text"] {
+        background-color: transparent;
+        background-image: url(${search});
+        background-size: 20px;
+        background-repeat: no-repeat;
+        background-position: right center;
+        border: none;
+        border-bottom: 1px solid var(--secondary-txt-color);
+        font-size: 1rem;
+        display: inline-block;
+        margin: 0px 0;
+        outline: none;
+        padding: 10px 40px 10px 15px;
+        width: 100%;
+    }
+`

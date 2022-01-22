@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import { useState } from "react"
-import search from "../images/search.svg"
 import SimpleAccordion from "../components/Accordion"
 import FilterButtons from "../components/FilterButtons"
 import SearchBar from "../components/SearchBar"
@@ -12,18 +11,20 @@ function ExerciseList({ transferedList }) {
             <Title>
                 <h2>LIBRARY</h2>
             </Title>
-            <SearchAndFilter>
-                <SearchBar transferedListForBar={transferedList} transferedSetDataBar={setData} />
-                <FilterButtons transferedListForSearch={transferedList} transferedData={data} transferedSetData={setData} />
-            </SearchAndFilter>
-            {data.map((item, index) => (
-                <SimpleAccordion key={index} name={item.name} type={item.type} equipment={item.equipment} video={item.video} text={item.definition} />
-            ))}
+            <SearchBar transferedListForBar={transferedList} transferedSetDataBar={setData} />
+            <FilterButtons transferedListForSearch={transferedList} transferedSetData={setData} />
+            <AccordionSection>
+                {data.map((item, index) => (
+                    <SimpleAccordion key={index} name={item.name} type={item.type} equipment={item.equipment} video={item.video} text={item.definition} />
+                ))}
+            </AccordionSection>
         </ExerciseListMain>
     )
 }
 
 export default ExerciseList
+
+const AccordionSection = styled.div``
 
 const ExerciseListMain = styled.div`
     color: var(--main-txt-color);
@@ -37,23 +38,6 @@ const ExerciseListMain = styled.div`
     margin-bottom: 50px;
 `
 
-const SearchAndFilter = styled.div`
-    input[type="text"] {
-        background-color: transparent;
-        background-image: url(${search});
-        background-size: 20px;
-        background-repeat: no-repeat;
-        background-position: right center;
-        border: none;
-        border-bottom: 1px solid var(--secondary-txt-color);
-        font-size: 1rem;
-        display: inline-block;
-        margin: 0px 0;
-        outline: none;
-        padding: 10px 40px 10px 15px;
-        width: 100%;
-    }
-`
 const Title = styled.div`
     align-items: center;
     display: flex;
