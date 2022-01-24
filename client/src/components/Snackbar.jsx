@@ -50,25 +50,26 @@ export default function SimpleSnackbarTwo() {
 }
 
 const SnackBarOutput = styled.div`
-input[type="submit"] {
-    transition: all 0.1s ease-in-out;
-    background-color: transparent;
-    background-image: url(${AddButton});
-    background-size: 55px;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-    margin: 15px 0;
-    padding: 30px;
-    width: 100%;
-    &:active {
+    input[type="submit"] {
+        transition: all 0.1s ease-in-out;
+        background-color: transparent;
+        background-image: url(${AddButton});
+        background-size: 55px;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+        border-radius: 4px;
         color: white;
-    }
+        cursor: pointer;
+        margin: 15px 0;
+        padding: 30px;
+        width: 100%;
+        &:active {
+            color: white;
+        }
 
-    &:hover {
-        transition: all 1s ease;
+        &:hover {
+            transition: all 1s ease;
+        }
     }
 `
