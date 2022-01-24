@@ -1,5 +1,4 @@
-const postToAPI = async (url = "", data = {}, event) => {
-    event.preventDefault()
+const postToAPI = async (url = "", data = {}) => {
     try {
         const settings = {
             method: "POST",
