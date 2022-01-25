@@ -4,15 +4,15 @@ import Slider from "@mui/material/Slider"
 const marks = [
     {
         value: 0,
-        label: "1000m",
+        label: "1000 m",
     },
     {
         value: 50,
-        label: "2000m",
+        label: "2000 m",
     },
     {
         value: 100,
-        label: "3000m",
+        label: "3000 m",
     },
 ]
 
@@ -20,10 +20,12 @@ function valuetext(value) {
     return `${value}m`
 }
 
-export default function DiscreteSliderMarks() {
+console.log()
+
+export default function RangeSlider({ setLengthOfWod }) {
     return (
         <Box sx={{ width: 200 }}>
-            <Slider aria-label="swimming-length" defaultValue={0} getAriaValueText={valuetext} step={50} valueLabelDisplay="off" marks={marks} />
+            <Slider aria-label="swimming-length" defaultValue={0} getAriaValueText={valuetext} step={50} valueLabelDisplay="off" marks={marks} onChange={(e) => setLengthOfWod(e.target.value)} />
         </Box>
     )
 }

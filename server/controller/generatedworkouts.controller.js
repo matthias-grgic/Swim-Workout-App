@@ -8,16 +8,17 @@ const getWorkoutList = async (req, res) => {
 
 //POST//
 const postWorkoutList = async (req, res) => {
-    const workoutListAdd = new WorkoutList({
-        name: req.body.name,
-        type: req.body.type,
-        video: req.body.video,
-        equipment: req.body.equipment,
-        definition: req.body.definition,
-        length: req.body.length,
-    })
     try {
-        const result = await workoutListAdd.save()
+        const result = await WorkoutList.insertMany([
+            {
+                name: req.body.name,
+                type: req.body.type,
+                video: req.body.video,
+                equipment: req.body.equipment,
+                definition: req.body.definition,
+                length: req.body.length,
+            },
+        ])
         res.json(result)
     } catch (error) {
         res.json(error)

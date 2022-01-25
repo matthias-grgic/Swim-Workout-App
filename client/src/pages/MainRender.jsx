@@ -1,37 +1,32 @@
 import styled from "styled-components"
-import { Link } from "react-router-dom"
-import SwitchLabels from "../components/Switch"
-import DiscreteSliderMarks from "../components/RangeSlider"
+import { useNavigate } from "react-router-dom"
+import Switch from "../components/Switch"
+import RangeSlider from "../components/RangeSlider"
 import LottieLogoTwo from "../components/lottieanimation"
 import postToAPI from "../lib/postToApi"
 
-function MainRender({ transferedList }) {
-    // const [isLoading, setLoading] = useState(false)
-    const newWOD = (originArray, start, end) => originArray.slice(start, end)
+function MainRender({ list, setWodList, setLengthOfWod, setSwitchOne }) {
+    const navigate = useNavigate()
 
-    //SLICE and Convert ARRAY froM API to Object (hier später alle Filter setzen oder?)
-    const testListArray = newWOD(transferedList, -1)
-    const newObj = Object.assign(
-        {},
-        ...testListArray.map((item) => ({
-            name: item.name,
-            type: item.type,
-            video: item.video,
-            definition: item.definition,
-            equipment: item.equipment,
-            length: item.length,
-        }))
-    )
+    //RANDOMIZE THE EXERCISE LIST
+    const newWOD = list
+        .map((value) => ({ value, sort: Math.random() })) //put each element in the array in an object, and give it a random sort key
+        .sort((a, b) => a.sort - b.sort) //sort using the random key
+        .map(({ value }) => value) //unmap to get the original objects
+
+    async function postAndRedirect() {
+        await postToAPI("/api/postworkoutlist", newWOD)
+        setWodList(newWOD)
+        navigate("/CurrentWorkout")
+        console.log(newWOD)
+    }
 
     return (
         <MainDiv>
-            <Link to="/CurrentWorkout">
-                {/* {isLoading ? <LottieLogoTwo /> : null}  && setLoading(true) */}
-                <ButtonForRender onClick={() => postToAPI("/api/postworkoutlist", newObj)}>GO</ButtonForRender>
-            </Link>
-            <DiscreteSliderMarks />
+            <ButtonForRender onClick={() => postAndRedirect()}>GO</ButtonForRender>
+            <RangeSlider setLengthOfWod={setLengthOfWod} />
             <SwitchSection>
-                <SwitchLabels></SwitchLabels>
+                <Switch setSwitchOne={setSwitchOne} />
             </SwitchSection>
         </MainDiv>
     )
@@ -66,6 +61,8 @@ const ButtonForRender = styled.button`
     }
 `
 
+const LottieFile = styled.div``
+
 const MainDiv = styled.div`
     display: flex;
     flex-direction: column;
@@ -82,4 +79,18 @@ const SwitchSection = styled.div`
     padding: 0px;
 `
 
-const LottieFile = styled.div``
+{
+    /* {isLoading ? <LottieLogoTwo /> : null}  && setLoading(true)   // const [isLoading, setLoading] = useState(false) */
+}
+
+// const newObj = Object.assign(
+//     {},
+//     ...newWOD.map((item) => ({
+//         name: item.name,
+//         type: item.type,
+//         video: item.video,
+//         definition: item.definition,
+//         equipment: item.equipment,
+//         length: item.length,
+//     }))
+// )

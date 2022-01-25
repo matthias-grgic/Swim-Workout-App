@@ -14,6 +14,8 @@ function App() {
     const [list, setList] = useState([])
     const [wodList, setWodList] = useState([])
     const [userList, setUserList] = useState([])
+    const [lengthOfWod, setLengthOfWod] = useState("")
+    const [switchOne, setSwitchOne] = useState("")
 
     //Fetch Exercise List
     useEffect(() => {
@@ -37,12 +39,12 @@ function App() {
                     path="/"
                     element={
                         <>
-                            <MainRender transferedList={list} />
+                            <MainRender list={list} setWodList={setWodList} setLengthOfWod={setLengthOfWod} setSwitchOne={setSwitchOne} />
                             <Header title={"SWIM"} />
                         </>
                     }
                 />
-                <Route path="/CurrentWorkout" element={<CurrentWorkout transferedWodList={wodList} />} />
+                <Route path="/CurrentWorkout" element={<CurrentWorkout wodList={wodList} lengthOfWod={lengthOfWod} switchOne={switchOne} />} />
                 <Route path="/ExerciseList" element={<ExerciseList transferedList={list} transferedUserList={userList} />} />
                 <Route path="/Create" element={<Create transferedUserList={userList} />} />
                 <Route path="/Settings" element={<Settings />} />
