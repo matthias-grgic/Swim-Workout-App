@@ -18,19 +18,19 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, n }) {
                 <IMGDiv value={item.equipment} />
             </ExerciseCards>
         ))
-        .sort(() => Math.random() - Math.random())
-        .slice(0, n)
+        .slice(0, Math.floor(Math.random() * (4 - 2) + 2))
 
     const main = wodList
         .filter((word) => word.type === "main")
         .map((item, index) => (
             <ExerciseCards key={index}>
                 <ExerciseCardsTitle>{item.name}</ExerciseCardsTitle>
-                <p>4 x</p>
-                <p>{item.length} m</p>
+                <AmountOfLaps>4 x</AmountOfLaps>
+                <p>{item.length}m</p>
                 <IMGDiv value={item.equipment} />
             </ExerciseCards>
         ))
+        .slice(0, Math.floor(Math.random() * (6 - 3) + 3))
 
     const workOutDistance = (lengthOfWod) => {
         if (lengthOfWod === 50) {
@@ -71,7 +71,9 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, n }) {
                 </Infos>
             </InfoBar>
             <WorkoutDiv>
-                <h3>WARM UP</h3>
+                <WarmUpTitle>
+                    <h3>WARM UP</h3>
+                </WarmUpTitle>
                 <WarmUp>
                     <ExerciseCardsWarmUp noBorder>
                         <ExerciseCardsTitle>Freestyle</ExerciseCardsTitle>
@@ -107,7 +109,7 @@ const Cards = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1px;
-    margin-bottom: 50px;
+    margin-bottom: 55px;
     padding: 10px;
     overflow: auto;
     width: 100%;
@@ -183,12 +185,19 @@ const InfoText = styled.div`
 `
 
 const InfoBar = styled.div`
+    background-color: rgba(255, 255, 255, 0.2);
     display: flex;
     justify-content: space-around;
     padding: 0px 16px 0px 16px;
+    gap: 15px;
 `
 
 const WarmUp = styled(CoolDown)``
+
+const WarmUpTitle = styled.div`
+    display: flex;
+    flex-direction: row;
+`
 
 const WorkoutDiv = styled.div`
     display: flex;

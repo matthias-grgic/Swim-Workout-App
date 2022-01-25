@@ -28,7 +28,7 @@ const MainDiv = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 55px;
     padding: 10px;
     width: 100%;
     height: 100%;
