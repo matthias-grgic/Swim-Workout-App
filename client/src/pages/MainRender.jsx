@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom"
 import Switch from "../components/Switch"
 import RangeSlider from "../components/RangeSlider"
 import LottieLogoTwo from "../components/lottieanimation"
-import postToAPI from "../lib/postToApi"
 
 function MainRender({ list, setWodList, setLengthOfWod, setSwitchOne }) {
     const navigate = useNavigate()
@@ -14,16 +13,14 @@ function MainRender({ list, setWodList, setLengthOfWod, setSwitchOne }) {
         .sort((a, b) => a.sort - b.sort) //sort using the random key
         .map(({ value }) => value) //unmap to get the original objects
 
-    async function postAndRedirect() {
-        await postToAPI("/api/postworkoutlist", newWOD)
+    function setStateAndRedirect(newWOD) {
         setWodList(newWOD)
         navigate("/CurrentWorkout")
-        console.log(newWOD)
     }
 
     return (
         <MainDiv>
-            <ButtonForRender onClick={() => postAndRedirect()}>GO</ButtonForRender>
+            <ButtonForRender onClick={() => setStateAndRedirect(newWOD)}>GO</ButtonForRender>
             <RangeSlider setLengthOfWod={setLengthOfWod} />
             <SwitchSection>
                 <Switch setSwitchOne={setSwitchOne} />
