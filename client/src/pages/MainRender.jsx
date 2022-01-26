@@ -4,7 +4,7 @@ import Switch from "../components/Switch"
 import RangeSlider from "../components/RangeSlider"
 import LottieLogoTwo from "../components/lottieanimation"
 
-function MainRender({ list, setWodList, setLengthOfWod, setSwitchOne, setSwitchTwo }) {
+function MainRender({ list, setWodList, setLengthOfWod, setSwitchOne, setSwitchTwo, switchOne, switchTwo }) {
     const navigate = useNavigate()
 
     //RANDOMIZE THE EXERCISE LIST
@@ -23,7 +23,7 @@ function MainRender({ list, setWodList, setLengthOfWod, setSwitchOne, setSwitchT
             <ButtonForRender onClick={() => setStateAndRedirect(newWOD)}>GO</ButtonForRender>
             <RangeSlider setLengthOfWod={setLengthOfWod} />
             <SwitchSection>
-                <Switch setSwitchOne={setSwitchOne} setSwitchTwo={setSwitchTwo} />
+                <Switch setSwitchOne={setSwitchOne} setSwitchTwo={setSwitchTwo} switchOne={switchOne} switchTwo={switchTwo} />
             </SwitchSection>
         </MainDiv>
     )

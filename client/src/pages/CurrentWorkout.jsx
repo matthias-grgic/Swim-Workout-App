@@ -35,20 +35,20 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
     //POOL LENGTH
     const poolLength = (switchOne) => {
         if (switchOne === false) {
-            return "25 m"
+            return "50 m"
         }
         {
-            return "50 m"
+            return "25 m"
         }
     }
 
     //DRILLS CHECK
     const checkDrills = (switchTwo) => {
         if (switchTwo === false) {
-            return "show"
+            return "hide"
         }
         {
-            return "hide"
+            return "show"
         }
     }
 

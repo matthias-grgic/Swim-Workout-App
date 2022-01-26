@@ -15,8 +15,8 @@ function App() {
     const [wodList, setWodList] = useState([])
     const [userList, setUserList] = useState([])
     const [lengthOfWod, setLengthOfWod] = useState("")
-    const [switchOne, setSwitchOne] = useState(false)
-    const [switchTwo, setSwitchTwo] = useState(false)
+    const [switchOne, setSwitchOne] = useState(true)
+    const [switchTwo, setSwitchTwo] = useState(true)
 
     //Fetch Exercise List
     useEffect(() => {
@@ -40,7 +40,7 @@ function App() {
                     path="/"
                     element={
                         <>
-                            <MainRender list={list} setWodList={setWodList} setLengthOfWod={setLengthOfWod} setSwitchOne={setSwitchOne} setSwitchTwo={setSwitchTwo} />
+                            <MainRender list={list} setWodList={setWodList} setLengthOfWod={setLengthOfWod} setSwitchOne={setSwitchOne} setSwitchTwo={setSwitchTwo} switchOne={switchOne} switchTwo={switchTwo} />
                             <Header title={"SWIM"} />
                         </>
                     }
