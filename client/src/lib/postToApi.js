@@ -9,6 +9,7 @@ const postToAPI = async (url = "", data = {}) => {
         }
         const fetchResponse = await fetch(url, settings)
         const dataFetched = await fetchResponse.json()
+        console.log(dataFetched)
         return dataFetched
     } catch (e) {
         console.error(e)

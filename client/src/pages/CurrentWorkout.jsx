@@ -9,7 +9,7 @@ import minilogo from "../images/minilogo.svg"
 import { useEffect, useState } from "react"
 import postToAPI from "../lib/postToApi"
 
-function CurrentWorkout({ wodList, lengthOfWod, switchOne }) {
+function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
     const [drills, setDrills] = useState([])
     const [main, setMain] = useState([])
     const [currentWOD, setCurrentWOD] = useState([])
@@ -21,7 +21,7 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne }) {
         return setDrills(drillsRandom), setMain(mainRandom), setCurrentWOD(drillsRandom.concat(mainRandom))
     }, [])
 
-    //SHOW LENGTH AND TIME OF WORKOUT
+    //SWIM DISTANCE
     const workOutDistance = (lengthOfWod) => {
         if (lengthOfWod === 50) {
             return "2000 m"
@@ -32,12 +32,23 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne }) {
         }
     }
 
+    //POOL LENGTH
     const poolLength = (switchOne) => {
-        if (switchOne === "") {
+        if (switchOne === false) {
             return "25 m"
         }
         {
             return "50 m"
+        }
+    }
+
+    //DRILLS CHECK
+    const checkDrills = (switchTwo) => {
+        if (switchTwo === false) {
+            return "show"
+        }
+        {
+            return "hide"
         }
     }
 
@@ -46,8 +57,6 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne }) {
         e.preventDefault()
         await postToAPI("/api/postworkoutlist", currentWOD)
     }
-
-    console.log(currentWOD)
 
     return (
         <Cards>
@@ -81,9 +90,7 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne }) {
                 </Infos>
             </InfoBar>
             <WorkoutDiv>
-                <WarmUpTitle>
-                    <h3>WARM UP</h3>
-                </WarmUpTitle>
+                <h3>WARM UP</h3>
                 <WarmUp>
                     <ExerciseCardsWarmUp noBorder>
                         <ExerciseCardsTitle>Freestyle</ExerciseCardsTitle>
@@ -92,17 +99,19 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne }) {
                         <PlaceholderIMG />
                     </ExerciseCardsWarmUp>
                 </WarmUp>
-                <h3>DRILLS</h3>
-                <Drills noBorder>
-                    {drills.map((item, index) => (
-                        <ExerciseCards key={index}>
-                            <ExerciseCardsTitle>{item.name}</ExerciseCardsTitle>
-                            <AmountOfLaps>4 x</AmountOfLaps>
-                            <p>{item.length}m</p>
-                            <IMGDiv value={item.equipment} />
-                        </ExerciseCards>
-                    ))}
-                </Drills>
+                <ShowDrills current={checkDrills(switchTwo)}>
+                    <h3>DRILLS</h3>
+                    <Drills noBorder>
+                        {drills.map((item, index) => (
+                            <ExerciseCards key={index}>
+                                <ExerciseCardsTitle>{item.name}</ExerciseCardsTitle>
+                                <AmountOfLaps>4 x</AmountOfLaps>
+                                <p>{item.length}m</p>
+                                <IMGDiv value={item.equipment} />
+                            </ExerciseCards>
+                        ))}
+                    </Drills>
+                </ShowDrills>
                 <h3>MAIN</h3>
                 <Main noBorder>
                     {main.map((item, index) => (
@@ -240,6 +249,10 @@ const PlaceholderIMG = styled.div`
     flex: 0 0 50px;
 `
 
+const ShowDrills = styled.div`
+    display: ${(props) => (props.current === "show" ? "block" : "none")};
+`
+
 const Title = styled.div`
     display: flex;
     flex-direction: column;
@@ -248,11 +261,6 @@ const Title = styled.div`
 `
 
 const WarmUp = styled(CoolDown)``
-
-const WarmUpTitle = styled.div`
-    display: flex;
-    flex-direction: row;
-`
 
 const WorkoutDiv = styled.div`
     display: flex;

@@ -4,8 +4,9 @@ import FormControlLabel from "@mui/material/FormControlLabel"
 import Switch from "@mui/material/Switch"
 import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
+import { useEffect } from "react"
 
-export default function CustomizedSwitches({ setSwitchOne }) {
+export default function CustomizedSwitches({ setSwitchOne, setSwitchTwo }) {
     const IOSSwitch = styled((props) => <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />)(({ theme }) => ({
         width: 42,
         height: 26,
@@ -54,17 +55,21 @@ export default function CustomizedSwitches({ setSwitchOne }) {
 
     return (
         <FormGroup sx={{ display: "flex", justifyContent: "center" }}>
-            <Stack direction="row" spacing={1} alignItems="center" justifyContent="space-evenly">
-                <Typography>Length</Typography>
-                <Typography>25m</Typography>
-                <FormControlLabel control={<IOSSwitch onChange={(e) => setSwitchOne(e.target.value)} sx={{ m: 1 }} />} label="" />
-                <Typography>50m</Typography>
+            <Stack spacing={1} alignItems="center">
+                <Typography sx={{ display: "flex", flex: "1" }}>Length</Typography>
+                <Stack direction="row" spacing={1} alignItems="center">
+                    <Typography>25m</Typography>
+                    <FormControlLabel control={<IOSSwitch onChange={() => setSwitchOne((switchOne) => !switchOne)} sx={{ m: 1 }} />} label="" />
+                    <Typography>50m </Typography>
+                </Stack>
             </Stack>
-            <Stack direction="row" spacing={1} alignItems="center">
-                <Typography>Drills</Typography>
-                <Typography>Yes</Typography>
-                <FormControlLabel control={<IOSSwitch sx={{ m: 1 }} />} label="" />
-                <Typography>No</Typography>
+            <Stack spacing={1} alignItems="center">
+                <Typography sx={{ display: "flex", flex: "1" }}>Drills</Typography>
+                <Stack direction="row" spacing={1} alignItems="center">
+                    <Typography>Yes</Typography>
+                    <FormControlLabel control={<IOSSwitch onChange={() => setSwitchTwo((switchTwo) => !switchTwo)} sx={{ m: 1 }} />} label="" />
+                    <Typography>No</Typography>
+                </Stack>
             </Stack>
         </FormGroup>
     )
