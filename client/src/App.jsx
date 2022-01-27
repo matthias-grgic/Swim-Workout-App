@@ -14,7 +14,7 @@ function App() {
     const [list, setList] = useState([])
     const [wodList, setWodList] = useState([])
     const [userList, setUserList] = useState([])
-    const [lengthOfWod, setLengthOfWod] = useState("")
+    const [lengthOfWod, setLengthOfWod] = useState(0)
     const [switchOne, setSwitchOne] = useState(true)
     const [switchTwo, setSwitchTwo] = useState(true)
 
