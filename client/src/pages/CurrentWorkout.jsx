@@ -1,5 +1,5 @@
 import Clock from "../images/clock.svg"
-import { coolDownCalc, drillCalc, mainCalc, warmUpCalc, checkDrills, poolLength, workOutDistance, exerciseAmount } from "../lib/workoutCalc"
+import { coolDownCalc, mainCalc, warmDrillCoolCalc, checkDrills, poolLength, workOutDistance, exerciseAmountDrills, exerciseAmountMain, warmAndCoolLaps } from "../lib/workoutCalc"
 import ButtonSection from "../components/ButtonGroup"
 import FinsImg from "../images/equipment/fins.svg"
 import HandPaddleImg from "../images/equipment/handpaddles.svg"
@@ -15,12 +15,13 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
     const [main, setMain] = useState([])
     const [currentWOD, setCurrentWOD] = useState([])
 
-    workOutDistance(lengthOfWod)
+    console.log(exerciseAmountMain(lengthOfWod, switchTwo))
+    console.log(switchTwo)
 
     //SLICE AND RANDOMIZE EXERCISES
     useEffect(async () => {
-        const drillsRandom = await wodList.filter((word) => word.type === "drill").slice(0, exerciseAmount(lengthOfWod))
-        const mainRandom = await wodList.filter((word) => word.type === "main").slice(0, exerciseAmount(lengthOfWod))
+        const drillsRandom = await wodList.filter((word) => word.type === "drill").slice(0, exerciseAmountDrills(lengthOfWod))
+        const mainRandom = await wodList.filter((word) => word.type === "main").slice(0, exerciseAmountMain(lengthOfWod, switchTwo))
         return setDrills(drillsRandom), setMain(mainRandom), setCurrentWOD(drillsRandom.concat(mainRandom))
     }, [])
 
@@ -47,20 +48,20 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
             <WorkoutDiv>
                 <TitleExercise>
                     <h3>WARM UP</h3>
-                    <div>{warmUpCalc(lengthOfWod)}m</div>
+                    <div>{warmDrillCoolCalc(lengthOfWod, 100)}m</div>
                 </TitleExercise>
                 <WarmUp>
                     <ExerciseCardsWarmUp noBorder>
                         <ExerciseCardsTitle>Freestyle</ExerciseCardsTitle>
                         <PlaceholderIMG />
-                        <p>2 x </p>
+                        <p>{warmAndCoolLaps(lengthOfWod)} x </p>
                         <p>100m</p>
                     </ExerciseCardsWarmUp>
                 </WarmUp>
                 <ShowDrills current={checkDrills(switchTwo)}>
                     <TitleExercise>
                         <h3>DRILLS</h3>
-                        <div>{drillCalc(lengthOfWod)}m</div>
+                        <div>{warmDrillCoolCalc(lengthOfWod, 200)}m</div>
                     </TitleExercise>
                     <Drills noBorder>
                         {drills.map((item, index) => (
@@ -75,7 +76,7 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
                 </ShowDrills>
                 <TitleExercise>
                     <h3>MAIN</h3>
-                    <div>{mainCalc(lengthOfWod)}m</div>
+                    <div>{mainCalc(lengthOfWod, switchTwo)}m</div>
                 </TitleExercise>
                 <Main noBorder>
                     {main.map((item, index) => (
@@ -89,13 +90,13 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
                 </Main>
                 <TitleExercise>
                     <h3>COOL DOWN</h3>
-                    <div>{coolDownCalc(lengthOfWod)}m</div>
+                    <div>{warmDrillCoolCalc(lengthOfWod, 100)}m</div>
                 </TitleExercise>
                 <CoolDown>
                     <ExerciseCardsCoolDown noBorder>
                         <ExerciseCardsTitle>Freestyle</ExerciseCardsTitle>
                         <PlaceholderIMG />
-                        <p>2 x </p>
+                        <p>{warmAndCoolLaps(lengthOfWod)} x </p>
                         <p>100m</p>
                     </ExerciseCardsCoolDown>
                 </CoolDown>

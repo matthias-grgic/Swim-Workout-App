@@ -3,6 +3,7 @@ import styled from "styled-components"
 import Switch from "../components/Switch"
 import RangeSlider from "../components/RangeSlider"
 import { useNavigate } from "react-router-dom"
+import BasicPopover from "../components/Popover"
 
 function MainRender({ list, setWodList, setLengthOfWod, setSwitchOne, setSwitchTwo, switchOne, switchTwo }) {
     const navigate = useNavigate()
@@ -25,6 +26,7 @@ function MainRender({ list, setWodList, setLengthOfWod, setSwitchOne, setSwitchT
             <SwitchSection>
                 <Switch setSwitchOne={setSwitchOne} setSwitchTwo={setSwitchTwo} switchOne={switchOne} switchTwo={switchTwo} />
             </SwitchSection>
+            <BasicPopover />
         </MainDiv>
     )
 }
