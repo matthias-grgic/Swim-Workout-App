@@ -103,4 +103,4 @@ const poolLengthCalc = (lengthOfWod, item) => {
     }
 }
 
-export { coolDownCalc, mainCalc, warmDrillCoolCalc, checkDrills, poolLength, workOutDistance, exerciseAmountDrills, exerciseAmountMain, warmAndCoolLaps }
+export { mainCalc, warmDrillCoolCalc, checkDrills, poolLength, workOutDistance, exerciseAmountDrills, exerciseAmountMain, warmAndCoolLaps }

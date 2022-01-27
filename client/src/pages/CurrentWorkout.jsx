@@ -1,5 +1,5 @@
 import Clock from "../images/clock.svg"
-import { coolDownCalc, mainCalc, warmDrillCoolCalc, checkDrills, poolLength, workOutDistance, exerciseAmountDrills, exerciseAmountMain, warmAndCoolLaps } from "../lib/workoutCalc"
+import { mainCalc, warmDrillCoolCalc, checkDrills, poolLength, workOutDistance, exerciseAmountDrills, exerciseAmountMain, warmAndCoolLaps } from "../lib/workoutCalc"
 import ButtonSection from "../components/ButtonGroup"
 import FinsImg from "../images/equipment/fins.svg"
 import HandPaddleImg from "../images/equipment/handpaddles.svg"
@@ -15,8 +15,8 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
     const [main, setMain] = useState([])
     const [currentWOD, setCurrentWOD] = useState([])
 
-    console.log(exerciseAmountMain(lengthOfWod, switchTwo))
-    console.log(switchTwo)
+    // console.log(exerciseAmountMain(lengthOfWod, switchTwo))
+    // console.log(switchTwo)
 
     //SLICE AND RANDOMIZE EXERCISES
     useEffect(async () => {
