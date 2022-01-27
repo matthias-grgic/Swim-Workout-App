@@ -1,8 +1,8 @@
-import styled from "styled-components"
-import { useState } from "react"
-import SimpleAccordion from "../components/Accordion"
 import FilterButtons from "../components/FilterButtons"
 import SearchBar from "../components/SearchBar"
+import SimpleAccordion from "../components/Accordion"
+import styled from "styled-components"
+import { useState } from "react"
 
 function ExerciseList({ transferedList, transferedUserList }) {
     const [dataExercise, setDataExercise] = useState([])

@@ -1,5 +1,5 @@
-import styled from "styled-components"
 import LottieLogo from "../components/lottieanimation"
+import styled from "styled-components"
 
 function Settings() {
     return (

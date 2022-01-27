@@ -1,8 +1,8 @@
-import styled from "styled-components"
 import AddButton from "../images/addbutton.svg"
-import { useState } from "react"
-import SimpleSnackbarTwo from "../components/Snackbar"
 import postToApi from "../lib/postToApi"
+import SimpleSnackbarTwo from "../components/Snackbar"
+import styled from "styled-components"
+import { useState } from "react"
 
 function FormAdd() {
     const initalForm = { name: "", type: "main", video: "", definition: "", equipment: "pullbuoy" }

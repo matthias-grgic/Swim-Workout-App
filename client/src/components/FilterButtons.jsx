@@ -1,8 +1,8 @@
-import styled from "styled-components"
-import PullbuoyImg from "../images/equipment/pullbuoy.svg"
-import HandPaddleImg from "../images/equipment/handpaddles.svg"
 import FinsImg from "../images/equipment/fins.svg"
+import HandPaddleImg from "../images/equipment/handpaddles.svg"
+import PullbuoyImg from "../images/equipment/pullbuoy.svg"
 import SnorkelImg from "../images/equipment/snorkel.svg"
+import styled from "styled-components"
 
 function FilterButtons({ transferedSetData, transferedListForSearch }) {
     return (

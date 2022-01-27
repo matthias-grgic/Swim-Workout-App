@@ -1,8 +1,8 @@
+import LottieLogoTwo from "../components/lottieanimation"
 import styled from "styled-components"
-import { useNavigate } from "react-router-dom"
 import Switch from "../components/Switch"
 import RangeSlider from "../components/RangeSlider"
-import LottieLogoTwo from "../components/lottieanimation"
+import { useNavigate } from "react-router-dom"
 
 function MainRender({ list, setWodList, setLengthOfWod, setSwitchOne, setSwitchTwo, switchOne, switchTwo }) {
     const navigate = useNavigate()

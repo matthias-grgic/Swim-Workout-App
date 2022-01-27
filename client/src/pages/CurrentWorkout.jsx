@@ -1,13 +1,14 @@
-import styled from "styled-components"
-import PullbuoyImg from "../images/equipment/pullbuoy.svg"
-import HandPaddleImg from "../images/equipment/handpaddles.svg"
-import FinsImg from "../images/equipment/fins.svg"
-import SnorkelImg from "../images/equipment/snorkel.svg"
-import PoolDistance from "../images/pooldistance.svg"
 import Clock from "../images/clock.svg"
-import minilogo from "../images/minilogo.svg"
-import { useEffect, useState } from "react"
 import ButtonSection from "../components/ButtonGroup"
+import FinsImg from "../images/equipment/fins.svg"
+import HandPaddleImg from "../images/equipment/handpaddles.svg"
+import minilogo from "../images/minilogo.svg"
+import PoolDistance from "../images/pooldistance.svg"
+import PullbuoyImg from "../images/equipment/pullbuoy.svg"
+import styled from "styled-components"
+import SnorkelImg from "../images/equipment/snorkel.svg"
+
+import { useEffect, useState } from "react"
 
 function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
     const [drills, setDrills] = useState([])

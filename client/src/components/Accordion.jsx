@@ -1,14 +1,14 @@
 import Accordion from "@mui/material/Accordion"
 import AccordionSummary from "@mui/material/AccordionSummary"
 import AccordionDetails from "@mui/material/AccordionDetails"
-import PullbuoyImg from "../images/equipment/pullbuoy.svg"
-import HandPaddleImg from "../images/equipment/handpaddles.svg"
-import FinsImg from "../images/equipment/fins.svg"
-import SnorkelImg from "../images/equipment/snorkel.svg"
-import styled from "styled-components"
-import Typography from "@mui/material/Typography"
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
 import deleteFromApi from "../lib/deleteFromApi"
+import FinsImg from "../images/equipment/fins.svg"
+import HandPaddleImg from "../images/equipment/handpaddles.svg"
+import SnorkelImg from "../images/equipment/snorkel.svg"
+import styled from "styled-components"
+import PullbuoyImg from "../images/equipment/pullbuoy.svg"
+import Typography from "@mui/material/Typography"
 
 export default function SimpleAccordion({ name, type, equipment, video, text, id, DeleteButtonCSS }) {
     const createYouTubeEmbedLink = (link) => link.replace("https://www.youtube.com/watch?v=", "https://www.youtube-nocookie.com/embed/")

@@ -1,6 +1,6 @@
+import search from "../images/search.svg"
 import styled from "styled-components"
 import { useState, useEffect } from "react"
-import search from "../images/search.svg"
 
 function SearchBar({ transferedListForBar, transferedSetDataExercise }) {
     const [filtered, setFilterd] = useState(transferedListForBar)
