@@ -56,7 +56,6 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
         <Cards>
             <Title>
                 <h2>WORKOUT</h2>
-                <ButtonSection currentWOD={currentWOD} />
             </Title>
             <InfoBar>
                 <Infos>
@@ -72,6 +71,7 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
                     <InfoText>{poolLength(switchOne)}</InfoText>
                 </Infos>
             </InfoBar>
+            <ButtonSection currentWOD={currentWOD} />
             <WorkoutDiv>
                 <h3>WARM UP</h3>
                 <WarmUp>
