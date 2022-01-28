@@ -171,7 +171,6 @@ const Infos = styled.div`
 `
 
 const InfoBar = styled.div`
-    /* background-color: rgba(255, 255, 255, 0.2); */
     display: flex;
     justify-content: space-around;
     padding: 0px 16px 0px 16px;
