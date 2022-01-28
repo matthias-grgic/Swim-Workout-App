@@ -2,7 +2,8 @@ import postToAPI from "../lib/postToApi"
 import styled from "styled-components"
 
 export default function ButtonSection({ currentWOD }) {
-    //SAVE WORKOUT TO FAVOURITES
+    //OPTONAL BUTTON-GROUP COMPONENT TO BE ADDED
+
     const saveWorkout = async (e) => {
         e.preventDefault()
         await postToAPI("/api/postworkoutlist", currentWOD)
@@ -27,19 +28,16 @@ export default function ButtonSection({ currentWOD }) {
 
 const ButtonLeft = styled.button`
     background-color: transparent;
-    border: 1px #1875d1 solid;
+    border: 1px black solid;
     border-right: none;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     cursor: pointer;
     outline: 0;
     overflow: hidden;
-    padding: 0px 20px;
-    height: 32px;
+    padding: 0px 10px;
+    height: 30px;
     text-align: center;
-    /* :hover {
-        background-color: #deebf8;
-    } */
     background-position: center;
     transition: 0.6s;
     :hover {
@@ -52,9 +50,9 @@ const ButtonLeft = styled.button`
     }
 `
 const ButtonRight = styled(ButtonLeft)`
-    border-right: 1px #1875d1 solid;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
+    border-right: 1px black solid;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 `

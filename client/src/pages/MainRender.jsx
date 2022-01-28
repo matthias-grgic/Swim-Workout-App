@@ -3,16 +3,12 @@ import styled from "styled-components"
 import Switch from "../components/Switch"
 import RangeSlider from "../components/RangeSlider"
 import BasicPopover from "../components/Popover"
+import Randomizer from "../lib/Randomizer"
 
 function MainRender({ list, setWodList, setLengthOfWod, setSwitchOne, setSwitchTwo, switchOne, switchTwo }) {
-    const newWOD = list
-        .map((value) => ({ value, sort: Math.random() })) //put each element in the array in an object, and give it a random sort key
-        .sort((a, b) => a.sort - b.sort) //sort using the random key
-        .map(({ value }) => value) //unmap to get the original objects
-
     return (
         <MainDiv>
-            <ButtonForRender setWodList={setWodList} setState={newWOD} />
+            <ButtonForRender setWodList={setWodList} setState={Randomizer(list)} />
             <RangeSlider setLengthOfWod={setLengthOfWod} />
             <SwitchSection>
                 <Switch setSwitchOne={setSwitchOne} setSwitchTwo={setSwitchTwo} switchOne={switchOne} switchTwo={switchTwo} />
