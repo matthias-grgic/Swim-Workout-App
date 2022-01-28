@@ -4,8 +4,8 @@ import SimpleSnackbarTwo from "../components/Snackbar"
 import styled from "styled-components"
 import { useState } from "react"
 
-function FormAdd() {
-    const initalForm = { name: "", type: "main", video: "", definition: "", equipment: "pullbuoy" }
+function FormAdd({ setUserList }) {
+    const initalForm = { name: "", type: "main", video: "", definition: "", equipment: "" }
     const [all, setAll] = useState(initalForm)
 
     const handleChange = (e) => {
@@ -14,8 +14,13 @@ function FormAdd() {
         return setAll(newData)
     }
 
+    const handleSubmit = async (e) => {
+        // e.preventDefault(e)
+        await postToApi("/api/postUserExercises", all)
+        // await setUserList([all])
+    }
     return (
-        <Form onSubmit={() => postToApi("/api/postUserExercises", all)}>
+        <Form onSubmit={handleSubmit}>
             <FormField>
                 <input type="text" name="name" id="name" value={all.name} onChange={handleChange} placeholder="Exercise" />
             </FormField>
@@ -27,6 +32,7 @@ function FormAdd() {
             </FormField>
             <FormField>
                 <select name="equipment" value={all.equipment} onChange={handleChange}>
+                    <option value="">-select-</option>
                     <option value="pullbuoy">Pullbuoy</option>
                     <option value="paddles">Paddles</option>
                     <option value="snorkel">Snorkel</option>

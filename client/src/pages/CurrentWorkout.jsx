@@ -106,7 +106,7 @@ const Cards = styled.div`
     color: var(--main-txt-color);
     display: flex;
     flex-direction: column;
-    gap: 1px;
+    gap: 0px;
     height: 100vh;
     margin-bottom: 55px;
     padding: 10px;

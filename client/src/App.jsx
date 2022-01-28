@@ -17,6 +17,7 @@ function App() {
     const [lengthOfWod, setLengthOfWod] = useState(0)
     const [switchOne, setSwitchOne] = useState(true)
     const [switchTwo, setSwitchTwo] = useState(true)
+    const [switchThree, setSwitchThree] = useState(false)
 
     //Fetch Exercise List
     useEffect(() => {
@@ -40,14 +41,25 @@ function App() {
                     path="/"
                     element={
                         <>
-                            <MainRender list={list} setWodList={setWodList} setLengthOfWod={setLengthOfWod} setSwitchOne={setSwitchOne} setSwitchTwo={setSwitchTwo} switchOne={switchOne} switchTwo={switchTwo} />
+                            <MainRender
+                                list={list}
+                                setWodList={setWodList}
+                                setLengthOfWod={setLengthOfWod}
+                                setSwitchOne={setSwitchOne}
+                                setSwitchTwo={setSwitchTwo}
+                                switchOne={switchOne}
+                                switchTwo={switchTwo}
+                                switchThree={switchThree}
+                                setSwitchThree={setSwitchThree}
+                                userList={userList}
+                            />
                             <Header title={"SWIM"} />
                         </>
                     }
                 />
                 <Route path="/CurrentWorkout" element={<CurrentWorkout wodList={wodList} lengthOfWod={lengthOfWod} switchOne={switchOne} switchTwo={switchTwo} />} />
                 <Route path="/ExerciseList" element={<ExerciseList transferedList={list} transferedUserList={userList} />} />
-                <Route path="/Create" element={<Create transferedUserList={userList} />} />
+                <Route path="/Create" element={<Create userList={userList} setUserList={setUserList} />} />
                 <Route path="/Settings" element={<Settings />} />
             </Routes>
             <Footer />

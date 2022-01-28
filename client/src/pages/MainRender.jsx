@@ -2,18 +2,21 @@ import ButtonForRender from "../components/ButtonGenerate"
 import styled from "styled-components"
 import Switch from "../components/Switch"
 import RangeSlider from "../components/RangeSlider"
-import BasicPopover from "../components/Popover"
+import PopoverButton from "../components/Popover"
 import Randomizer from "../lib/Randomizer"
 
-function MainRender({ list, setWodList, setLengthOfWod, setSwitchOne, setSwitchTwo, switchOne, switchTwo }) {
+function MainRender({ list, setWodList, setLengthOfWod, setSwitchOne, setSwitchTwo, switchOne, switchTwo, switchThree, setSwitchThree, userList }) {
+    const checkWhichList = (switchThree) => (switchThree === false ? list : list.concat(userList))
+    const randomizedList = Randomizer(checkWhichList(switchThree))
+
     return (
         <MainDiv>
-            <ButtonForRender setWodList={setWodList} setState={Randomizer(list)} />
+            <ButtonForRender setWodList={setWodList} setState={randomizedList} />
             <RangeSlider setLengthOfWod={setLengthOfWod} />
             <SwitchSection>
-                <Switch setSwitchOne={setSwitchOne} setSwitchTwo={setSwitchTwo} switchOne={switchOne} switchTwo={switchTwo} />
+                <Switch setSwitchOne={setSwitchOne} setSwitchTwo={setSwitchTwo} switchOne={switchOne} switchTwo={switchTwo} switchThree={switchThree} setSwitchThree={setSwitchThree} />
+                <PopoverButton />
             </SwitchSection>
-            <BasicPopover />
         </MainDiv>
     )
 }
@@ -28,12 +31,15 @@ const MainDiv = styled.div`
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    height: 100vh;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
 `
 
 const SwitchSection = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
     align-items: center;
 `
 

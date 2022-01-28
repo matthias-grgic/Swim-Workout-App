@@ -22,7 +22,7 @@ const ButtonStyled = styled.button`
     font-size: 2.8rem;
     font-family: "Righteous", Arial;
     height: 200px;
-    margin-top: 15px;
+    margin-top: 55px;
     padding: 0.25em 1em;
     position: relative;
     width: 200px;

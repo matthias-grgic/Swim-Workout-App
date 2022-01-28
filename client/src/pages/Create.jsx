@@ -2,7 +2,8 @@ import FormAdd from "../components/FormAdd"
 import SimpleAccordion from "../components/Accordion"
 import styled from "styled-components"
 
-function Create({ transferedUserList }) {
+function Create({ userList, setUserList }) {
+    //Show Delete Button only on Create Page
     const showDeleteButton = "block"
 
     return (
@@ -10,11 +11,11 @@ function Create({ transferedUserList }) {
             <Title>
                 <h2>ADD EXERCISE</h2>
             </Title>
-            <FormAdd />
+            <FormAdd setUserList={setUserList} />
             <TitleTwo>
                 <h3>EDIT USER LIBRARY</h3>
             </TitleTwo>
-            {transferedUserList.map((item, index) => (
+            {userList.map((item, index) => (
                 <SimpleAccordion key={index} id={item.id} name={item.name} type={item.type} equipment={item.equipment} video={item.video} DeleteButtonCSS={showDeleteButton} />
             ))}
         </MainDiv>

@@ -4,9 +4,8 @@ import Stack from "@mui/material/Stack"
 import Switch from "@mui/material/Switch"
 import { styled } from "@mui/material/styles"
 import Typography from "@mui/material/Typography"
-import { useEffect } from "react"
 
-export default function CustomizedSwitches({ setSwitchOne, setSwitchTwo, switchOne, switchTwo }) {
+export default function CustomizedSwitches({ setSwitchOne, setSwitchTwo, switchOne, switchTwo, switchThree, setSwitchThree }) {
     const IOSSwitch = styled((props) => <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />)(({ theme }) => ({
         width: 42,
         height: 26,
@@ -55,19 +54,27 @@ export default function CustomizedSwitches({ setSwitchOne, setSwitchTwo, switchO
 
     return (
         <FormGroup sx={{ display: "flex", justifyContent: "center" }}>
-            <Stack spacing={1} alignItems="center">
+            <Stack spacing={0} sx={{ mb: 1.5 }} alignItems="center">
                 <Typography sx={{ display: "flex", flex: "1" }}>Length</Typography>
                 <Stack direction="row" spacing={1} alignItems="center">
                     <Typography>50m</Typography>
-                    <FormControlLabel control={<IOSSwitch checked={switchOne} onChange={() => setSwitchOne(event.target.checked)} sx={{ m: 1 }} />} label="" />
-                    <Typography>25m </Typography>
+                    <FormControlLabel control={<IOSSwitch checked={switchOne} onChange={() => setSwitchOne(event.target.checked)} sx={{ mr: 1, ml: 1, mt: 0.5 }} />} label="" />
+                    <Typography>25m</Typography>
                 </Stack>
             </Stack>
-            <Stack spacing={1} alignItems="center">
+            <Stack spacing={0} sx={{ mb: 2 }} alignItems="center">
                 <Typography sx={{ display: "flex", flex: "1" }}>Drills</Typography>
+                <Stack direction="row" spacing={1} sx={{ p: 0 }} alignItems="center">
+                    <Typography>No</Typography>
+                    <FormControlLabel control={<IOSSwitch checked={switchTwo} onChange={() => setSwitchTwo(event.target.checked)} sx={{ mr: 1, ml: 1, mt: 0.5 }} />} label="" />
+                    <Typography>Yes</Typography>
+                </Stack>
+            </Stack>
+            <Stack spacing={0} sx={{ mb: 2 }} alignItems="center">
+                <Typography sx={{ display: "flex", flex: "1" }}>User library</Typography>
                 <Stack direction="row" spacing={1} alignItems="center">
                     <Typography>No</Typography>
-                    <FormControlLabel control={<IOSSwitch checked={switchTwo} onChange={() => setSwitchTwo(event.target.checked)} sx={{ m: 1 }} />} label="" />
+                    <FormControlLabel control={<IOSSwitch checked={switchThree} onChange={() => setSwitchThree(event.target.checked)} sx={{ mr: 1, ml: 1, mt: 0.5 }} />} label="" />
                     <Typography>Yes</Typography>
                 </Stack>
             </Stack>
