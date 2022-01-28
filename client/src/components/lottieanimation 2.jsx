@@ -1,12 +1,17 @@
 import { useLottie } from "lottie-react"
 
 const style = {
-    height: 300,
+    width: "200%",
+    height: "110%",
+    alignSelf: "center",
+    position: "fixed",
+    opacity: 1,
+    zindex: -1,
 }
 
-const LottieLogo = () => {
+const LottieLogoTWO = () => {
     const options = {
-        path: "https://assets5.lottiefiles.com/packages/lf20_lakbmyk5.json",
+        path: "https://assets2.lottiefiles.com/packages/lf20_a7djbqn2.json",
         loop: true,
         autoplay: true,
     }
@@ -16,4 +21,4 @@ const LottieLogo = () => {
     return View
 }
 
-export default LottieLogo
+export default LottieLogoTWO

@@ -25,7 +25,7 @@ export default function SimpleAccordion({ name, type, equipment, video, text, id
                     <iframe
                         width="100%"
                         height="100%"
-                        src={`${createYouTubeEmbedLink(video)}?showinfo=0?modestbranding=1&iv_load_policy=3&controls=2`}
+                        src={`${createYouTubeEmbedLink(video)}`}
                         title="YouTube video player"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

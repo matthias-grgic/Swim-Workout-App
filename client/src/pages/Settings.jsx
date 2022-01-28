@@ -1,10 +1,9 @@
-import LottieLogo from "../components/lottieanimation"
 import styled from "styled-components"
+import LottieLogoTWO from "../components/lottieanimation 2"
 
 function Settings() {
     return (
         <MainDiv>
-            <LottieLogo />
             <Infos>
                 <h3>Sources</h3>
                 <Sources>
@@ -16,6 +15,7 @@ function Settings() {
                     </p>
                 </Sources>
             </Infos>
+            <LottieLogoTWO />
         </MainDiv>
     )
 }
@@ -34,6 +34,7 @@ const Infos = styled.div`
     border-top: 1px solid var(--border-seperator);
     display: flex;
     flex-direction: column;
+    z-index: 1;
 `
 
 const Sources = styled.div`

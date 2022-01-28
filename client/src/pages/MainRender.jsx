@@ -1,4 +1,3 @@
-import LottieLogoTwo from "../components/lottieanimation"
 import ButtonForRender from "../components/ButtonGenerate"
 import styled from "styled-components"
 import Switch from "../components/Switch"
@@ -40,12 +39,7 @@ const SwitchSection = styled.div`
     flex-direction: column;
     gap: 0.5rem;
     align-items: center;
-    padding: 0px;
 `
-
-{
-    /* {isLoading ? <LottieLogoTwo /> : null}  && setLoading(true)   // const [isLoading, setLoading] = useState(false) */
-}
 
 // const newObj = Object.assign(
 //     {},
