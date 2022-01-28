@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import LottieLogoTWO from "../components/lottieanimation 2"
+import LottieLogoTWO from "../components/lottieanimationTwo"
 
 function Settings() {
     return (
@@ -20,7 +20,6 @@ function Settings() {
                     <a href="https://github.com/matthias-grgic/capstone-project">GitHub Project Rep</a>
                 </Links>
             </Sources>
-
             <LottieLogoTWO />
         </MainDiv>
     )

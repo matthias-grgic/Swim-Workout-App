@@ -50,7 +50,9 @@ export default function SimpleAccordion({ name, type, equipment, video, text, id
 }
 
 const TextStyled = styled.div`
+    color: var(--main-txt-color);
     margin-top: 10px;
+    white-space: pre-line;
 `
 
 const ButtonDelete = styled.button`

@@ -1,5 +1,5 @@
 import Clock from "../images/clock.svg"
-import { mainCalc, warmDrillCoolCalc, checkDrills, poolLength, workOutDistance, exerciseAmountDrills, exerciseAmountMain, warmAndCoolLaps } from "../lib/workoutCalc"
+import { mainCalc, warmDrillCoolCalc, checkDrills, poolLength, workOutDistance, exerciseAmountDrills, exerciseAmountMain, warmAndCoolLaps, doubleLap, halfAmount, setTimerLength } from "../lib/workoutCalc"
 import FinsImg from "../images/equipment/fins.svg"
 import HandPaddleImg from "../images/equipment/handpaddles.svg"
 import minilogo from "../images/minilogo.svg"
@@ -33,7 +33,7 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
                 </Infos>
                 <Infos>
                     <img src={Clock} width="45px" />
-                    <InfoText>1:00h</InfoText>
+                    <InfoText>{setTimerLength(lengthOfWod)}</InfoText>
                 </Infos>
                 <Infos>
                     <img src={PoolDistance} width="45px" />
@@ -63,8 +63,8 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
                             <ExerciseCards key={index}>
                                 <ExerciseCardsTitle>{item.name}</ExerciseCardsTitle>
                                 <IMGDiv value={item.equipment} />
-                                <AmountOfLaps>4 x</AmountOfLaps>
-                                <p>{item.length}m</p>
+                                <>{halfAmount(switchOne, 4)} x</>
+                                <p>{doubleLap(switchOne, item.length)}m</p>
                             </ExerciseCards>
                         ))}
                     </Drills>
@@ -78,7 +78,7 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
                         <ExerciseCards key={index}>
                             <ExerciseCardsTitle>{item.name}</ExerciseCardsTitle>
                             <IMGDiv value={item.equipment} />
-                            <AmountOfLaps>3 x</AmountOfLaps>
+                            <>3 x</>
                             <p>100m</p>
                         </ExerciseCards>
                     ))}
@@ -101,8 +101,6 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
 }
 
 export default CurrentWorkout
-
-const AmountOfLaps = styled.div``
 
 const Cards = styled.div`
     color: var(--main-txt-color);
@@ -150,11 +148,11 @@ const ExerciseCardsCoolDown = styled(ExerciseCardsWarmUp)`
 `
 
 const IMGDiv = styled.div`
-    background-position: left;
+    background-position: center;
     background-size: auto;
     background-repeat: no-repeat;
     background-image: ${(props) => (props.value === "pullbuoy" ? `url(${PullbuoyImg})` : props.value === "paddles" ? `url(${HandPaddleImg})` : props.value === "fins" ? `url(${FinsImg})` : props.value === "snorkel" ? `url(${SnorkelImg})` : null)};
-    flex: 0 0 40px;
+    flex: 0 0 50px;
 `
 
 const Infos = styled.div`

@@ -13,6 +13,7 @@ const FetchFromApi = async (url = "", useState = "") => {
                 equipment: item.equipment,
             }
         })
+
         return useState(exerciseList)
     } catch (e) {
         console.error(e)

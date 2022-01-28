@@ -10,6 +10,7 @@ const warmDrillCoolCalc = (lengthOfWod, percentage) => {
     }
 }
 
+//MAIN SECTION PERCENTAGE, check if DRILL ARE ON/OFF
 const mainCalc = (lengthOfWod, switchTwo) => {
     if (lengthOfWod === 0 && switchTwo === false) {
         return String((1000 / 1000) * 800)
@@ -86,6 +87,7 @@ const exerciseAmountMain = (lengthOfWod, switchTwo) => {
     }
 }
 
+// Number of Warm Upp and Cool Down laps
 const warmAndCoolLaps = (lengthOfWod) => {
     if (lengthOfWod === 0) {
         return "1"
@@ -97,10 +99,34 @@ const warmAndCoolLaps = (lengthOfWod) => {
     }
 }
 
-const poolLengthCalc = (lengthOfWod, item) => {
-    if (lengthOfWod === "0") {
-        return item * 2
+// IF POOL LENGTH 50M, double exercise length and half the amount
+const doubleLap = (switchOne, length) => {
+    if (switchOne === false) {
+        return String(length * 2)
+    }
+    {
+        return length
     }
 }
 
-export { mainCalc, warmDrillCoolCalc, checkDrills, poolLength, workOutDistance, exerciseAmountDrills, exerciseAmountMain, warmAndCoolLaps }
+const halfAmount = (switchOne, amount) => {
+    if (switchOne === false) {
+        return String(amount / 2)
+    }
+    {
+        return amount
+    }
+}
+
+const setTimerLength = (lengthOfWod) => {
+    if (lengthOfWod === 0) {
+        return "00:30h"
+    } else if (lengthOfWod === 50) {
+        return "01:00h"
+    }
+    {
+        return "01:30h"
+    }
+}
+
+export { mainCalc, warmDrillCoolCalc, checkDrills, poolLength, workOutDistance, exerciseAmountDrills, exerciseAmountMain, warmAndCoolLaps, doubleLap, halfAmount, setTimerLength }
