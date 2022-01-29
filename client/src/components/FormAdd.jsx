@@ -5,7 +5,7 @@ import styled from "styled-components"
 import { useState } from "react"
 
 function FormAdd({ setUserList }) {
-    const initalForm = { name: "", type: "main", video: "", definition: "", equipment: "" }
+    const initalForm = { name: "", type: "main", video: "", definition: "", equipment: "", length: "25" }
     const [all, setAll] = useState(initalForm)
 
     const handleChange = (e) => {
