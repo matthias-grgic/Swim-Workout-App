@@ -2,7 +2,6 @@ import ButtonForRender from "../components/ButtonGenerate"
 import styled from "styled-components"
 import Switch from "../components/Switch"
 import RangeSlider from "../components/RangeSlider"
-import PopoverButton from "../components/Popover"
 import Randomizer from "../lib/Randomizer"
 
 function MainRender({ list, setWodList, setLengthOfWod, setSwitchOne, setSwitchTwo, switchOne, switchTwo, switchThree, setSwitchThree, userList }) {
@@ -15,7 +14,6 @@ function MainRender({ list, setWodList, setLengthOfWod, setSwitchOne, setSwitchT
             <RangeSlider setLengthOfWod={setLengthOfWod} />
             <SwitchSection>
                 <Switch setSwitchOne={setSwitchOne} setSwitchTwo={setSwitchTwo} switchOne={switchOne} switchTwo={switchTwo} switchThree={switchThree} setSwitchThree={setSwitchThree} />
-                <PopoverButton />
             </SwitchSection>
         </MainDiv>
     )

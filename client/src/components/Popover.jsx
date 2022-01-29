@@ -3,7 +3,7 @@ import Popover from "@mui/material/Popover"
 import Typography from "@mui/material/Typography"
 import Button from "@mui/material/Button"
 
-export default function PopoverButton() {
+export default function PopoverButton({ name, text }) {
     const [anchorEl, setAnchorEl] = React.useState(null)
 
     const handleClick = (event) => {
@@ -19,8 +19,8 @@ export default function PopoverButton() {
 
     return (
         <div>
-            <Button aria-describedby={id} onClick={handleClick}>
-                INFO
+            <Button color="info" sx={{ p: 0, textTransform: "none", color: "var(--main-txt-color)" }} aria-describedby={id} onClick={handleClick}>
+                {name}
             </Button>
             <Popover
                 id={id}
@@ -32,7 +32,7 @@ export default function PopoverButton() {
                     horizontal: "right",
                 }}
             >
-                <Typography sx={{ p: 2 }}>Create your custom Swim Workout. Simply define your Distance, Pool Length and whether you'd like to include Drills.</Typography>
+                <Typography sx={{ p: 1 }}>{text}</Typography>
             </Popover>
         </div>
     )

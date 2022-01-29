@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography"
 export default function SimpleAccordion({ name, type, equipment, video, text, id, DeleteButtonCSS }) {
     const createYouTubeEmbedLink = (link) => link.replace("https://www.youtube.com/watch?v=", "https://www.youtube-nocookie.com/embed/")
     const equipmentLogo = (item) => (item === "pullbuoy" ? `url(${PullbuoyImg})` : item === "paddles" ? `url(${HandPaddleImg})` : item === "fins" ? `url(${FinsImg})` : item === "snorkel" ? `url(${SnorkelImg})` : null)
+
     return (
         <div>
             <Accordion TransitionProps={{ unmountOnExit: true }} sx={{ backgroundColor: "rgba(255,255,255, 0.3)", boxShadow: "none" }}>
@@ -33,6 +34,7 @@ export default function SimpleAccordion({ name, type, equipment, video, text, id
                     ></iframe>
                     <TextStyled>
                         {text}
+                        {console.log(id)}
                         <ButtonDelete
                             displayInfo={DeleteButtonCSS}
                             onClick={() => {
