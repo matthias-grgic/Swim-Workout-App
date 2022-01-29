@@ -8,11 +8,14 @@ import PullbuoyImg from "../images/equipment/pullbuoy.svg"
 import styled from "styled-components"
 import SnorkelImg from "../images/equipment/snorkel.svg"
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
     const [drills, setDrills] = useState([])
     const [main, setMain] = useState([])
     const [currentWOD, setCurrentWOD] = useState([])
+
+    const navigate = useNavigate()
 
     //SLICE AND RANDOMIZE EXERCISES
     useEffect(async () => {
@@ -58,7 +61,7 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
                         <h3>DRILLS</h3>
                         <div>{warmDrillCoolCalc(lengthOfWod, 200)}m</div>
                     </TitleExercise>
-                    <Drills noBorder>
+                    <Drills onClick={() => navigate("/ExerciseList")} noBorder>
                         {drills.map((item, index) => (
                             <ExerciseCards key={index}>
                                 <ExerciseCardsTitle>{item.name}</ExerciseCardsTitle>
@@ -73,7 +76,7 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
                     <h3>MAIN</h3>
                     <div>{mainCalc(lengthOfWod, switchTwo)}m</div>
                 </TitleExercise>
-                <Main noBorder>
+                <Main onClick={() => navigate("/ExerciseList")} noBorder>
                     {main.map((item, index) => (
                         <ExerciseCards key={index}>
                             <ExerciseCardsTitle>{item.name}</ExerciseCardsTitle>

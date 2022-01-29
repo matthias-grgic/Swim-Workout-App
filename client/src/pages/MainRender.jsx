@@ -1,4 +1,4 @@
-import ButtonForRender from "../components/ButtonGenerate"
+import ButtonForRender from "../components/ButtonForRender"
 import styled from "styled-components"
 import Switch from "../components/Switch"
 import RangeSlider from "../components/RangeSlider"
