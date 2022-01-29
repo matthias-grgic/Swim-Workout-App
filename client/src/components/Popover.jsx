@@ -32,7 +32,7 @@ export default function PopoverButton({ name, text }) {
                     horizontal: "right",
                 }}
             >
-                <Typography sx={{ p: 1 }}>{text}</Typography>
+                <Typography sx={{ p: 1, fontSize: "0.9rem" }}>{text}</Typography>
             </Popover>
         </div>
     )
