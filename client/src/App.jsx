@@ -18,6 +18,7 @@ function App() {
     const [switchOne, setSwitchOne] = useState(true)
     const [switchTwo, setSwitchTwo] = useState(true)
     const [switchThree, setSwitchThree] = useState(false)
+    const [expandedAccordion, setExpandedAccordion] = useState(false)
 
     //Fetch Exercise List
     useEffect(() => {
@@ -58,8 +59,8 @@ function App() {
                         </>
                     }
                 />
-                <Route path="/CurrentWorkout" element={<CurrentWorkout wodList={wodList} lengthOfWod={lengthOfWod} switchOne={switchOne} switchTwo={switchTwo} />} />
-                <Route path="/ExerciseList" element={<ExerciseList transferedList={list} transferedUserList={userList} />} />
+                <Route path="/CurrentWorkout" element={<CurrentWorkout wodList={wodList} lengthOfWod={lengthOfWod} switchOne={switchOne} switchTwo={switchTwo} setExpandedAccordion={setExpandedAccordion} />} />
+                <Route path="/ExerciseList" element={<ExerciseList transferedList={list} transferedUserList={userList} expandedAccordion={expandedAccordion} setExpandedAccordion={setExpandedAccordion} />} />
                 <Route path="/Create" element={<Create userList={userList} />} />
                 <Route path="/Settings" element={<Settings />} />
             </Routes>

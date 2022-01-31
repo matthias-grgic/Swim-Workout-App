@@ -4,7 +4,7 @@ import SimpleAccordion from "../components/Accordion"
 import styled from "styled-components"
 import { useState } from "react"
 
-function ExerciseList({ transferedList, transferedUserList }) {
+function ExerciseList({ transferedList, transferedUserList, expandedAccordion, setExpandedAccordion }) {
     const [dataExercise, setDataExercise] = useState([])
 
     //Merge Exercise List & User List
@@ -19,7 +19,7 @@ function ExerciseList({ transferedList, transferedUserList }) {
             <FilterButtons transferedListForSearch={MergedLists} transferedSetData={setDataExercise} />
             <AccordionSection>
                 {dataExercise.map((item, index) => (
-                    <SimpleAccordion key={index} id={item.id} name={item.name} type={item.type} equipment={item.equipment} video={item.video} text={item.definition} />
+                    <SimpleAccordion key={index} id={item.id} name={item.name} type={item.type} equipment={item.equipment} video={item.video} text={item.definition} expandedAccordion={expandedAccordion} setExpandedAccordion={setExpandedAccordion} />
                 ))}
             </AccordionSection>
         </ExerciseListMain>

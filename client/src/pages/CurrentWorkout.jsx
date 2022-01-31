@@ -7,7 +7,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import MapWorkout from "../components/MapWorkout"
 
-function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
+function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo, setExpandedAccordion }) {
     const [drills, setDrills] = useState([])
     const [main, setMain] = useState([])
 
@@ -19,6 +19,11 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
         const mainRandom = await wodList.filter((word) => word.type === "main").slice(0, exerciseAmountMain(lengthOfWod, switchTwo))
         return setDrills(drillsRandom), setMain(mainRandom)
     }, [])
+
+    const handleClick = () => {
+        setExpandedAccordion(id)
+        navigate("/ExerciseList")
+    }
 
     return (
         <Cards>
@@ -46,7 +51,7 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
                 </TitleExercise>
                 <WarmUp>
                     <ExerciseCardsWarmUp noBorder>
-                        <ExerciseCardsTitle>Freestyle</ExerciseCardsTitle>
+                        <ExerciseCardsTitle onClick={handleClick}>Freestyle</ExerciseCardsTitle>
                         <PlaceholderIMG />
                         <p>{warmAndCoolLaps(lengthOfWod)} x </p>
                         <p>100m</p>
@@ -74,7 +79,7 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
                 </TitleExercise>
                 <CoolDown>
                     <ExerciseCardsCoolDown noBorder>
-                        <ExerciseCardsTitle>Freestyle</ExerciseCardsTitle>
+                        <ExerciseCardsTitle onClick={() => navigate("/ExerciseList")}>Freestyle</ExerciseCardsTitle>
                         <PlaceholderIMG />
                         <p>{warmAndCoolLaps(lengthOfWod)} x </p>
                         <p>100m</p>
