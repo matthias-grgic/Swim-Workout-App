@@ -18,7 +18,7 @@ export default function PopoverButton({ name, text }) {
     const id = open ? "simple-popover" : undefined
 
     return (
-        <div>
+        <>
             <Button color="info" sx={{ p: 0, textTransform: "none", color: "var(--main-txt-color)" }} aria-describedby={id} onClick={handleClick}>
                 {name}
             </Button>
@@ -34,6 +34,6 @@ export default function PopoverButton({ name, text }) {
             >
                 <Typography sx={{ p: 1, fontSize: "0.9rem" }}>{text}</Typography>
             </Popover>
-        </div>
+        </>
     )
 }

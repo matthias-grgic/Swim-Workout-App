@@ -4,7 +4,7 @@ import SimpleSnackbarTwo from "../components/Snackbar"
 import styled from "styled-components"
 import { useState } from "react"
 
-function FormAdd({ setUserList }) {
+function FormAdd() {
     const initalForm = { name: "", type: "main", video: "", definition: "", equipment: "", length: "25" }
     const [all, setAll] = useState(initalForm)
 

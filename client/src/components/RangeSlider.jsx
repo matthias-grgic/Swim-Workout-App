@@ -22,10 +22,10 @@ function valuetext(value) {
 
 console.log()
 
-export default function RangeSlider({ setLengthOfWod }) {
+export default function RangeSlider({ lengthOfWod, setLengthOfWod }) {
     return (
         <Box sx={{ width: 200 }}>
-            <Slider aria-label="swimming-length" defaultValue={0} getAriaValueText={valuetext} step={50} valueLabelDisplay="off" marks={marks} onChange={(e) => setLengthOfWod(e.target.value)} />
+            <Slider aria-label="swimming-length" value={lengthOfWod} getAriaValueText={valuetext} step={50} valueLabelDisplay="off" marks={marks} onChange={(e) => setLengthOfWod(e.target.value)} />
         </Box>
     )
 }

@@ -2,7 +2,7 @@ import FormAdd from "../components/FormAdd"
 import SimpleAccordion from "../components/Accordion"
 import styled from "styled-components"
 
-function Create({ userList, setUserList }) {
+function Create({ userList }) {
     //Show Delete Button only on Create Page
     const showDeleteButton = "block"
 
@@ -11,7 +11,7 @@ function Create({ userList, setUserList }) {
             <Title>
                 <h2>ADD EXERCISE</h2>
             </Title>
-            <FormAdd setUserList={setUserList} />
+            <FormAdd />
             <TitleTwo>
                 <h3>EDIT USER LIBRARY</h3>
             </TitleTwo>

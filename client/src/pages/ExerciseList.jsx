@@ -19,7 +19,7 @@ function ExerciseList({ transferedList, transferedUserList }) {
             <FilterButtons transferedListForSearch={MergedLists} transferedSetData={setDataExercise} />
             <AccordionSection>
                 {dataExercise.map((item, index) => (
-                    <SimpleAccordion key={index} name={item.name} type={item.type} equipment={item.equipment} video={item.video} text={item.definition} />
+                    <SimpleAccordion key={index} id={item.id} name={item.name} type={item.type} equipment={item.equipment} video={item.video} text={item.definition} />
                 ))}
             </AccordionSection>
         </ExerciseListMain>

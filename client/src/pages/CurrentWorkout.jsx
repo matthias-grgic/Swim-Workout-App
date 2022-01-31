@@ -1,19 +1,15 @@
 import Clock from "../images/clock.svg"
-import { mainCalc, warmDrillCoolCalc, checkDrills, poolLength, workOutDistance, exerciseAmountDrills, exerciseAmountMain, warmAndCoolLaps, doubleLap, halfAmount, setTimerLength } from "../lib/workoutCalc"
-import FinsImg from "../images/equipment/fins.svg"
-import HandPaddleImg from "../images/equipment/handpaddles.svg"
+import { mainCalc, warmDrillCoolCalc, checkDrills, poolLength, workOutDistance, exerciseAmountDrills, exerciseAmountMain, warmAndCoolLaps, setTimerLength } from "../lib/workoutCalc"
 import minilogo from "../images/minilogo.svg"
 import PoolDistance from "../images/pooldistance.svg"
-import PullbuoyImg from "../images/equipment/pullbuoy.svg"
 import styled from "styled-components"
-import SnorkelImg from "../images/equipment/snorkel.svg"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import MapWorkout from "../components/MapWorkout"
 
 function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
     const [drills, setDrills] = useState([])
     const [main, setMain] = useState([])
-    const [currentWOD, setCurrentWOD] = useState([])
 
     const navigate = useNavigate()
 
@@ -21,7 +17,7 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
     useEffect(async () => {
         const drillsRandom = await wodList.filter((word) => word.type === "drill").slice(0, exerciseAmountDrills(lengthOfWod))
         const mainRandom = await wodList.filter((word) => word.type === "main").slice(0, exerciseAmountMain(lengthOfWod, switchTwo))
-        return setDrills(drillsRandom), setMain(mainRandom), setCurrentWOD(drillsRandom.concat(mainRandom))
+        return setDrills(drillsRandom), setMain(mainRandom)
     }, [])
 
     return (
@@ -61,15 +57,8 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
                         <h3>DRILLS</h3>
                         <div>{warmDrillCoolCalc(lengthOfWod, 200)}m</div>
                     </TitleExercise>
-                    <Drills onClick={() => navigate("/ExerciseList")} noBorder>
-                        {drills.map((item, index) => (
-                            <ExerciseCards key={index}>
-                                <ExerciseCardsTitle>{item.name}</ExerciseCardsTitle>
-                                <IMGDiv value={item.equipment} />
-                                <>{halfAmount(switchOne, 4)} x</>
-                                <p>{doubleLap(switchOne, item.length)}m</p>
-                            </ExerciseCards>
-                        ))}
+                    <Drills noBorder>
+                        <MapWorkout main={drills} lengthOfWod={lengthOfWod} switchTwo={switchTwo} switchOne={switchOne} />
                     </Drills>
                 </ShowDrills>
                 <TitleExercise>
@@ -77,14 +66,7 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
                     <div>{mainCalc(lengthOfWod, switchTwo)}m</div>
                 </TitleExercise>
                 <Main onClick={() => navigate("/ExerciseList")} noBorder>
-                    {main.map((item, index) => (
-                        <ExerciseCards key={index}>
-                            <ExerciseCardsTitle>{item.name}</ExerciseCardsTitle>
-                            <IMGDiv value={item.equipment} />
-                            <>3 x</>
-                            <p>100m</p>
-                        </ExerciseCards>
-                    ))}
+                    <MapWorkout main={main} lengthOfWod={lengthOfWod} switchTwo={switchTwo} switchOne={switchOne} />
                 </Main>
                 <TitleExercise>
                     <h3>COOL DOWN</h3>
@@ -148,14 +130,6 @@ const ExerciseCardsWarmUp = styled(ExerciseCards)`
 
 const ExerciseCardsCoolDown = styled(ExerciseCardsWarmUp)`
     padding: 0px 10px;
-`
-
-const IMGDiv = styled.div`
-    background-position: center;
-    background-size: auto;
-    background-repeat: no-repeat;
-    background-image: ${(props) => (props.value === "pullbuoy" ? `url(${PullbuoyImg})` : props.value === "paddles" ? `url(${HandPaddleImg})` : props.value === "fins" ? `url(${FinsImg})` : props.value === "snorkel" ? `url(${SnorkelImg})` : null)};
-    flex: 0 0 50px;
 `
 
 const Infos = styled.div`

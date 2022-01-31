@@ -44,6 +44,7 @@ function App() {
                             <MainRender
                                 list={list}
                                 setWodList={setWodList}
+                                lengthOfWod={lengthOfWod}
                                 setLengthOfWod={setLengthOfWod}
                                 setSwitchOne={setSwitchOne}
                                 setSwitchTwo={setSwitchTwo}
@@ -59,7 +60,7 @@ function App() {
                 />
                 <Route path="/CurrentWorkout" element={<CurrentWorkout wodList={wodList} lengthOfWod={lengthOfWod} switchOne={switchOne} switchTwo={switchTwo} />} />
                 <Route path="/ExerciseList" element={<ExerciseList transferedList={list} transferedUserList={userList} />} />
-                <Route path="/Create" element={<Create userList={userList} setUserList={setUserList} />} />
+                <Route path="/Create" element={<Create userList={userList} />} />
                 <Route path="/Settings" element={<Settings />} />
             </Routes>
             <Footer />
