@@ -1,10 +1,9 @@
 import FormAdd from "../components/FormAdd"
-import SimpleAccordion from "../components/Accordion"
+import SimpleAccordion from "../components/SimpleAccordion"
 import styled from "styled-components"
 
 function Create({ userList }) {
-    //Show Delete Button only on Create Page
-    const showDeleteButton = "block"
+    const showDeleteButton = "block" // Show Delete Button only on UserLibrary
 
     return (
         <MainDiv>

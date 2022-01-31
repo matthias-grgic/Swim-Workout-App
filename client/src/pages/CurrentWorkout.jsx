@@ -1,10 +1,9 @@
-import Clock from "../images/clock.svg"
-import { mainCalc, warmDrillCoolCalc, checkDrills, poolLength, workOutDistance, exerciseAmountDrills, exerciseAmountMain, warmAndCoolLaps, setTimerLength } from "../lib/workoutCalc"
-import minilogo from "../images/minilogo.svg"
-import PoolDistance from "../images/pooldistance.svg"
+import { mainCalc, warmDrillCoolCalc, checkDrills, exerciseAmountDrills, exerciseAmountMain } from "../lib/workoutCalc"
+import MapWorkout from "../components/MapWorkout"
 import styled from "styled-components"
 import { useEffect, useState } from "react"
-import MapWorkout from "../components/MapWorkout"
+import InfoBar from "../components/InfoBar"
+import WarmCoolSection from "../components/WarmUpSection"
 
 function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo, setExpandedAccordion }) {
     const [drills, setDrills] = useState([])
@@ -19,62 +18,27 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo, setExpande
 
     return (
         <Cards>
-            <Title>
-                <h2>WORKOUT</h2>
-            </Title>
-            <InfoBar>
-                <Infos>
-                    <img src={minilogo} width="45px" />
-                    <InfoText>{workOutDistance(lengthOfWod)}</InfoText>
-                </Infos>
-                <Infos>
-                    <img src={Clock} width="45px" />
-                    <InfoText>{setTimerLength(lengthOfWod)}</InfoText>
-                </Infos>
-                <Infos>
-                    <img src={PoolDistance} width="45px" />
-                    <InfoText>{poolLength(switchOne)}</InfoText>
-                </Infos>
-            </InfoBar>
+            <h2>WORKOUT</h2>
+            <InfoBar lengthOfWod={lengthOfWod} switchOne={switchOne} />
             <WorkoutDiv>
-                <TitleExercise>
-                    <h3>WARM UP</h3>
-                    <div>{warmDrillCoolCalc(lengthOfWod, 100)}</div>
-                </TitleExercise>
-                <WarmUp>
-                    <ExerciseCardsWarmUp noBorder>
-                        <ExerciseCardsTitle>Freestyle</ExerciseCardsTitle>
-                        <PlaceholderIMG />
-                        <p>{warmAndCoolLaps(lengthOfWod)}</p>
-                    </ExerciseCardsWarmUp>
-                </WarmUp>
+                <WarmCoolSection name={"WARM UP"} lengthOfWod={lengthOfWod} />
                 <ShowDrills current={checkDrills(switchTwo)}>
-                    <TitleExercise>
+                    <TitleAndLength>
                         <h3>DRILLS</h3>
                         <div>{warmDrillCoolCalc(lengthOfWod, 200)}</div>
-                    </TitleExercise>
+                    </TitleAndLength>
                     <Drills noBorder>
                         <MapWorkout main={drills} lengthOfWod={lengthOfWod} switchTwo={switchTwo} switchOne={switchOne} setExpandedAccordion={setExpandedAccordion} />
                     </Drills>
                 </ShowDrills>
-                <TitleExercise>
+                <TitleAndLength>
                     <h3>MAIN</h3>
                     <div>{mainCalc(lengthOfWod, switchTwo)}</div>
-                </TitleExercise>
+                </TitleAndLength>
                 <Main noBorder>
                     <MapWorkout main={main} lengthOfWod={lengthOfWod} switchTwo={switchTwo} switchOne={switchOne} setExpandedAccordion={setExpandedAccordion} />
                 </Main>
-                <TitleExercise>
-                    <h3>COOL DOWN</h3>
-                    <div>{warmDrillCoolCalc(lengthOfWod, 100)}</div>
-                </TitleExercise>
-                <CoolDown>
-                    <ExerciseCardsCoolDown noBorder>
-                        <ExerciseCardsTitle>Freestyle</ExerciseCardsTitle>
-                        <PlaceholderIMG />
-                        <p>{warmAndCoolLaps(lengthOfWod)}</p>
-                    </ExerciseCardsCoolDown>
-                </CoolDown>
+                <WarmCoolSection name={"COOL DOWN"} lengthOfWod={lengthOfWod} />
             </WorkoutDiv>
         </Cards>
     )
@@ -95,8 +59,13 @@ const Cards = styled.div`
     h3 {
         padding: 8px 16px;
     }
+    h2 {
+        text-align: center;
+        padding: 10px 16px 16px 16px;
+    }
 `
-const CoolDown = styled.div`
+
+const Drills = styled.div`
     background-color: rgba(255, 255, 255, 0.2);
     border-bottom: ${(props) => (props.primary ? "1px solid var(--border-seperator" : null)};
     display: flex;
@@ -105,76 +74,18 @@ const CoolDown = styled.div`
     padding: 10px 16px 16px 16px;
 `
 
-const Drills = styled(CoolDown)``
-
-const ExerciseCards = styled.div`
-    border-bottom: ${(props) => (props.noBorder ? "0px solid var(--border-seperator)" : "1px solid var(--border-seperator);")};
-    display: flex;
-    justify-content: space-between;
-    gap: 5px;
-    padding: 10px;
-`
-
-const ExerciseCardsTitle = styled.div`
-    flex: 1;
-`
-
-const ExerciseCardsWarmUp = styled(ExerciseCards)`
-    padding: 0px 10px;
-`
-
-const ExerciseCardsCoolDown = styled(ExerciseCardsWarmUp)`
-    padding: 0px 10px;
-`
-
-const Infos = styled.div`
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-`
-
-const InfoBar = styled.div`
-    display: flex;
-    justify-content: space-around;
-    padding: 0px 16px 0px 16px;
-    gap: 15px;
-`
-
-const InfoText = styled.div`
-    font-weight: bold;
-    margin-top: 5px;
-`
-
-const Main = styled(CoolDown)``
-
-const PlaceholderIMG = styled.div`
-    background-position: right;
-    background-size: auto;
-    background-repeat: no-repeat;
-    flex: 0 0 50px;
-`
+const Main = styled(Drills)``
 
 const ShowDrills = styled.div`
     display: ${(props) => (props.current === "show" ? "block" : "none")};
 `
 
-const Title = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 16px 16px 16px;
-`
-
-const TitleExercise = styled.div`
+const TitleAndLength = styled.div`
     color: var(--disabled-txt-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
 `
-
-const WarmUp = styled(CoolDown)``
 
 const WorkoutDiv = styled.div`
     display: flex;

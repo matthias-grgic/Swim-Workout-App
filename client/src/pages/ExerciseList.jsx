@@ -1,6 +1,6 @@
 import FilterButtons from "../components/FilterButtons"
 import SearchBar from "../components/SearchBar"
-import SimpleAccordion from "../components/Accordion"
+import SimpleAccordion from "../components/SimpleAccordion"
 import styled from "styled-components"
 import { useState } from "react"
 

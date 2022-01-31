@@ -12,15 +12,13 @@ function MainRender({ list, setWodList, lengthOfWod, setLengthOfWod, setSwitchOn
             <ButtonForRender setWodList={setWodList} setState={randomizedList} />
             <RangeSlider setLengthOfWod={setLengthOfWod} lengthOfWod={lengthOfWod} />
             <SwitchSection>
-                <Switch setSwitchOne={setSwitchOne} setSwitchTwo={setSwitchTwo} switchOne={switchOne} switchTwo={switchTwo} switchThree={switchThree} setSwitchThree={setSwitchThree} />
+                <Switch setSwitchOne={setSwitchOne} setSwitchTwo={setSwitchTwo} setSwitchThree={setSwitchThree} switchOne={switchOne} switchTwo={switchTwo} switchThree={switchThree} />
             </SwitchSection>
         </MainDiv>
     )
 }
 
 export default MainRender
-
-const LottieFile = styled.div``
 
 const MainDiv = styled.div`
     display: flex;
@@ -39,15 +37,3 @@ const SwitchSection = styled.div`
     flex-direction: column;
     align-items: center;
 `
-
-// const newObj = Object.assign(
-//     {},
-//     ...newWOD.map((item) => ({
-//         name: item.name,
-//         type: item.type,
-//         video: item.video,
-//         definition: item.definition,
-//         equipment: item.equipment,
-//         length: item.length,
-//     }))
-// )
