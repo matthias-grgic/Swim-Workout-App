@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import LottieanimationTwo from "../components/LottieanimationTwo"
+import LottieanimationTwo from "../components/LottieAnimationTwo"
 
 function Settings() {
     return (
