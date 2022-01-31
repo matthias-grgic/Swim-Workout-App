@@ -4,8 +4,11 @@ import FinsImg from "../images/equipment/fins.svg"
 import HandPaddleImg from "../images/equipment/handpaddles.svg"
 import PullbuoyImg from "../images/equipment/pullbuoy.svg"
 import SnorkelImg from "../images/equipment/snorkel.svg"
+import { useNavigate } from "react-router-dom"
 
-export default function MapCurrentWod({ main, switchOne, switchTwo, lengthOfWod }) {
+export default function MapCurrentWod({ main, switchOne, switchTwo, lengthOfWod, setExpandedAccordion }) {
+    const navigate = useNavigate()
+
     const typeLengthCheck = (type, length) => {
         if (type === "drill") {
             return halfAmount(switchOne, 4) + " x " + doubleLap(switchOne, length) + "m"
@@ -15,10 +18,15 @@ export default function MapCurrentWod({ main, switchOne, switchTwo, lengthOfWod 
         }
     }
 
+    const handleClick = (item) => {
+        navigate("/ExerciseList")
+        setExpandedAccordion(item)
+    }
+
     return main.map((item, index, arr) => {
         if (switchTwo === false && lengthOfWod === 0) {
             return (
-                <ExerciseCards onClick={() => navigate(`/ExerciseList#${item.id}`)} key={index}>
+                <ExerciseCards onClick={() => handleClick(item.id)} key={index}>
                     <ExerciseCardsTitle>{item.name}</ExerciseCardsTitle>
                     <IMGDiv value={item.equipment} />
                     <>1 x</>
@@ -27,7 +35,7 @@ export default function MapCurrentWod({ main, switchOne, switchTwo, lengthOfWod 
             )
         } else if (arr.length - 1 === index && switchTwo === false && lengthOfWod === 50) {
             return (
-                <ExerciseCards onClick={() => navigate(`/ExerciseList#${item.id}`)} key={index}>
+                <ExerciseCards onClick={() => handleClick(item.id)} key={index}>
                     <ExerciseCardsTitle>{item.name}</ExerciseCardsTitle>
                     <IMGDiv value={item.equipment} />
                     <>1 x</>
@@ -37,7 +45,7 @@ export default function MapCurrentWod({ main, switchOne, switchTwo, lengthOfWod 
         }
         {
             return (
-                <ExerciseCards onClick={() => navigate(`/ExerciseList#${item.id}`)} key={index}>
+                <ExerciseCards onClick={() => handleClick(item.id)} key={index}>
                     <ExerciseCardsTitle>{item.name}</ExerciseCardsTitle>
                     <IMGDiv value={item.equipment} />
                     <>{typeLengthCheck(item.type, item.length)}</>

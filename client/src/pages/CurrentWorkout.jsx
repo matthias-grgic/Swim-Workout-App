@@ -4,14 +4,11 @@ import minilogo from "../images/minilogo.svg"
 import PoolDistance from "../images/pooldistance.svg"
 import styled from "styled-components"
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
 import MapWorkout from "../components/MapWorkout"
 
 function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo, setExpandedAccordion }) {
     const [drills, setDrills] = useState([])
     const [main, setMain] = useState([])
-
-    const navigate = useNavigate()
 
     //SLICE AND RANDOMIZE EXERCISES
     useEffect(async () => {
@@ -19,11 +16,6 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo, setExpande
         const mainRandom = await wodList.filter((word) => word.type === "main").slice(0, exerciseAmountMain(lengthOfWod, switchTwo))
         return setDrills(drillsRandom), setMain(mainRandom)
     }, [])
-
-    const handleClick = () => {
-        setExpandedAccordion(id)
-        navigate("/ExerciseList")
-    }
 
     return (
         <Cards>
@@ -47,42 +39,40 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo, setExpande
             <WorkoutDiv>
                 <TitleExercise>
                     <h3>WARM UP</h3>
-                    <div>{warmDrillCoolCalc(lengthOfWod, 100)}m</div>
+                    <div>{warmDrillCoolCalc(lengthOfWod, 100)}</div>
                 </TitleExercise>
                 <WarmUp>
                     <ExerciseCardsWarmUp noBorder>
-                        <ExerciseCardsTitle onClick={handleClick}>Freestyle</ExerciseCardsTitle>
+                        <ExerciseCardsTitle>Freestyle</ExerciseCardsTitle>
                         <PlaceholderIMG />
-                        <p>{warmAndCoolLaps(lengthOfWod)} x </p>
-                        <p>100m</p>
+                        <p>{warmAndCoolLaps(lengthOfWod)}</p>
                     </ExerciseCardsWarmUp>
                 </WarmUp>
                 <ShowDrills current={checkDrills(switchTwo)}>
                     <TitleExercise>
                         <h3>DRILLS</h3>
-                        <div>{warmDrillCoolCalc(lengthOfWod, 200)}m</div>
+                        <div>{warmDrillCoolCalc(lengthOfWod, 200)}</div>
                     </TitleExercise>
-                    <Drills onClick={() => navigate("/ExerciseList")} noBorder>
-                        <MapWorkout main={drills} lengthOfWod={lengthOfWod} switchTwo={switchTwo} switchOne={switchOne} />
+                    <Drills noBorder>
+                        <MapWorkout main={drills} lengthOfWod={lengthOfWod} switchTwo={switchTwo} switchOne={switchOne} setExpandedAccordion={setExpandedAccordion} />
                     </Drills>
                 </ShowDrills>
                 <TitleExercise>
                     <h3>MAIN</h3>
-                    <div>{mainCalc(lengthOfWod, switchTwo)}m</div>
+                    <div>{mainCalc(lengthOfWod, switchTwo)}</div>
                 </TitleExercise>
-                <Main onClick={() => navigate("/ExerciseList")} noBorder>
-                    <MapWorkout main={main} lengthOfWod={lengthOfWod} switchTwo={switchTwo} switchOne={switchOne} />
+                <Main noBorder>
+                    <MapWorkout main={main} lengthOfWod={lengthOfWod} switchTwo={switchTwo} switchOne={switchOne} setExpandedAccordion={setExpandedAccordion} />
                 </Main>
                 <TitleExercise>
                     <h3>COOL DOWN</h3>
-                    <div>{warmDrillCoolCalc(lengthOfWod, 100)}m</div>
+                    <div>{warmDrillCoolCalc(lengthOfWod, 100)}</div>
                 </TitleExercise>
                 <CoolDown>
                     <ExerciseCardsCoolDown noBorder>
-                        <ExerciseCardsTitle onClick={() => navigate("/ExerciseList")}>Freestyle</ExerciseCardsTitle>
+                        <ExerciseCardsTitle>Freestyle</ExerciseCardsTitle>
                         <PlaceholderIMG />
-                        <p>{warmAndCoolLaps(lengthOfWod)} x </p>
-                        <p>100m</p>
+                        <p>{warmAndCoolLaps(lengthOfWod)}</p>
                     </ExerciseCardsCoolDown>
                 </CoolDown>
             </WorkoutDiv>

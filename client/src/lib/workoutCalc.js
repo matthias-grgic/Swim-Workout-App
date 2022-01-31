@@ -1,29 +1,29 @@
 //WORKOUT SECTION PERCENTAGE
 const warmDrillCoolCalc = (lengthOfWod, percentage) => {
     if (lengthOfWod === 0) {
-        return String((1000 / 1000) * percentage)
+        return String((1000 / 1000) * percentage) + "m"
     } else if (lengthOfWod === 50) {
-        return String((2000 / 1000) * percentage)
+        return String((2000 / 1000) * percentage) + "m"
     }
     {
-        return String((3000 / 1000) * percentage)
+        return String((3000 / 1000) * percentage) + "m"
     }
 }
 
 //MAIN SECTION PERCENTAGE, check if DRILL ARE ON/OFF
 const mainCalc = (lengthOfWod, switchTwo) => {
     if (lengthOfWod === 0 && switchTwo === false) {
-        return String((1000 / 1000) * 800)
+        return String((1000 / 1000) * 800) + "m"
     } else if (lengthOfWod === 50 && switchTwo === false) {
-        return String((2000 / 1000) * 800)
+        return String((2000 / 1000) * 800) + "m"
     } else if (lengthOfWod === 100 && switchTwo === false) {
-        return String((3000 / 1000) * 800)
+        return String((3000 / 1000) * 800) + "m"
     } else if (lengthOfWod === 0 && switchTwo === true) {
-        return String((1000 / 1000) * 600)
+        return String((1000 / 1000) * 600) + "m"
     } else if (lengthOfWod === 50 && switchTwo === true) {
-        return String((2000 / 1000) * 600)
+        return String((2000 / 1000) * 600) + "m"
     } else if (lengthOfWod === 100 && switchTwo === true) {
-        return String((3000 / 1000) * 600)
+        return String((3000 / 1000) * 600) + "m"
     }
 }
 
@@ -87,15 +87,15 @@ const exerciseAmountMain = (lengthOfWod, switchTwo) => {
     }
 }
 
-// Number of Warm Upp and Cool Down laps
+// Number of Warm Up and Cool Down laps
 const warmAndCoolLaps = (lengthOfWod) => {
     if (lengthOfWod === 0) {
-        return "1"
+        return "1 " + "x" + " 100m"
     } else if (lengthOfWod === 50) {
-        return "2"
+        return "2 " + "x" + " 100m"
     }
     {
-        return "3"
+        return "3 " + "x" + " 100m"
     }
 }
 
