@@ -9,7 +9,7 @@ const style = {
     zindex: -1,
 }
 
-const LottieLogoTWO = () => {
+const LottieanimationTwo = () => {
     const options = {
         path: "https://assets2.lottiefiles.com/packages/lf20_a7djbqn2.json",
         loop: true,
@@ -21,4 +21,4 @@ const LottieLogoTWO = () => {
     return View
 }
 
-export default LottieLogoTWO
+export default LottieanimationTwo
