@@ -7,7 +7,6 @@ import Randomizer from "../lib/Randomizer"
 function MainRender({ list, setWodList, lengthOfWod, setLengthOfWod, setSwitchOne, setSwitchTwo, switchOne, switchTwo, switchThree, setSwitchThree, userList }) {
     const checkWhichList = (switchThree) => (switchThree === false ? list : list.concat(userList))
     const randomizedList = Randomizer(checkWhichList(switchThree))
-    console.log(lengthOfWod)
     return (
         <MainDiv>
             <ButtonForRender setWodList={setWodList} setState={randomizedList} />

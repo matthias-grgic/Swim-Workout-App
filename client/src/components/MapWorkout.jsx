@@ -16,16 +16,16 @@ export default function MapCurrentWod({ main, switchOne, switchTwo, lengthOfWod 
     }
 
     return main.map((item, index, arr) => {
-        if (arr.length - 1 === index && switchTwo === false && lengthOfWod === 0) {
+        if (switchTwo === false && lengthOfWod === 0) {
             return (
                 <ExerciseCards onClick={() => navigate(`/ExerciseList#${item.id}`)} key={index}>
                     <ExerciseCardsTitle>{item.name}</ExerciseCardsTitle>
                     <IMGDiv value={item.equipment} />
                     <>1 x</>
-                    <p>100m</p>
+                    <p>200m</p>
                 </ExerciseCards>
             )
-        } else if (arr.length - 2 === index && switchTwo === false && lengthOfWod === 50) {
+        } else if (arr.length - 1 === index && switchTwo === false && lengthOfWod === 50) {
             return (
                 <ExerciseCards onClick={() => navigate(`/ExerciseList#${item.id}`)} key={index}>
                     <ExerciseCardsTitle>{item.name}</ExerciseCardsTitle>

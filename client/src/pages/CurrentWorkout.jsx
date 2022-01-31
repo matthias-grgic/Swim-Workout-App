@@ -57,7 +57,7 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo }) {
                         <h3>DRILLS</h3>
                         <div>{warmDrillCoolCalc(lengthOfWod, 200)}m</div>
                     </TitleExercise>
-                    <Drills noBorder>
+                    <Drills onClick={() => navigate("/ExerciseList")} noBorder>
                         <MapWorkout main={drills} lengthOfWod={lengthOfWod} switchTwo={switchTwo} switchOne={switchOne} />
                     </Drills>
                 </ShowDrills>
