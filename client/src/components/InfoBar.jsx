@@ -58,5 +58,5 @@ const InfoText = styled.div`
     font-weight: bold;
 `
 const SVGDiv = styled.div`
-    width: 34px;
+    width: 40px;
 `
