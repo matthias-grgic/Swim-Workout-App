@@ -2,7 +2,7 @@ import FormAdd from "../components/FormAdd"
 import SimpleAccordion from "../components/SimpleAccordion"
 import styled from "styled-components"
 
-function Create({ userList }) {
+function Create({ userList, expandedAccordion, setExpandedAccordion }) {
     const showDeleteButton = "block" // Show Delete Button only on UserLibrary
 
     return (
@@ -15,7 +15,17 @@ function Create({ userList }) {
                 <h3>EDIT USER LIBRARY</h3>
             </TitleTwo>
             {userList.map((item, index) => (
-                <SimpleAccordion key={index} id={item.id} name={item.name} type={item.type} equipment={item.equipment} video={item.video} DeleteButtonCSS={showDeleteButton} />
+                <SimpleAccordion
+                    key={index}
+                    id={item.id}
+                    name={item.name}
+                    type={item.type}
+                    equipment={item.equipment}
+                    video={item.video}
+                    DeleteButtonCSS={showDeleteButton}
+                    expandedAccordion={expandedAccordion}
+                    setExpandedAccordion={setExpandedAccordion}
+                />
             ))}
         </MainDiv>
     )
