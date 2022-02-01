@@ -34,7 +34,6 @@ export default function MapCurrentWod({ main, switchOne, switchTwo, lengthOfWod,
             )
         } else if (arr.length - 1 === index && switchTwo === false && lengthOfWod === 50) {
             return (
-                // <ExerciseCards onClick={() => RedirectAndExpand(item.id)} key={index}>
                 <HashLink key={index} onClick={() => RedirectAndExpand(item.id)} smooth to={`/ExerciseList#${item.id}`}>
                     <ExerciseCards>
                         <ExerciseCardsTitle>{item.name}</ExerciseCardsTitle>
