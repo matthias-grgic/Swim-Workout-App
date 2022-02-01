@@ -3,9 +3,9 @@
 describe("Search Bar Function", () => {
     it("Click on Filter Buttons and see results in Accordion", () => {
         cy.visit("/ExerciseList")
-        cy.get("[data-cy=submitPB]").click()
+        cy.get("[data-cy=submitPB]").click({ force: true })
         cy.get(".sc-bYoBSM")
-        cy.contains("pullbuoy")
+        cy.contains("Pullbuoy")
     })
 })
 
