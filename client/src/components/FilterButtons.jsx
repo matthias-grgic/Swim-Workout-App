@@ -15,6 +15,7 @@ function FilterButtons({ transferedSetData, transferedListForSearch }) {
                 ALL
             </Button>
             <ButtonPB
+                data-cy="submitPB"
                 onClick={() => {
                     const filteredType = transferedListForSearch.filter((item) => item.equipment === "pullbuoy")
                     return transferedSetData(filteredType)

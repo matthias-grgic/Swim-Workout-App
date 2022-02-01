@@ -4,11 +4,11 @@ import SimpleAccordion from "../components/SimpleAccordion"
 import styled from "styled-components"
 import { useState } from "react"
 
-function ExerciseList({ transferedList, transferedUserList, expandedAccordion, setExpandedAccordion }) {
+function ExerciseList({ list, userList, expandedAccordion, setExpandedAccordion }) {
     const [dataExercise, setDataExercise] = useState([])
 
     //Merge Exercise List & User List
-    const MergedLists = transferedList.concat(transferedUserList)
+    const MergedLists = list.concat(userList)
 
     return (
         <ExerciseListMain>

@@ -60,7 +60,7 @@ function App() {
                     }
                 />
                 <Route path="/CurrentWorkout" element={<CurrentWorkout wodList={wodList} lengthOfWod={lengthOfWod} switchOne={switchOne} switchTwo={switchTwo} setExpandedAccordion={setExpandedAccordion} />} />
-                <Route path="/ExerciseList" element={<ExerciseList transferedList={list} transferedUserList={userList} expandedAccordion={expandedAccordion} setExpandedAccordion={setExpandedAccordion} />} />
+                <Route path="/ExerciseList" element={<ExerciseList list={list} userList={userList} expandedAccordion={expandedAccordion} setExpandedAccordion={setExpandedAccordion} />} />
                 <Route path="/Create" element={<Create userList={userList} expandedAccordion={expandedAccordion} setExpandedAccordion={setExpandedAccordion} />} />
                 <Route path="/Settings" element={<Settings />} />
             </Routes>
