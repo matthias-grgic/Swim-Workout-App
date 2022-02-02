@@ -71,10 +71,6 @@ const ExerciseCardsTitle = styled.div`
     flex: 1;
 `
 
-const ExerciseCardsWarmUp = styled(ExerciseCards)`
-    padding: 0px 10px;
-`
-
 const IMGDiv = styled.div`
     background-position: center;
     background-size: auto;

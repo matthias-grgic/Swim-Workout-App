@@ -44,13 +44,6 @@ const Links = styled.div`
     gap: 2px;
 `
 
-const Infos = styled.div`
-    display: flex;
-    flex-direction: column;
-    z-index: 1;
-    margin: 30px;
-`
-
 const Sources = styled.div`
     display: flex;
     flex-direction: column;

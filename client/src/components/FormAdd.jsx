@@ -15,9 +15,7 @@ function FormAdd() {
     }
 
     const handleSubmit = async (e) => {
-        // e.preventDefault(e)
         await postToApi("/api/postUserExercises", all)
-        // await setUserList([all])
     }
     return (
         <Form onSubmit={handleSubmit}>

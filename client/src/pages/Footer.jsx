@@ -52,10 +52,10 @@ const NavBar = styled.div`
 `
 
 const StyledNavLink = styled(NavLink)`
-    display: flex;
     align-items: center;
-    justify-content: center;
+    display: flex;
     fill: black;
+    justify-content: center;
     width: 40px;
     &.active {
         fill: #5162fc;

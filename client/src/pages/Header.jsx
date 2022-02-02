@@ -7,10 +7,10 @@ function Header({ title }) {
 export default Header
 
 const Title = styled.div`
-    position: fixed;
-    top: 0;
+    color: var(--main-txt-color);
     font-family: "Righteous", Arial;
     font-size: 3rem;
     padding-top: 8px;
-    color: var(--main-txt-color);
+    position: fixed;
+    top: 0;
 `

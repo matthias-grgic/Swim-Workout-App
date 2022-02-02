@@ -3,7 +3,7 @@ import SimpleAccordion from "../components/SimpleAccordion"
 import styled from "styled-components"
 
 function Create({ userList, expandedAccordion, setExpandedAccordion }) {
-    const showDeleteButton = "block" // Show Delete Button only on UserLibrary
+    const showDeleteButton = "block" // Show Delete Button only for UserLibrary
 
     return (
         <MainDiv>

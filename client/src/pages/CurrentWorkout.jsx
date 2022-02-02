@@ -9,7 +9,6 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo, setExpande
     const [drills, setDrills] = useState([])
     const [main, setMain] = useState([])
 
-    //SLICE AND RANDOMIZE EXERCISES
     useEffect(async () => {
         const drillsRandom = await wodList.filter((word) => word.type === "drill").slice(0, exerciseAmountDrills(lengthOfWod))
         const mainRandom = await wodList.filter((word) => word.type === "main").slice(0, exerciseAmountMain(lengthOfWod, switchTwo))

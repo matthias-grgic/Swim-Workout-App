@@ -45,29 +45,34 @@ function FilterButtons({ transferedSetData, transferedListForSearch }) {
 
 export default FilterButtons
 
-const FilterButtonsStyled = styled.div`
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 0px;
-    margin-top: 10px;
-`
 const Button = styled.button`
     background-color: transparent;
     border-style: none;
     padding: 10px;
 `
+
 const ButtonPB = styled(Button)`
     background-image: url(${PullbuoyImg});
     background-position: center;
     background-size: auto;
     background-repeat: no-repeat;
 `
+
 const ButtonHP = styled(ButtonPB)`
     background-image: url(${HandPaddleImg});
 `
+
 const ButtonFN = styled(ButtonPB)`
     background-image: url(${FinsImg});
 `
+
 const ButtonSN = styled(ButtonPB)`
     background-image: url(${SnorkelImg});
+`
+
+const FilterButtonsStyled = styled.div`
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 0px;
+    margin-top: 10px;
 `

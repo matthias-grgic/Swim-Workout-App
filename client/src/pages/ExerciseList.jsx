@@ -6,12 +6,7 @@ import { useEffect, useState } from "react"
 
 function ExerciseList({ list, userList, expandedAccordion, setExpandedAccordion }) {
     const [dataExercise, setDataExercise] = useState([])
-
-    //Merge Exercise List & User List
     const MergedLists = list.concat(userList)
-    useEffect(() => {
-        setDataExercise(MergedLists)
-    }, [])
 
     return (
         <ExerciseListMain>

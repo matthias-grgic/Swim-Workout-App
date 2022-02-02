@@ -68,7 +68,6 @@ export default App
 
 const Main = styled.div`
     background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
-    /* background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%); */
     display: flex;
     flex-direction: column;
     justify-content: center;
