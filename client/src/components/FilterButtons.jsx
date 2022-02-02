@@ -4,6 +4,7 @@ function FilterButtons({ transferedSetData, transferedListForSearch }) {
     return (
         <FilterButtonsStyled>
             <Button
+                ontouchstart
                 onClick={() => {
                     transferedSetData(transferedListForSearch)
                 }}
@@ -11,6 +12,7 @@ function FilterButtons({ transferedSetData, transferedListForSearch }) {
                 ALL
             </Button>
             <Button
+                ontouchstart
                 data-cy="submitPB"
                 onClick={() => {
                     const filteredType = transferedListForSearch.filter((item) => item.equipment === "pullbuoy")
@@ -85,6 +87,7 @@ function FilterButtons({ transferedSetData, transferedListForSearch }) {
                 </svg>
             </Button>
             <Button
+                ontouchstart
                 onClick={() => {
                     const filteredType = transferedListForSearch.filter((item) => item.equipment === "paddles")
                     return transferedSetData(filteredType)
@@ -105,6 +108,7 @@ function FilterButtons({ transferedSetData, transferedListForSearch }) {
                 </svg>
             </Button>
             <Button
+                ontouchstart
                 onClick={() => {
                     const filteredType = transferedListForSearch.filter((item) => item.equipment === "fins")
                     return transferedSetData(filteredType)
@@ -194,6 +198,7 @@ function FilterButtons({ transferedSetData, transferedListForSearch }) {
                 </svg>
             </Button>
             <Button
+                ontouchstart
                 onClick={() => {
                     const filteredType = transferedListForSearch.filter((item) => item.equipment === "snorkel")
                     return transferedSetData(filteredType)
