@@ -25,11 +25,6 @@ function App() {
         FetchFromApi("/api/getexerciselist", setList)
     }, [])
 
-    //Fetch CurrentWorkout List
-    useEffect(() => {
-        FetchFromApi("/api/getworkoutlist", setWodList)
-    }, [])
-
     //Fetch UserExercises List
     useEffect(() => {
         FetchFromApi("/api/getUserExercises", setUserList)
