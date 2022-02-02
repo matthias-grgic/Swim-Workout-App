@@ -13,6 +13,6 @@ describe("Button (Main) for Workout Rendering", () => {
 describe("Range Slider", () => {
     it("Slide to set another swimming distance", () => {
         cy.visit("/")
-        cy.get("RangeSlider").invoke("value", 20001)
+        cy.get("input[type=range]").invoke("value", 100).trigger("change")
     })
 })
