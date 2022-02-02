@@ -9,7 +9,11 @@ export default function ButtonForRender({ setWodList, setState }) {
         navigate("/CurrentWorkout")
     }
 
-    return <ButtonStyled onClick={() => setStateAndRedirect(setState)}>GO</ButtonStyled>
+    return (
+        <ButtonStyled data-cy="buttonrender" onClick={() => setStateAndRedirect(setState)}>
+            GO
+        </ButtonStyled>
+    )
 }
 
 const ButtonStyled = styled.button`
