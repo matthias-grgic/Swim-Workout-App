@@ -60,7 +60,7 @@ const Form = styled.form`
         background-color: rgba(255, 255, 255, 0.4);
         font-size: 1rem;
         box-shadow: 0;
-        border: 1px solid #ccc;
+        border: 1px solid #dfdede;
         border-radius: 4px;
         display: inline-block;
         margin: 0px 0;
