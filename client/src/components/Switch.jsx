@@ -55,38 +55,38 @@ export default function CustomizedSwitches({ setSwitchOne, setSwitchTwo, switchO
 
     return (
         <FormGroup sx={{ display: "flex", justifyContent: "center" }}>
-            <Stack spacing={0} sx={{ mb: 1.5 }} alignItems="center">
+            <Stack spacing={0} sx={{ mb: 2 }} alignItems="center">
                 <Typography sx={{ display: "flex", flex: "1" }}>
                     <PopoverButton name={"POOL LENGTH ⓘ"} text={"Define the length of the pool, either 25m or 50m (Olympic-sized swimming pools)"} />
                 </Typography>
                 <Stack direction="row" spacing={1} alignItems="center">
-                    <Typography>50m</Typography>
+                    <Typography sx={{ width: "30px" }}>50m</Typography>
                     <FormControlLabel control={<IOSSwitch checked={switchOne} onChange={() => setSwitchOne(event.target.checked)} sx={{ mr: 1, ml: 1, mt: 0.5 }} />} label="" />
-                    <Typography>25m</Typography>
+                    <Typography sx={{ width: "30px" }}>25m</Typography>
                 </Stack>
             </Stack>
+
             <Stack spacing={0} sx={{ mb: 2 }} alignItems="center">
                 <Typography sx={{ display: "flex", flex: "1" }}>
                     <PopoverButton name={"DRILLS ⓘ"} text={"Decide wether you'd like to include technique exercises to your workout or without"} />
                 </Typography>
-                <Stack direction="row" spacing={1} sx={{ p: 0 }} alignItems="center">
-                    <Typography>No</Typography>
+                <Stack direction="row" spacing={1} alignItems="center">
+                    <Typography sx={{ width: "30px" }}>No</Typography>
                     <FormControlLabel control={<IOSSwitch checked={switchTwo} onChange={() => setSwitchTwo(event.target.checked)} sx={{ mr: 1, ml: 1, mt: 0.5 }} />} label="" />
-                    <Typography>Yes</Typography>
+                    <Typography sx={{ width: "30px" }}>Yes</Typography>
                 </Stack>
             </Stack>
+
             <Stack spacing={0} sx={{ mb: 2 }} alignItems="center">
                 <Typography sx={{ display: "flex", flex: "1" }}>
                     <PopoverButton name={"USER LIBRARY ⓘ"} text={"You can include the user added exercises to your workout or simply use the standard database"} />
                 </Typography>
                 <Stack direction="row" spacing={1} alignItems="center">
-                    <Typography>No</Typography>
+                    <Typography sx={{ width: "30px" }}>No</Typography>
                     <FormControlLabel control={<IOSSwitch checked={switchThree} onChange={() => setSwitchThree(event.target.checked)} sx={{ mr: 1, ml: 1, mt: 0.5 }} />} label="" />
-                    <Typography>Yes</Typography>
+                    <Typography sx={{ width: "30px" }}>Yes</Typography>
                 </Stack>
             </Stack>
         </FormGroup>
     )
 }
-
-// onChange={() => setSwitchOne((switchOne) => !switchOne)}
