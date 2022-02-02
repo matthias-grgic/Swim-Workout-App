@@ -83,7 +83,7 @@ export default function CustomizedSwitches({ setSwitchOne, setSwitchTwo, switchO
                 </Typography>
                 <Stack direction="row" spacing={1} alignItems="center">
                     <Typography sx={{ width: "30px" }}>No</Typography>
-                    <FormControlLabel control={<IOSSwitch checked={switchThree} onChange={() => setSwitchThree(event.target.checked)} sx={{ mr: 1, ml: 1, mt: 0.5 }} />} label="" />
+                    <FormControlLabel control={<IOSSwitch data-cy="switchthree" checked={switchThree} onChange={() => setSwitchThree(event.target.checked)} sx={{ mr: 1, ml: 1, mt: 0.5 }} />} label="" />
                     <Typography sx={{ width: "30px" }}>Yes</Typography>
                 </Stack>
             </Stack>

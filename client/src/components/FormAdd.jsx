@@ -20,16 +20,16 @@ function FormAdd() {
     return (
         <Form onSubmit={handleSubmit}>
             <FormField>
-                <input type="text" name="name" id="name" value={all.name} onChange={handleChange} placeholder="Exercise" />
+                <input data-cy="name" type="text" name="name" id="name" value={all.name} onChange={handleChange} placeholder="Exercise" />
             </FormField>
             <FormField>
-                <select name="type" value={all.type} onChange={handleChange}>
+                <select data-cy="type" name="type" value={all.type} onChange={handleChange}>
                     <option value="main">Main</option>
                     <option value="drill">Drill</option>
                 </select>
             </FormField>
             <FormField>
-                <select name="equipment" value={all.equipment} onChange={handleChange}>
+                <select data-cy="equipment" name="equipment" value={all.equipment} onChange={handleChange}>
                     <option value="">-select-</option>
                     <option value="pullbuoy">Pullbuoy</option>
                     <option value="paddles">Paddles</option>
@@ -38,10 +38,10 @@ function FormAdd() {
                 </select>
             </FormField>
             <FormField>
-                <input type="text" name="video" value={all.video} onChange={handleChange} placeholder="Youtube Link" />
+                <input data-cy="video" type="text" name="video" value={all.video} onChange={handleChange} placeholder="Youtube Link" />
             </FormField>
             <FormField>
-                <textarea id="subject" name="definition" value={all.definition} onChange={handleChange} placeholder="Short description of the exercise" />
+                <textarea data-cy="definition" id="subject" name="definition" value={all.definition} onChange={handleChange} placeholder="Short description of the exercise" />
             </FormField>
             <SimpleSnackbarTwo />
         </Form>
