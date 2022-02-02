@@ -27,32 +27,34 @@ function Settings() {
 
 export default Settings
 
-const MainDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    h2 {
-        margin-bottom: 10px;
-    }
-`
-
 const Links = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2px;
 `
 
-const Sources = styled.div`
+const MainDiv = styled.div`
+    align-items: center;
+    background-size: cover;
     display: flex;
     flex-direction: column;
-    z-index: 1;
-    margin: 30px;
-    height: 60vh;
-    font-size: 1rem;
-    margin-bottom: 10px;
+    gap: 2rem;
+    justify-content: center;
+    h2 {
+        color: var(--main-txt-color);
+        margin-bottom: 10px;
+    }
+`
+
+const Sources = styled.div`
     color: var(--secondary-txt-color);
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    height: 60vh;
+    margin: 30px;
+    margin-bottom: 10px;
+    z-index: 1;
 `
 
 const Text = styled.p`

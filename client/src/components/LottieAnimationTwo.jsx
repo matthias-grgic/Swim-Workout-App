@@ -5,7 +5,7 @@ const style = {
     height: "110%",
     alignSelf: "center",
     position: "fixed",
-    opacity: 1,
+    opacity: 0.8,
     zindex: -1,
 }
 
