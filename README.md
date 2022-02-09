@@ -1,6 +1,6 @@
 *Still in progress*
 # SWIMM APP
-Hello, welcome to my capstone project for Neue Fische (muc-web-21-3)
+Hello, welcome to my Capstone Project 02/2022 for [Neue Fische Bootcamp](https://github.com/neuefische/.
 
 
 This app creates a customized swimming workout accordingly to your desires. It uses a database of exercises to generate a workout and displays everything you need to get your swimming day started. Create your workout, add swimming exercises, browse through training tips/videos, to be perfectly prepared for your pool workout.
