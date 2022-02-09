@@ -1,4 +1,3 @@
-*Still in progress*
 # SWIM APP
 Hello, welcome to my Capstone Project 02/2022 for [Neue Fische](https://github.com/neuefische/).
 
