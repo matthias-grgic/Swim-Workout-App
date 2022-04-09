@@ -1,7 +1,7 @@
-import { mainCalc, warmDrillCoolCalc, checkDrills, exerciseAmountDrills, exerciseAmountMain } from '../lib/workoutCalc'
-import MapWorkout from '../components/MapWorkout'
 import styled from 'styled-components'
 import { useEffect, useState } from 'react'
+import { mainCalc, warmDrillCoolCalc, checkDrills, exerciseAmountDrills, exerciseAmountMain } from '../lib/workoutCalc'
+import MapWorkout from '../components/MapWorkout'
 import InfoBar from '../components/InfoBar'
 import WarmCoolSection from '../components/WarmUpSection'
 
@@ -9,16 +9,19 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo, setExpande
   const [drills, setDrills] = useState([])
   const [main, setMain] = useState([])
 
-  useEffect(async () => {
-    const drillsRandom = await wodList.filter((word) => word.type === 'drill').slice(0, exerciseAmountDrills(lengthOfWod))
-    const mainRandom = await wodList.filter((word) => word.type === 'main').slice(0, exerciseAmountMain(lengthOfWod, switchTwo))
-    return setDrills(drillsRandom), setMain(mainRandom)
+  useEffect(() => {
+    async function fetchData() {
+      const drillsRandom = await wodList.filter((word) => word.type === 'drill').slice(0, exerciseAmountDrills(lengthOfWod))
+      const mainRandom = await wodList.filter((word) => word.type === 'main').slice(0, exerciseAmountMain(lengthOfWod, switchTwo))
+      return setDrills(drillsRandom), setMain(mainRandom)
+    }
+    fetchData()
   }, [])
 
   return (
     <Container>
       <InfoBar lengthOfWod={lengthOfWod} switchOne={switchOne} />
-      <WarmCoolSection name={'WARM UP'} lengthOfWod={lengthOfWod} />
+      <WarmCoolSection name='WARM UP' lengthOfWod={lengthOfWod} />
       <ShowDrills current={checkDrills(switchTwo)}>
         <TitleAndLength>
           <h3>DRILLS</h3>
@@ -35,7 +38,7 @@ function CurrentWorkout({ wodList, lengthOfWod, switchOne, switchTwo, setExpande
       <Main noBorder>
         <MapWorkout main={main} lengthOfWod={lengthOfWod} switchTwo={switchTwo} switchOne={switchOne} setExpandedAccordion={setExpandedAccordion} />
       </Main>
-      <WarmCoolSection name={'COOL DOWN'} lengthOfWod={lengthOfWod} />
+      <WarmCoolSection name='COOL DOWN' lengthOfWod={lengthOfWod} />
     </Container>
   )
 }

@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { Routes, Route } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import Create from './pages/Create'
 import CurrentWorkout from './pages/CurrentWorkout'
 import ExerciseList from './pages/ExerciseList'
@@ -6,8 +8,6 @@ import Navigation from './components/Navigation'
 import Header from './components/Header'
 import MainRender from './pages/LandingPage'
 import Settings from './pages/Settings'
-import { Routes, Route } from 'react-router-dom'
-import { useState, useEffect } from 'react'
 import FetchFromApi from './lib/fetchFromApi'
 
 function App() {
@@ -20,12 +20,12 @@ function App() {
   const [switchThree, setSwitchThree] = useState(false)
   const [expandedAccordion, setExpandedAccordion] = useState(false)
 
-  //Fetch Exercise List
+  // Fetch Exercise List
   useEffect(() => {
     FetchFromApi('/api/getexerciselist', setList)
   }, [])
 
-  //Fetch UserExercises List
+  // Fetch UserExercises List
   useEffect(() => {
     FetchFromApi('/api/getUserExercises', setUserList)
   }, [])
@@ -34,10 +34,10 @@ function App() {
     <Main>
       <Routes>
         <Route
-          path='/'
-          element={
+          path="/"
+          element={(
             <>
-              <Header title={'SWIM'} />
+              <Header title="SWIM" />
               <MainRender
                 list={list}
                 setWodList={setWodList}
@@ -52,43 +52,43 @@ function App() {
                 userList={userList}
               />
             </>
-          }
+          )}
         />
         <Route
-          path='/CurrentWorkout'
-          element={
+          path="/CurrentWorkout"
+          element={(
             <>
-              <Header title={'WORKOUT'} />
+              <Header title="WORKOUT" />
               <CurrentWorkout wodList={wodList} lengthOfWod={lengthOfWod} switchOne={switchOne} switchTwo={switchTwo} setExpandedAccordion={setExpandedAccordion} />
             </>
-          }
+          )}
         />
         <Route
-          path='/ExerciseList'
-          element={
+          path="/ExerciseList"
+          element={(
             <>
-              <Header title={'LIBRARY'} />
+              <Header title="LIBRARY" />
               <ExerciseList list={list} userList={userList} expandedAccordion={expandedAccordion} setExpandedAccordion={setExpandedAccordion} />
             </>
-          }
+          )}
         />
         <Route
-          path='/Create'
-          element={
+          path="/Create"
+          element={(
             <>
-              <Header title={'CREATE'} />
+              <Header title="CREATE" />
               <Create userList={userList} expandedAccordion={expandedAccordion} setExpandedAccordion={setExpandedAccordion} />
             </>
-          }
+          )}
         />
         <Route
-          path='/Settings'
-          element={
+          path="/Settings"
+          element={(
             <>
-              <Header title={'ABOUT'} />
+              <Header title="ABOUT" />
               <Settings />
             </>
-          }
+          )}
         />
       </Routes>
       <Navigation />

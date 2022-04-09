@@ -1,27 +1,27 @@
-import ExerciseList from "../models/exerciselist.model.js"
+import ExerciseList from '../models/exerciselist.model.js'
 
-//GET
+// GET
 const getExerciseList = async (req, res) => {
-    const testListAll = await ExerciseList.find()
-    res.json(testListAll)
+  const testListAll = await ExerciseList.find()
+  res.json(testListAll)
 }
 
-//POST
+// POST
 const postExerciseList = async (req, res) => {
-    const category = new ExerciseList({
-        name: req.body.name,
-        type: req.body.type,
-        equipment: req.body.equipment,
-        video: req.body.video,
-        definition: req.body.definition,
-        length: req.body.length,
-    })
-    try {
-        const result = await category.save()
-        res.json(result)
-    } catch (error) {
-        res.json(error)
-    }
+  const category = new ExerciseList({
+    name: req.body.name,
+    type: req.body.type,
+    equipment: req.body.equipment,
+    video: req.body.video,
+    definition: req.body.definition,
+    length: req.body.length,
+  })
+  try {
+    const result = await category.save()
+    res.json(result)
+  } catch (error) {
+    res.json(error)
+  }
 }
 
 export { getExerciseList, postExerciseList }

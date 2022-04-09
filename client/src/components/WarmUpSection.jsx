@@ -1,22 +1,22 @@
-import styled from "styled-components"
-import { warmDrillCoolCalc, warmAndCoolLaps } from "../lib/workoutCalc"
+import styled from 'styled-components'
+import { warmDrillCoolCalc, warmAndCoolLaps } from '../lib/workoutCalc'
 
 export default function WarmCoolSection({ lengthOfWod, name }) {
-    return (
-        <>
-            <TitleAndLength>
-                <h3>{name}</h3>
-                <div>{warmDrillCoolCalc(lengthOfWod, 100)}</div>
-            </TitleAndLength>
-            <WarmOrCoolSection>
-                <ExerciseCard noBorder>
-                    <ExerciseCardsTitle>Freestyle</ExerciseCardsTitle>
-                    <PlaceholderIMG />
-                    <p>{warmAndCoolLaps(lengthOfWod)}</p>
-                </ExerciseCard>
-            </WarmOrCoolSection>
-        </>
-    )
+  return (
+    <>
+      <TitleAndLength>
+        <h3>{name}</h3>
+        <div>{warmDrillCoolCalc(lengthOfWod, 100)}</div>
+      </TitleAndLength>
+      <WarmOrCoolSection>
+        <ExerciseCard noBorder>
+          <ExerciseCardsTitle>Freestyle</ExerciseCardsTitle>
+          <PlaceholderIMG />
+          <p>{warmAndCoolLaps(lengthOfWod)}</p>
+        </ExerciseCard>
+      </WarmOrCoolSection>
+    </>
+  )
 }
 
 const ExerciseCardsTitle = styled.div`
@@ -24,7 +24,7 @@ const ExerciseCardsTitle = styled.div`
 `
 
 const ExerciseCard = styled.div`
-    border-bottom: ${(props) => (props.noBorder ? "0px solid var(--border-seperator)" : "1px solid var(--border-seperator);")};
+    border-bottom: ${(props) => (props.noBorder ? '0px solid var(--border-seperator)' : '1px solid var(--border-seperator);')};
     display: flex;
     justify-content: space-between;
     gap: 5px;
@@ -47,7 +47,7 @@ const TitleAndLength = styled.div`
 
 const WarmOrCoolSection = styled.div`
     background-color: rgba(255, 255, 255, 0.2);
-    border-bottom: ${(props) => (props.primary ? "1px solid var(--border-seperator" : null)};
+    border-bottom: ${(props) => (props.primary ? '1px solid var(--border-seperator' : null)};
     display: flex;
     flex-direction: column;
     margin-bottom: 12px;

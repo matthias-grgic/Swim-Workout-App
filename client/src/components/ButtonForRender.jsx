@@ -9,7 +9,7 @@ export default function ButtonForRender({ setWodList, setState }) {
   }
 
   return (
-    <ButtonStyled data-cy='buttonrender' onClick={() => setStateAndRedirect(setState)}>
+    <ButtonStyled data-cy="buttonrender" onClick={() => setStateAndRedirect(setState)}>
       GO
     </ButtonStyled>
   )

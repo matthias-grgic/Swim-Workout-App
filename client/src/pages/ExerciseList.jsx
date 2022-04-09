@@ -1,8 +1,8 @@
+import styled from 'styled-components'
+import { useState } from 'react'
 import FilterButtons from '../components/FilterButtons'
 import SearchBar from '../components/SearchBar'
 import SimpleAccordion from '../components/SimpleAccordion'
-import styled from 'styled-components'
-import { useEffect, useState } from 'react'
 
 function ExerciseList({ list, userList, expandedAccordion, setExpandedAccordion }) {
   const [dataExercise, setDataExercise] = useState([])

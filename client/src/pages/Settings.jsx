@@ -14,10 +14,10 @@ function Settings() {
         </Text>
         <Links>
           <h2>SOURCES</h2>
-          <a href='https://www.youtube.com/Speedo/'>SpeedoInternational</a>
-          <a href='https://www.trainingmitsystem.de/'>Trainingmitsystem</a>
+          <a href="https://www.youtube.com/Speedo/">SpeedoInternational</a>
+          <a href="https://www.trainingmitsystem.de/">Trainingmitsystem</a>
           <h2>LINKS</h2>
-          <a href='https://github.com/matthias-grgic/capstone-project'>GitHub Project Rep</a>
+          <a href="https://github.com/matthias-grgic/capstone-project">GitHub Project Rep</a>
         </Links>
       </Sources>
       <LottieanimationTwo />

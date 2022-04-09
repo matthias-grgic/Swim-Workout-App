@@ -19,7 +19,7 @@ export default function PopoverButton({ name, text }) {
 
   return (
     <>
-      <Button color='info' sx={{ p: 0, textTransform: 'none', color: 'var(--main-txt-color)' }} aria-describedby={id} onClick={handleClick}>
+      <Button color="info" sx={{ p: 0, textTransform: 'none', color: 'var(--main-txt-color)' }} aria-describedby={id} onClick={handleClick}>
         {name}
       </Button>
       <Popover

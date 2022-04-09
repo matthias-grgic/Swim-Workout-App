@@ -1,9 +1,9 @@
-import cors from "cors"
-import express from "express"
-import mongoose from "mongoose"
-import path from "path"
-import dotenv from "dotenv"
-import ServerRoutes from "./routes/server.routes.js"
+import cors from 'cors'
+import express from 'express'
+import mongoose from 'mongoose'
+import path from 'path'
+import dotenv from 'dotenv'
+import ServerRoutes from './routes/server.routes.js'
 
 dotenv.config()
 
@@ -23,14 +23,14 @@ const server = express()
 server.use(cors())
 server.use(express.json())
 
-//Routes
-server.use("/api", ServerRoutes)
+// Routes
+server.use('/api', ServerRoutes)
 
-server.use(express.static(path.join(__dirname, "./client/dist")))
+server.use(express.static(path.join(__dirname, './client/dist')))
 
-server.get("/*", (req, res) => {
-    res.sendFile(path.join(__dirname, "./client/dist", "index.html"))
+server.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, './client/dist', 'index.html'))
 })
 
-//RUN SERVER
+// RUN SERVER
 server.listen(serverPort, () => console.log(`Server is running on port ${serverPort}`))

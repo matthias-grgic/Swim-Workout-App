@@ -1,10 +1,12 @@
-import ButtonForRender from '../components/ButtonForRender'
 import styled from 'styled-components'
+import ButtonForRender from '../components/ButtonForRender'
 import Switch from '../components/Switch'
 import RangeSlider from '../components/RangeSlider'
 import Randomizer from '../lib/Randomizer'
 
-function MainRender({ list, setWodList, lengthOfWod, setLengthOfWod, setSwitchOne, setSwitchTwo, switchOne, switchTwo, switchThree, setSwitchThree, userList }) {
+function MainRender({
+  list, setWodList, lengthOfWod, setLengthOfWod, setSwitchOne, setSwitchTwo, switchOne, switchTwo, switchThree, setSwitchThree, userList
+}) {
   const checkWhichList = (switchThree) => (switchThree === false ? list : list.concat(userList))
   const randomizedList = Randomizer(checkWhichList(switchThree))
 

@@ -1,13 +1,13 @@
-import mongoose from "mongoose"
+import mongoose from 'mongoose'
 
 const ExerciseListSchema = new mongoose.Schema({
-    name: String,
-    type: String,
-    equipment: String,
-    video: String,
-    definition: String,
-    length: Number,
+  name: String,
+  type: String,
+  equipment: String,
+  video: String,
+  definition: String,
+  length: Number,
 })
-const ExerciseList = mongoose.model("ExerciseList", ExerciseListSchema)
+const ExerciseList = mongoose.model('ExerciseList', ExerciseListSchema)
 
 export default ExerciseList

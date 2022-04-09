@@ -1,31 +1,31 @@
-import search from "../images/search.svg"
-import styled from "styled-components"
-import { useState, useEffect } from "react"
+import styled from 'styled-components'
+import { useState, useEffect } from 'react'
+import search from '../images/search.svg'
 
 function SearchBar({ transferedListForBar, transferedSetDataExercise }) {
-    const [filtered, setFilterd] = useState(transferedListForBar)
-    const [result, setResult] = useState("")
+  const [filtered, setFilterd] = useState(transferedListForBar)
+  const [result, setResult] = useState('')
 
-    useEffect(() => {
-        transferedSetDataExercise(transferedListForBar)
-        setFilterd(transferedListForBar)
+  useEffect(() => {
+    transferedSetDataExercise(transferedListForBar)
+    setFilterd(transferedListForBar)
 
-        const results = filtered.filter((res) => res.name.toLowerCase().includes(result))
-        transferedSetDataExercise(results)
-    }, [result])
+    const results = filtered.filter((res) => res.name.toLowerCase().includes(result))
+    transferedSetDataExercise(results)
+  }, [result])
 
-    const onChange = (e) => {
-        setResult(e.target.value)
-    }
+  const onChange = (e) => {
+    setResult(e.target.value)
+  }
 
-    return (
-        <SearchBarStyled>
-            <label htmlFor="header-search">
-                <AccessibilityLabel>Search for exercises</AccessibilityLabel>
-            </label>
-            <input type="text" id="header-search" placeholder="Search.." value={result} onChange={onChange} />
-        </SearchBarStyled>
-    )
+  return (
+    <SearchBarStyled>
+      <label htmlFor="header-search">
+        <AccessibilityLabel>Search for exercises</AccessibilityLabel>
+      </label>
+      <input type="text" id="header-search" placeholder="Search.." value={result} onChange={onChange} />
+    </SearchBarStyled>
+  )
 }
 
 export default SearchBar
